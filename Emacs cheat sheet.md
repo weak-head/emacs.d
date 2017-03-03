@@ -42,11 +42,10 @@ The basic movements and scrolling.
 
 ### Extra commands
 
-CamalCase as distinct words:  
-```M-x subword-mode```
-
-snake_case as one word:
-```M-x superword-mode```
+| Command | Purpose |
+| ------- | ------- |
+| CamalCase as distinct words: | ```M-x subword-mode``` |
+| snake_case as one word: | ```M-x superword-mode``` |
 
 ## Basic Commands
 
@@ -63,11 +62,10 @@ snake_case as one word:
 
 ### IDO mode
 
-Enable IDO mode:  
-```M-x customize-option RET ido-mode RET```
-
-Enable flexible matching:  
-```M-x customize-option RET ido-enable-flex-matching RET```
+| Command | Purpose |
+| ------- | ------- |
+| Enable IDO mode | ```M-x customize-option RET ido-mode RET``` |
+| Enable flexible matching | ```M-x customize-option RET ido-enable-flex-matching RET``` |
 
 ## Windows Management
 
@@ -77,7 +75,7 @@ Enable flexible matching:
 | C-x 1	      | Delete all other windows |
 | C-x 2	      | Split window below |
 | C-x 3	      | Split window right |
-| C-x o (M-o) | Swithc active window |
+| C-x o (M-o) | Switch active window |
 
 ### Resizing window
 
