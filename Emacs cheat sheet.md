@@ -2,11 +2,11 @@
 
 The list of commonly used key bindings and commands.
 
-## Movements and scrolling
+## Movements and Scrolling
 
 The basic movements and scrolling.
 
-### Scrolling Key Bindings
+### Window scrolling 
 
 |Key Binding| Purpose |
 |-----------|---------|
@@ -18,7 +18,7 @@ The basic movements and scrolling.
 | M-<	    | Move to the begining of the buffer |
 | M->	    | Move to the end of the buffer |
 
-### Movement Key Bindings
+### Movements 
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -42,12 +42,13 @@ The basic movements and scrolling.
 
 ### Extra commands
 
-| Command | Puprose |
-| ------- | ------- |
-| M-x subword-mode | CamelCase as distinct words |
-| M-x superword-mode | snake_case as one word |
+CamalCase as distinct words:  
+```M-x subword-mode```
 
-## Basic command Key Bindings
+snake_case as one word:
+```M-x superword-mode```
+
+## Basic Commands
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -62,10 +63,10 @@ The basic movements and scrolling.
 
 ### IDO mode
 
-Enable IDO mode:
+Enable IDO mode:  
 ```M-x customize-option RET ido-mode RET```
 
-Enable flexible matching:
+Enable flexible matching:  
 ```M-x customize-option RET ido-enable-flex-matching RET```
 
 ## Windows Management
@@ -81,6 +82,7 @@ Enable flexible matching:
 ### Resizing window
 
 | Key Binding | Purpose |
+| ----------- | ------- |
 | C-x ^	      | Increase height by 1 line |
 | C-x +	      | Balances windows |
 | C-x -	      | Shrink window to fit it's content |
