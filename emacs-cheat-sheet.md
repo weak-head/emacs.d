@@ -44,8 +44,8 @@ The basic movements and scrolling.
 
 | Command | Purpose |
 | ------- | ------- |
-| CamalCase as distinct words: | ```M-x subword-mode``` |
-| snake_case as one word: | ```M-x superword-mode``` |
+| ```M-x subword-mode``` | CamelCase as distinct words |
+| ```M-x superword-mode``` | snake_case as one word |
 
 ## Basic Commands
 
@@ -64,8 +64,8 @@ The basic movements and scrolling.
 
 | Command | Purpose |
 | ------- | ------- |
-| Enable IDO mode | ```M-x customize-option RET ido-mode RET``` |
-| Enable flexible matching | ```M-x customize-option RET ido-enable-flex-matching RET``` |
+| ```M-x customize-option RET ido-mode RET``` | Enable IDO mode |
+| ```M-x customize-option RET ido-enable-flex-matching RET``` | Enable flexible matching |
 
 ## Windows Management
 
@@ -95,3 +95,13 @@ The basic movements and scrolling.
 | C-x 4 d     | Opens M-x dired |
 | C-x 4 C-o   | Displays a buffer |
 | C-x 4 0     | Kill the window and the buffer |
+
+## Bookmarks
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-x r m     | Set a bookmark |
+| C-x r l     | List bookmarks |
+| C-x r b     | Jump to bookmark |
+
+### TODO: Add Registers key binding
