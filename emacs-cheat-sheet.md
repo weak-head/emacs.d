@@ -84,8 +84,8 @@ The basic movements and scrolling.
 | C-x ^	      | Increase height by 1 line |
 | C-x +	      | Balances windows |
 | C-x -	      | Shrink window to fit it's content |
-| C-x {	      | Enlarge window horizontally |
-| C-x }	      | Shrink window horizontally |
+| C-x {	      | Shrink window horizontally |
+| C-x }	      | Enlarge window horizontally |
 
 ### Working with other windows
 
