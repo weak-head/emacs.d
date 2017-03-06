@@ -33,6 +33,7 @@
 
 (custom-set-variables
  '(desktop-save-mode t)
+ '(global-auto-revert-mode t)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(ido-mode (quote both) nil (ido))
