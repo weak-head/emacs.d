@@ -41,3 +41,11 @@
 
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
+
+
+;; Comonly used Sans-serif fonts revew:
+;;   https://spin.atomicobject.com/2016/07/11/programming-fonts/
+;;
+;; The commonly used Sans-serif fonts could be downloaded from here:
+;;   https://github.com/hbin/top-programming-fonts
+(set-frame-font "Menlo 12")
