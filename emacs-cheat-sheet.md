@@ -2,23 +2,22 @@
 
 The list of commonly used key bindings and commands.
 
-## Movements and Scrolling
+## Movements, Scrolling and Searching
 
-The basic movements and scrolling.
+### Basic Commands
 
-### Window scrolling 
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-x C-f     | Find (open) file |
+| C-x C-s     | Save the buffer |
+| C-x b	      | Switch buffer |
+| C-x k	      | Kill (close) a buffer |
+| C-x C-b     | Display all opened buffers |
+| C-x C-c     | Exit emacs |
+| ESC ESC ESC | Exits out prompts, regions and ret to one window |
+| C-/ 	      | Undo changes |
 
-|Key Binding| Purpose |
-|-----------|---------|
-| C-v       | Move forward one screen |
-| M-v	    | Move backward one screen |
-| C-M-v	    | Scroll down the *other* window |
-| C-M-S-v   | Scroll up the *other* window |
-| C-l	    | Move the text to the center of the screen |
-| M-<	    | Move to the begining of the buffer |
-| M->	    | Move to the end of the buffer |
-
-### Movements 
+### Elemental Movements 
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -40,34 +39,29 @@ The basic movements and scrolling.
 | C-M-d	      | Move down into a list |
 | C-M-u	      | Move up out of a list |
 
-### Extra commands
+### Window Scrolling
+
+|Key Binding| Purpose |
+|-----------|---------|
+| C-v       | Move forward one screen |
+| M-v	    | Move backward one screen |
+| C-M-v	    | Scroll down the *other* window |
+| C-M-S-v   | Scroll up the *other* window |
+| C-l	    | Move the text to the center of the screen |
+| M-<	    | Move to the begining of the buffer |
+| M->	    | Move to the end of the buffer |
+
+
+#### Extra Commands
 
 | Command | Purpose |
 | ------- | ------- |
 | ```M-x subword-mode``` | CamelCase as distinct words |
 | ```M-x superword-mode``` | snake_case as one word |
-
-## Basic Commands
-
-| Key Binding | Purpose |
-| ----------- | ------- |
-| C-x C-f     | Find (open) file |
-| C-x C-s     | Save the buffer |
-| C-x b	      | Switch buffer |
-| C-x k	      | Kill (close) a buffer |
-| C-x C-b     | Display all opened buffers |
-| C-x C-c     | Exit emacs |
-| ESC ESC ESC | Exits out prompts, regions and ret to one window |
-| C-/ 	      | Undo changes |
-
-### IDO mode
-
-| Command | Purpose |
-| ------- | ------- |
 | ```M-x customize-option RET ido-mode RET``` | Enable IDO mode |
 | ```M-x customize-option RET ido-enable-flex-matching RET``` | Enable flexible matching |
 
-## Windows Management
+### Windows Management
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -77,7 +71,7 @@ The basic movements and scrolling.
 | C-x 3	      | Split window right |
 | C-x o (M-o) | Switch active window |
 
-### Resizing window
+#### Resizing window
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -87,7 +81,7 @@ The basic movements and scrolling.
 | C-x {	      | Shrink window horizontally |
 | C-x }	      | Enlarge window horizontally |
 
-### Working with other windows
+#### Working with other windows
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -96,7 +90,9 @@ The basic movements and scrolling.
 | C-x 4 C-o   | Displays a buffer |
 | C-x 4 0     | Kill the window and the buffer |
 
-## Bookmarks
+### Bookmarks and Registers
+
+#### Bookmarks
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -104,4 +100,27 @@ The basic movements and scrolling.
 | C-x r l     | List bookmarks |
 | C-x r b     | Jump to bookmark |
 
-### TODO: Add Registers key binding
+#### TODO: Registers
+
+### Selections and Regions
+
+#### Setting the mark
+
+| Key Binding | Puprose |
+| ----------- | ------- |
+| M-h         | Marks the next paragraph |
+| C-x h       | Marks the whole buffer |
+| C-M h       | Marks the next defun |
+| M-@         | Marks the next word  |
+| C-M-<SPC>, C-M-@ | Marks the next s-expression |
+
+#### Activating the mark
+
+| Key Binding | Puprose |
+| ----------- | ------- |
+| C-<SPC>     | Activate the region |
+| C-<SPC>, C-g | Deactivates the region |
+| C-u C-<SPC> | Jumps to the mark |
+| C-x C-x     | Exchanges the point and mark and reactivates your last region |
+
+### Searching and Indexing
