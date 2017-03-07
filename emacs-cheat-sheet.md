@@ -52,7 +52,7 @@ The list of commonly used key bindings and commands.
 | M->	    | Move to the end of the buffer |
 
 
-#### Extra Commands
+> Extra Commands
 
 | Command | Purpose |
 | ------- | ------- |
@@ -60,6 +60,7 @@ The list of commonly used key bindings and commands.
 | ```M-x superword-mode``` | snake_case as one word |
 | ```M-x customize-option RET ido-mode RET``` | Enable IDO mode |
 | ```M-x customize-option RET ido-enable-flex-matching RET``` | Enable flexible matching |
+| ```M-x winner mode``` | Windows management mode |
 
 ### Windows Management
 
@@ -71,7 +72,7 @@ The list of commonly used key bindings and commands.
 | C-x 3	      | Split window right |
 | C-x o (M-o) | Switch active window |
 
-#### Resizing window
+> Resizing window
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -81,7 +82,7 @@ The list of commonly used key bindings and commands.
 | C-x {	      | Shrink window horizontally |
 | C-x }	      | Enlarge window horizontally |
 
-#### Working with other windows
+> Working with other windows
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -92,7 +93,7 @@ The list of commonly used key bindings and commands.
 
 ### Bookmarks and Registers
 
-#### Bookmarks
+> Bookmarks
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -100,11 +101,22 @@ The list of commonly used key bindings and commands.
 | C-x r l     | List bookmarks |
 | C-x r b     | Jump to bookmark |
 
-#### TODO: Registers
+> Registers
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-x r n     | Store number in register |
+| C-x r s     | Store region in register |
+| C-x r SPC   | Store point in register |
+| C-x r +     | Increment number in register |
+| C-x r j     | Jump to register |
+| C-x r i     | Insert content of register |
+| C-x r w     | Store window configuration in register |
+| C-x r f     | Store frameset in register |
 
 ### Selections and Regions
 
-#### Setting the mark
+> Setting the mark
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -114,7 +126,7 @@ The list of commonly used key bindings and commands.
 | M-@         | Marks the next word  |
 | C-M-<SPC>, C-M-@ | Marks the next s-expression |
 
-#### Activating the mark
+> Activating the mark
 
 | Key Binding | Puprose |
 | ----------- | ------- |
