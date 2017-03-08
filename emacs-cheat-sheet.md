@@ -131,15 +131,15 @@ The list of commonly used key bindings and commands.
 | C-x h       | Marks the whole buffer |
 | C-M h       | Marks the next defun |
 | M-@         | Marks the next word  |
-| C-M-<SPC>, C-M-@ | Marks the next s-expression |
+| C-M-SPC, C-M-@ | Marks the next s-expression |
 
 > Activating the mark
 
 | Key Binding | Puprose |
 | ----------- | ------- |
-| C-<SPC>     | Activate the region |
-| C-<SPC>, C-g | Deactivates the region |
-| C-u C-<SPC> | Jumps to the mark |
+| C-SPC       | Activate the region |
+| C-SPC, C-g  | Deactivates the region |
+| C-u C-SPC   | Jumps to the mark |
 | C-x C-x     | Exchanges the point and mark and reactivates your last region |
 
 ## Searching and Indexing
@@ -181,7 +181,7 @@ The list of commonly used key bindings and commands.
 | M-s r                 | Toggles regular-expression mode |
 | M-s w                 | Toggles word mode |
 | M-s _                 | Toggles symbol mode |
-| M-s <SPC>             | Toogles lax whitespace matching |
+| M-s SPC               | Toogles lax whitespace matching |
 
 > Global keybindings for frequent toogle search commands
 
