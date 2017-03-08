@@ -2,7 +2,7 @@
 
 The list of commonly used key bindings and commands.
 
-## Movements, Scrolling and Searching
+## Movements and Scrolling
 
 ### Basic Commands
 
@@ -17,7 +17,9 @@ The list of commonly used key bindings and commands.
 | ESC ESC ESC | Exits out prompts, regions and ret to one window |
 | C-/ 	      | Undo changes |
 
-### Elemental Movements 
+### Point Movements 
+
+> Basic
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -32,6 +34,11 @@ The list of commonly used key bindings and commands.
 | M-m	      | Move to first non-whitespace character on this lane |
 | M-a	      | Move back to begining of sentence |
 | M-e	      | Move forward to end of sentence |
+
+> Advanced
+
+| Key Binding | Purpose |
+| ----------- | ------- |
 | C-M-a	      | Move to begining of defun |
 | C-M-e	      | Move to end of defun |
 | C-M-f	      | Move forward by s-expression |
@@ -60,9 +67,9 @@ The list of commonly used key bindings and commands.
 | ```M-x superword-mode``` | snake_case as one word |
 | ```M-x customize-option RET ido-mode RET``` | Enable IDO mode |
 | ```M-x customize-option RET ido-enable-flex-matching RET``` | Enable flexible matching |
-| ```M-x winner mode``` | Windows management mode |
+| ```M-x winner-mode``` | Windows management mode |
 
-### Windows Management
+### Window Management
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -135,4 +142,51 @@ The list of commonly used key bindings and commands.
 | C-u C-<SPC> | Jumps to the mark |
 | C-x C-x     | Exchanges the point and mark and reactivates your last region |
 
-### Searching and Indexing
+## Searching and Indexing
+
+### Incremental Search
+
+| Key Binding | Puprose |
+| ----------- | ------- |
+| C-s         | Begins an incremental search |
+| C-r         | Begins a backward incremental search |
+| C-M-s       | Begins a regexp incremental search |
+| C-M-r       | Begins a regexp backward incremental search |
+| RET         | Pick the selected match |
+| C-g         | Exit incremental search |
+
+> Search ring (during the search mode)
+
+| *Isearch* Key Binding | Puprose |
+| ----------- | ------- |
+| M-n         | Move to next item in search history |
+| M-p         | Move to previous item in search history |
+| C-M-i       | TAB-complete search string against previous search ring |
+| C-s C-s     | Begins search against last search string |
+| C-r C-r     | Begins backward search agains last search string |
+
+> Search at poing (during the search mode)
+
+| *Isearch* Key Binding | Puprose |
+| ----------- | ------- |
+| C-w         | Add word at point to search string |
+| C-M-y       | Add character at point to search string |
+| M-s C-e     | Add rest of line at point to search string |
+
+> Toogle search commands (during the search mode)
+
+| *Isearch* Key Binding | Purpose |
+| --------------------- | ------- |
+| M-s c                 | Toggles case-sensivity |
+| M-s r                 | Toggles regular-expression mode |
+| M-s w                 | Toggles word mode |
+| M-s _                 | Toggles symbol mode |
+| M-s <SPC>             | Toogles lax whitespace matching |
+
+> Global keybindings for frequent toogle search commands
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| M-s w       | Starts Isearch forward for word |
+| M-s _       | Starts Isearch forward for symbol |
+| M-s .       | Starts Isearch forward for symbol at point |
