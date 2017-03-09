@@ -144,7 +144,7 @@ The list of commonly used key bindings and commands.
 
 ## Searching and Indexing
 
-### Incremental Search
+### Isearch: Incremental Search
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -190,3 +190,39 @@ The list of commonly used key bindings and commands.
 | M-s w       | Starts Isearch forward for word |
 | M-s _       | Starts Isearch forward for symbol |
 | M-s .       | Starts Isearch forward for symbol at point |
+
+
+### Occur: Print lines matching an expression
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| M-s o       | Occur mode |
+| M-s o       | Activate occur on current search string inside Isearch |
+
+> Occur navigation
+
+| *Occur* Key Binding | Purpose |
+| ------------------- | ------- |
+| M-n                 | Go to next occurrence |
+| M-p                 | Go to previous occurrence |
+| <                   | Go to begining of buffer |
+| >                   | Go to end of buffer |
+| g                   | Revert the buffer, refreshing the search results |
+| q                   | Quit occur mode |
+| e                   | Swithc to occur edit mode |
+| C-c C-c             | Exits occur edit mode and applies changes |
+
+> Navigating on occurances without switching to occur buffer
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| M-g M-n     | Jump to next "error" |
+| M-g M-p     | Jump to previous "error" |
+
+> Multi-Occur
+
+| Command | Purpose |
+| ------- | ------- |
+| ```M-x multi-occur-in-matching-buffers``` | Takes a regexp of buffers to match |
+| ```M-x multi-occur``` | Explicetely select the buffers you want to search |
+
