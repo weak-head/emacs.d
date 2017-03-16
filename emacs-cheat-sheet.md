@@ -2,6 +2,49 @@
 
 The list of commonly used key bindings and commands.
 
+## Getting Help
+
+### Info Manual
+
+> Accessing the info manual
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-h i       | Opens Info manual |
+| C-h r       | Opens Emacs Editor manual |
+
+> Navigating the manual
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| [ and ]     | Previous / next node |
+| l and r     | Go back / forward in history |
+| n and p     | Previous / next sibling node |
+| u           | Goes up one level to a parent node |
+| SPC         | Scroll one screen at a time |
+| TAB         | Cycles through cross-references and links |
+| RET         | Opens the active link |
+| m           | Prompts for a menu item name and opens it |
+| q           | Closes the info browse |
+
+### Apropos
+
+| Command | Purpose |
+| ------- | ------- |
+| ```M-x apropos``` | Display all symbols that match a given pattern |
+| ```M-x apropos-command``` or C-h a | Display only the commands |
+| ```M-x apropos-documentation``` or C-h d | Searches just the documentation |
+| ```M-x apropos-library``` | Lists all variables and functions defined in a library |
+
+### Describe System
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-h m       | Displays the documentation for the major mode (and any minor modes also enabled) along with any keybindings introduced by the modes. |
+| C-h f       | Describes a function |
+| C-h v       | Describes a variable |
+| C-h k       | Describes a key binding |
+
 ## Movements and Scrolling
 
 ### Basic Commands
@@ -244,6 +287,13 @@ The list of commonly used key bindings and commands.
 | C-M-k         | Kill s-expression |
 | C-S-BACKSPACE | Kill current line |
 
+> Commands customizations
+
+| Command | Puprose |
+| ------- | ------- |
+| ```M-x package-install RET whole-line-or-region RET``` | Modify the behavior of C-w, so it kills the current line the point is on if there are no active regions |
+| ```M-x customize-option RET kill-whole-line RET``` | Force C-k to kill newline character |
+
 > Clipboard-equivalent commands
 
 | Key Binding | Kill Ring Purpose | Clipboard |
@@ -253,3 +303,10 @@ The list of commonly used key bindings and commands.
 | C-M-w       | Append kill | |
 | C-y         | Yank last kill | paste |
 | M-y         | Cycle through kill ring, replacing yanked text | |
+
+> Appending to kill ring
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-M-w *[AnyKillCommand]* | Appends to the kill ring |
+
