@@ -34,6 +34,9 @@ The list of commonly used key bindings and commands.
 | M-m	      | Move to first non-whitespace character on this lane |
 | M-a	      | Move back to begining of sentence |
 | M-e	      | Move forward to end of sentence |
+| M-g M-g     | Go to line |
+| M-g TAB     | Go to column |
+| M-g c       | Go to character position |
 
 > Advanced
 
@@ -55,6 +58,7 @@ The list of commonly used key bindings and commands.
 | C-M-v	    | Scroll down the *other* window |
 | C-M-S-v   | Scroll up the *other* window |
 | C-l	    | Move the text to the center of the screen |
+| C-M-l     | Re-position the comment or definition so it is in view in the buffer|
 | M-<	    | Move to the begining of the buffer |
 | M->	    | Move to the end of the buffer |
 
@@ -226,3 +230,26 @@ The list of commonly used key bindings and commands.
 | ```M-x multi-occur-in-matching-buffers``` | Takes a regexp of buffers to match |
 | ```M-x multi-occur``` | Explicetely select the buffers you want to search |
 
+## Editing, Text Macros and Text Transformation
+
+### Killing and Yanking Text
+
+| Key Binding   | Puprose |
+| ------------- | ------- |
+| C-d           | Delete character |
+| BACKSPACE     | Detele previous character |
+| M-d           | Kill word |
+| C-k           | Kill rest of line |
+| M-k           | Kill sentence |
+| C-M-k         | Kill s-expression |
+| C-S-BACKSPACE | Kill current line |
+
+> Clipboard-equivalent commands
+
+| Key Binding | Kill Ring Purpose | Clipboard |
+| ----------- | ----------------- | --------- |
+| C-w         | Kill active region | cut |
+| M-w         | Copy to kill ring | copy |
+| C-M-w       | Append kill | |
+| C-y         | Yank last kill | paste |
+| M-y         | Cycle through kill ring, replacing yanked text | |
