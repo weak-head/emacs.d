@@ -126,7 +126,7 @@ The list of commonly used key bindings and commands.
 | C-x 3	      | Split window right |
 | C-x o (M-o) | Switch active window |
 
-> Resizing window
+> resizing window
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -273,9 +273,9 @@ The list of commonly used key bindings and commands.
 | ```M-x multi-occur-in-matching-buffers``` | Takes a regexp of buffers to match |
 | ```M-x multi-occur``` | Explicetely select the buffers you want to search |
 
-## Editing, Text Macros and Text Transformation
+## Editing and Transformations
 
-### Killing and Yanking Text
+### Killing and Yanking
 
 | Key Binding   | Puprose |
 | ------------- | ------- |
@@ -309,4 +309,34 @@ The list of commonly used key bindings and commands.
 | Key Binding | Purpose |
 | ----------- | ------- |
 | C-M-w *[AnyKillCommand]* | Appends to the kill ring |
+
+### Transposing
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-t         | Transpose characters |
+| M-t         | Transpose words |
+| C-M-t       | Transpose s-expression |
+| C-x C-t     | Transpose lines |
+| ```M-x transpose-paragraphs``` | Transpose paragraphs |
+| ```M-x transpose-sentences``` | Transpose sentences |
+
+### Filling
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| M-q         | Refills the paragraph point is in |
+| C-u M-q     | Refills the paragraph point is in, justify if possible |
+| C-x f       | Sets the fill column width |
+| C-x .       | Sets the fill prefix |
+| ```M-x auto-fill-mode``` | Toggles auto-filling |
+
+### Commenting
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| M-;         | Comment or uncomment DWIM |
+| C-x C-;     | Comment or uncomment line |
+| ```M-x comment-box``` | Comments the region but as a box |
+| M-j, C-M-j  | Inserts new line and continues with comment on a new line |
 
