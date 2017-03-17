@@ -2,6 +2,28 @@
 
 The list of commonly used key bindings and commands.
 
+> **Table of Contents**
+>
+> - [Getting Help](#getting-help)
+>   - [Info Manual](#info-manual)
+>   - [Apropos](#apropos)
+>   - [Describe System](#describe-system)
+> - [Movements and Scrolling](#movements-and-scrolling)
+>   - [Basic Commands](#basic-commands)
+>   - [Point Movements](#point-movements)
+>   - [Window Scrolling](#window-scrolling)
+>   - [Window Management](#window-management)
+>   - [Bookmarks and Registers](#bookmarks-and-registers)
+>   - [Selections and Regions](#selections-and-regions)
+> - [Searching and Indexing](#searching-and-indexing)
+>   - [Isearch](#isearch)
+>   - [Occur](#occur)
+> - [Editing and Transformations](#editing-and-transformations)
+>   - [Killing and Yanking](#killing-and-yanking)
+>   - [Transposing](#transposing)
+>   - [Filling](#filling)
+>   - [Commenting](#commenting)
+
 ## Getting Help
 
 ### Info Manual
@@ -191,7 +213,9 @@ The list of commonly used key bindings and commands.
 
 ## Searching and Indexing
 
-### Isearch: Incremental Search
+### Isearch
+
+> Incremental search
 
 | Key Binding | Puprose |
 | ----------- | ------- |
@@ -239,7 +263,9 @@ The list of commonly used key bindings and commands.
 | M-s .       | Starts Isearch forward for symbol at point |
 
 
-### Occur: Print lines matching an expression
+### Occur
+
+> Print lines matching an expression
 
 | Key Binding | Purpose |
 | ----------- | ------- |
