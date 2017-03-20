@@ -23,6 +23,7 @@ The list of commonly used key bindings and commands.
 >   - [Transposing](#transposing)
 >   - [Filling](#filling)
 >   - [Commenting](#commenting)
+>   - [Search and Replace](#search-and-replace)
 
 ## Getting Help
 
@@ -148,7 +149,7 @@ The list of commonly used key bindings and commands.
 | C-x 3	      | Split window right |
 | C-x o (M-o) | Switch active window |
 
-> resizing window
+> Resizing window
 
 | Key Binding | Purpose |
 | ----------- | ------- |
@@ -326,7 +327,6 @@ The list of commonly used key bindings and commands.
 | ----------- | ----------------- | --------- |
 | C-w         | Kill active region | cut |
 | M-w         | Copy to kill ring | copy |
-| C-M-w       | Append kill | |
 | C-y         | Yank last kill | paste |
 | M-y         | Cycle through kill ring, replacing yanked text | |
 
@@ -366,3 +366,28 @@ The list of commonly used key bindings and commands.
 | ```M-x comment-box``` | Comments the region but as a box |
 | M-j, C-M-j  | Inserts new line and continues with comment on a new line |
 
+### Search and Replace
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-M-%       | Query regexp search and replace |
+| M-%         | Query search and replace |
+| ```M-x replace-string``` | Search and replace |
+| ```M-x replace-regexp``` | Regexp search and replace |
+
+> Inside Isearch
+
+| Key Binding | Purpose |
+| ----------- | ------- |
+| C-M-%       | Query regexp search and replace |
+| M-%         | Query search and replace|
+
+> Query intstructions
+
+| Query Key Binding | Purpose |
+| ----------------- | ------- |
+| SPC, y            | Replaces one match, then continues |
+| .                 | Replaces one match, then exits |
+| RET, q            | Exits without replacing match |
+| !                 | Replaces all mathces in buffer |
+| ^                 | Moves point back to previous match
