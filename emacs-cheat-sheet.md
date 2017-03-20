@@ -76,6 +76,7 @@ The list of commonly used key bindings and commands.
 | ----------- | ------- |
 | C-x C-f     | Find (open) file |
 | C-x C-s     | Save the buffer |
+| C-x C-q     | Mark buffer as read-only |
 | C-x b	      | Switch buffer |
 | C-x k	      | Kill (close) a buffer |
 | C-x C-b     | Display all opened buffers |
