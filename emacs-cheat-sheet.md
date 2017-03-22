@@ -24,6 +24,7 @@ The list of commonly used key bindings and commands.
 >   - [Filling](#filling)
 >   - [Commenting](#commenting)
 >   - [Search and Replace](#search-and-replace)
+>   - [Changing Case](#changing-case)
 
 ## Getting Help
 
@@ -392,3 +393,18 @@ The list of commonly used key bindings and commands.
 | RET, q            | Exits without replacing match |
 | !                 | Replaces all mathces in buffer |
 | ^                 | Moves point back to previous match
+
+### Changing Case
+
+| Region Commands | Description |
+| --------------- | ----------- |
+| C-x C-u         | Uppercases the region |
+| C-x C-l         | Lowercases the region |
+| ```M-x upcase-initials-region``` | Capitalizes the region |
+
+| Key Binding | Description |
+| ----------- | ----------- |
+| M-c         | Capitalizes the next word |
+| M-u         | Uppercases the next word |
+| M-l         | Lowercases the next word |
+
