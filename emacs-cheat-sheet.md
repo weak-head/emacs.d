@@ -139,7 +139,7 @@ The list of commonly used key bindings and commands.
 | ```M-x superword-mode``` | snake_case as one word |
 | ```M-x customize-option RET ido-mode RET``` | Enable IDO mode |
 | ```M-x customize-option RET ido-enable-flex-matching RET``` | Enable flexible matching |
-| ```M-x winner-mode``` | Windows management mode |
+| ```M-x winner-mode``` | Window management mode |
 
 ### Window Management
 
@@ -169,6 +169,13 @@ The list of commonly used key bindings and commands.
 | C-x 4 d     | Opens M-x dired |
 | C-x 4 C-o   | Displays a buffer |
 | C-x 4 0     | Kill the window and the buffer |
+
+> Winner mode
+
+| Key Binding | Puprose |
+| ----------- | ------- |
+| C-c left    | Undo changes in the window configuration |
+| C-c right   | Redo changes in the window configuration |
 
 ### Bookmarks and Registers
 
