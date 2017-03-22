@@ -285,7 +285,7 @@ The list of commonly used key bindings and commands.
 | >                   | Go to end of buffer |
 | g                   | Revert the buffer, refreshing the search results |
 | q                   | Quit occur mode |
-| e                   | Swithc to occur edit mode |
+| e                   | Switch to occur edit mode |
 | C-c C-c             | Exits occur edit mode and applies changes |
 
 > Navigating on occurances without switching to occur buffer

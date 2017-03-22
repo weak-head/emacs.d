@@ -143,7 +143,8 @@
  '(indent-tabs-mode nil)
  '(menu-bar-mode nil)
  '(scroll-bar-mode nil)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(winner-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
