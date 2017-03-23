@@ -25,6 +25,8 @@ The list of commonly used key bindings and commands.
 >   - [Commenting](#commenting)
 >   - [Search and Replace](#search-and-replace)
 >   - [Changing Case](#changing-case)
+>   - [Flushing and Keeping Lines](#flushing-and-keeping-lines)
+>   - [Joining and Splitting Lines](#joining-and-splitting-lines)
 
 ## Getting Help
 
@@ -415,3 +417,21 @@ The list of commonly used key bindings and commands.
 | M-u         | Uppercases the next word |
 | M-l         | Lowercases the next word |
 
+
+### Flushing and Keeping Lines
+
+| Command | Description |
+| ------- | ----------- |
+| ```M-x flush-lines``` | Deletes all lines in a region that match a pattern |
+| ```M-x keep-lines``` | Keeps all lines in a region that match a pattern and removes all non-matches |
+
+
+### Joining and Splitting Lines
+
+| Key Binding | Description |
+| ----------- | ----------- |
+| C-o         | Inserts a blank line after point |
+| C-x C-o     | Deletes all blank lines after point |
+| C-M-o       | Splits a line after point, keeping the indentation |
+| M-^         | Joins the line the point is on with the one above |
+| M-SPC       | Deletes all but 1 space or tab to the left and right of the point |
