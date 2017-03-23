@@ -27,6 +27,7 @@ The list of commonly used key bindings and commands.
 >   - [Changing Case](#changing-case)
 >   - [Flushing and Keeping Lines](#flushing-and-keeping-lines)
 >   - [Joining and Splitting Lines](#joining-and-splitting-lines)
+>   - [Whitespace Commands](#whitespace-commands)
 
 ## Getting Help
 
@@ -80,30 +81,30 @@ The list of commonly used key bindings and commands.
 | C-x C-f     | Find (open) file |
 | C-x C-s     | Save the buffer |
 | C-x C-q     | Mark buffer as read-only |
-| C-x b	      | Switch buffer |
-| C-x k	      | Kill (close) a buffer |
+| C-x b       | Switch buffer |
+| C-x k       | Kill (close) a buffer |
 | C-x C-b     | Display all opened buffers |
 | C-x C-c     | Exit emacs |
 | ESC ESC ESC | Exits out prompts, regions and ret to one window |
-| C-/ 	      | Undo changes |
+| C-/         | Undo changes |
 
-### Point Movements 
+### Point Movements
 
 > Basic
 
 | Key Binding | Puprose |
 | ----------- | ------- |
-| C-f	      | Move forward one character |
-| C-b	      | Move backward one character |
-| M-f	      | Move forward one word |
-| M-b	      | Move backward one word |
-| C-n	      | Move to next line |
-| C-p	      | Move to previous line |
-| C-a	      | Move to begining of line |
-| C-e	      | Move to end of line |
-| M-m	      | Move to first non-whitespace character on this lane |
-| M-a	      | Move back to begining of sentence |
-| M-e	      | Move forward to end of sentence |
+| C-f         | Move forward one character |
+| C-b         | Move backward one character |
+| M-f         | Move forward one word |
+| M-b         | Move backward one word |
+| C-n         | Move to next line |
+| C-p         | Move to previous line |
+| C-a         | Move to begining of line |
+| C-e         | Move to end of line |
+| M-m         | Move to first non-whitespace character on this lane |
+| M-a         | Move back to begining of sentence |
+| M-e         | Move forward to end of sentence |
 | M-g M-g     | Go to line |
 | M-g TAB     | Go to column |
 | M-g c       | Go to character position |
@@ -112,25 +113,25 @@ The list of commonly used key bindings and commands.
 
 | Key Binding | Purpose |
 | ----------- | ------- |
-| C-M-a	      | Move to begining of defun |
-| C-M-e	      | Move to end of defun |
-| C-M-f	      | Move forward by s-expression |
-| C-M-b	      | Move backward by s-expression |
-| C-M-d	      | Move down into a list |
-| C-M-u	      | Move up out of a list |
+| C-M-a       | Move to begining of defun |
+| C-M-e       | Move to end of defun |
+| C-M-f       | Move forward by s-expression |
+| C-M-b       | Move backward by s-expression |
+| C-M-d       | Move down into a list |
+| C-M-u       | Move up out of a list |
 
 ### Window Scrolling
 
 |Key Binding| Purpose |
 |-----------|---------|
 | C-v       | Move forward one screen |
-| M-v	    | Move backward one screen |
-| C-M-v	    | Scroll down the *other* window |
+| M-v       | Move backward one screen |
+| C-M-v     | Scroll down the *other* window |
 | C-M-S-v   | Scroll up the *other* window |
-| C-l	    | Move the text to the center of the screen |
+| C-l       | Move the text to the center of the screen |
 | C-M-l     | Re-position the comment or definition so it is in view in the buffer|
-| M-<	    | Move to the begining of the buffer |
-| M->	    | Move to the end of the buffer |
+| M-<       | Move to the begining of the buffer |
+| M->       | Move to the end of the buffer |
 
 
 > Extra Commands
@@ -147,21 +148,21 @@ The list of commonly used key bindings and commands.
 
 | Key Binding | Purpose |
 | ----------- | ------- |
-| C-x 0	      | Delete the active window |
-| C-x 1	      | Delete all other windows |
-| C-x 2	      | Split window below |
-| C-x 3	      | Split window right |
+| C-x 0       | Delete the active window |
+| C-x 1       | Delete all other windows |
+| C-x 2       | Split window below |
+| C-x 3       | Split window right |
 | C-x o (M-o) | Switch active window |
 
 > Resizing window
 
 | Key Binding | Purpose |
 | ----------- | ------- |
-| C-x ^	      | Increase height by 1 line |
-| C-x +	      | Balances windows |
-| C-x -	      | Shrink window to fit it's content |
-| C-x {	      | Shrink window horizontally |
-| C-x }	      | Enlarge window horizontally |
+| C-x ^       | Increase height by 1 line |
+| C-x +       | Balances windows |
+| C-x -       | Shrink window to fit it's content |
+| C-x {       | Shrink window horizontally |
+| C-x }       | Enlarge window horizontally |
 
 > Working with other windows
 
@@ -434,4 +435,23 @@ The list of commonly used key bindings and commands.
 | C-x C-o     | Deletes all blank lines after point |
 | C-M-o       | Splits a line after point, keeping the indentation |
 | M-^         | Joins the line the point is on with the one above |
+
+
+### Whitespace Commands
+
+| Key Binding | Description |
+| ----------- | ----------- |
 | M-SPC       | Deletes all but 1 space or tab to the left and right of the point |
+| M-\         | Deletes all spaces and tabs around point |
+| ```M-x whitespace-mode```           | Minor mode that highlights alll whitespace characters |
+| ```M-x whitespace-newline-mode```   | Minor mode that displayes newline characters with a $ |
+| ```M-x whitespace-toggle-options``` | Displayes a toogle menu of all whitespace-mode options |
+
+> Whitespace reporting and cleanup
+
+| Command | Description |
+| ------- | ----------- |
+| ```M-x whitespace-report```          | Shows whitespace issues |
+| ```M-x whitespace-report-region```   | Shows whitespace issues for the region |
+| ```M-x whitespace-clean-up```        | Attempts automatic cleanup |
+| ```M-x whitespace-clean-up-region``` | Attempts automatic cleanup for the region |
