@@ -15,8 +15,10 @@
 (unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
 ;; Installing csharp-mode
 (unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
-;; Installing omnisharp
+;; Installing omnisharp mode
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
+;; Installing company mode
+(unless (package-installed-p 'company) (package-install 'company))
 
 
 ;; Loading the selected theme
@@ -35,15 +37,18 @@
 ;;--              omnisharp customization            --
 ;;-----------------------------------------------------
 
-
-;; OmniSharp server location
-(setq omnisharp-server-executable-path "the\\path\\to\\OmniSharp.exe")
-
-;; Starting omnisharp with csharp-mode
-(add-hook 'csharp-mode-hook (lambda ()
-                              (omnisharp-mode)))
-
-
+(if (require 'omnisharp nil 'noerror)
+    (progn
+      (require 'company)
+      ;;(setq omnisharp--curl-executable-path "~/emacs-env/curl.exe")
+      (setq omnisharp-server-executable-path "/path/to/OmniSharp.exe")
+      (push 'company-omnisharp company-backends)
+      (add-hook 'csharp-mode-hook 'company-mode)
+      (add-hook 'csharp-mode-hook 'omnisharp-mode)
+      (add-hook 'csharp-mode-hook 'linum-mode)
+      (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
+      )
+  )
 
 ;;-----------------------------------------------------
 ;;--                ibuffer customization            --
