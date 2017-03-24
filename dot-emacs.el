@@ -15,6 +15,8 @@
 (unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
 ;; Installing csharp-mode
 (unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
+;; Installing omnisharp
+(unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
 
 
 ;; Loading the selected theme
@@ -27,6 +29,19 @@
 ;; The fonts could be downloaded from here:
 ;;   https://github.com/hbin/top-programming-fonts
 ;;(set-frame-font "Menlo 12")
+
+
+;;-----------------------------------------------------
+;;--              omnisharp customization            --
+;;-----------------------------------------------------
+
+
+;; OmniSharp server location
+(setq omnisharp-server-executable-path "the\\path\\to\\OmniSharp.exe")
+
+;; Starting omnisharp with csharp-mode
+(add-hook 'csharp-mode-hook (lambda ()
+                              (omnisharp-mode)))
 
 
 
