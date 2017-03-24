@@ -145,6 +145,9 @@
 ;; The default combination for this command is C-x o
 (global-set-key (kbd "M-o") 'other-window)
 
+;; Pops back to where M-. was last invoked
+(global-set-key (kdb "M-*") 'pop-tag-mark)
+
 
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
