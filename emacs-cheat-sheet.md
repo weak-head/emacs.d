@@ -28,6 +28,10 @@ The list of commonly used key bindings and commands.
 >   - [Flushing and Keeping Lines](#flushing-and-keeping-lines)
 >   - [Joining and Splitting Lines](#joining-and-splitting-lines)
 >   - [Whitespace Commands](#whitespace-commands)
+> - [TO-DO: Keyboard Macros](#to-do--keyboard-macros)
+> - [Additional topics](#additional-topics)
+>   - [Highlighting Patterns](#highlighting-patterns)
+>   - [Dired](#dired)
 
 ## Getting Help
 
@@ -62,6 +66,7 @@ The list of commonly used key bindings and commands.
 | ```M-x apropos-command``` or C-h a | Display only the commands |
 | ```M-x apropos-documentation``` or C-h d | Searches just the documentation |
 | ```M-x apropos-library``` | Lists all variables and functions defined in a library |
+| ```M-x info-apropos``` | Searches all known Info files on your system for STRING. Builds a menu of the possible matches. |
 
 ### Describe System
 
@@ -455,3 +460,42 @@ The list of commonly used key bindings and commands.
 | ```M-x whitespace-report-region```   | Shows whitespace issues for the region |
 | ```M-x whitespace-clean-up```        | Attempts automatic cleanup |
 | ```M-x whitespace-clean-up-region``` | Attempts automatic cleanup for the region |
+
+
+## TO-DO: Keyboard Macros
+
+Put keyboard macros information and keybindings here.
+
+
+## Additional topics
+
+### Highlighting patterns
+
+| Key Binding | Description |
+| ----------- | ----------- |
+| M-s h p     | Highlight a phrase |
+| M-s h r     | Highlight a regular expression |
+| M-s h .     | Highlights symbol at point |
+| M-s h l     | Highlights a line containing the regexp |
+| M-s h u     | Removes highlighting under the point |
+
+### Dired
+
+| Key Binding | Description |
+| ----------- | ----------- |
+| ^           | Goes up one directory |
+| q           | Quits dired |
+| m           | Marks active |
+| u           | Unmarks active |
+| U           | Unmarks everything |
+| d           | Flags for deletion |
+| g           | Refreshes dired buffer |
+| +           | Creates a sub-directory |
+| C           | Copy marked |
+| R           | Rename/moves marked |
+| O           | chown marked |
+| G           | chgrp marked |
+| M           | chmod marked |
+| D           | Deletes marked |
+| x           | Deletes flagged |
+| i           | Inserts this subdirectory into the same dired buffer |
