@@ -80,6 +80,9 @@
                ("dired" (mode . dired-mode))
                ("csharp" (mode . csharp-mode))
                ("haskell" (mode . haskell-mode))
+               ("sql" (or
+                       (name . "*SQL*")
+                       (mode . sql-mode)))
                ("planner" (or
                            (name . "^\\*Calendar\\*$")
                            (name . "^diary$")
@@ -135,10 +138,25 @@
             (local-unset-key (kbd "M-o"))
             (ibuffer-switch-to-saved-filter-groups "default-home")))
 
+
 ;;-----------------------------------------------------
-;;--         end of ibuffer customization            --
+;;--         sql interactive mode customization      --
 ;;-----------------------------------------------------
 
+
+;; We really want to have well formated tables without any truncated
+;; lines, so this is must have option.
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
+
+;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
+;; but i want to keep it vanila as for now
+
+
+;;-----------------------------------------------------
+;;--                                                 --
+;;-----------------------------------------------------
 
 
 ;; Using M-o to select next window
