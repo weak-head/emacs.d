@@ -150,6 +150,10 @@
           (lambda ()
             (toggle-truncate-lines t)))
 
+
+;; This is required to make MySql work under Windows
+(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+
 ;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
 ;; but i want to keep it vanila as for now
 
