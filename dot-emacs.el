@@ -257,6 +257,8 @@
 
 (setq indent-tabs-mode -1)
 
+(column-number-mode 1)
+
 ;; Windows Specific
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
