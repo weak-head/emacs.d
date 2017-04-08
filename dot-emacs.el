@@ -1,28 +1,63 @@
+;; My init file for emacs
+;; Started in 2017
+
+;; This current modification is based on original init file from here:
+;;   https://github.com/501st-alpha1/emacs-init/blob/master/init.el
+
+
+;;----------------------------------------------------------------------------;;
+;;                          Custom Load Path                                  ;;
+;;----------------------------------------------------------------------------;;
+;; Load path for various external libraries, managed with git.
+
+;; TODO -> adopt this part
+
+;; (unless (boundp 'my-external-library-location)
+;;   (error "External library location not defined!"))
+
+;; (add-to-list 'load-path my-external-library-location)
+
+;; (let* ((my-lisp-dir my-external-library-location)
+;;        (default-directory my-lisp-dir)
+;;        (orig-load-path load-path))
+;;   (setq load-path (cons my-lisp-dir nil))
+;;   (normal-top-level-add-subdirs-to-load-path)
+;;   (nconc load-path orig-load-path))
+
+
+;;----------------------------------------------------------------------------;;
+;;                          Install Packages                                  ;;
+;;----------------------------------------------------------------------------;;
+
 ;; Adding MELPA repository
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/"))
 (package-initialize)
+(package-refresh-contents)
 
 
-;; Installing zenburn theme
 (unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
-;; Installing markdown-mode
 (unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
-;; Installing ghc
 (unless (package-installed-p 'ghc) (package-install 'ghc))
-;; Installing haskell-mode
 (unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
-;; Installing csharp-mode
 (unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
-;; Installing omnisharp mode
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
-;; Installing company mode
 (unless (package-installed-p 'company) (package-install 'company))
 
 
+;;----------------------------------------------------------------------------;;
+;;                           Load Libraries                                   ;;
+;;----------------------------------------------------------------------------;;
+;; Load all needed libraries first
+;; Using require so it is obvious when something breaks
+
 ;; Loading the selected theme
 (load-theme 'zenburn t)
+
+(require 'omnisharp)
+(require 'company)
+(require 'ibuffer)
 
 
 ;; Commonly used Sans-serif fonts review could be found here:
@@ -33,10 +68,62 @@
 ;;(set-frame-font "Menlo 12")
 
 
-;;-----------------------------------------------------
-;;--              omnisharp customization            --
-;;-----------------------------------------------------
+;;----------------------------------------------------------------------------;;
+;;                               Functions                                    ;;
+;;----------------------------------------------------------------------------;;
 
+;; This implementation is coming from here:
+;; https://www.emacswiki.org/emacs/ToggleWindowSplit
+(defun toggle-window-split ()
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+	     (next-win-buffer (window-buffer (next-window)))
+	     (this-win-edges (window-edges (selected-window)))
+	     (next-win-edges (window-edges (next-window)))
+	     (this-win-2nd (not (and (<= (car this-win-edges)
+					 (car next-win-edges))
+				     (<= (cadr this-win-edges)
+					 (cadr next-win-edges)))))
+	     (splitter
+	      (if (= (car this-win-edges)
+		     (car (window-edges (next-window))))
+		  'split-window-horizontally
+		'split-window-vertically)))
+	(delete-other-windows)
+	(let ((first-win (selected-window)))
+	  (funcall splitter)
+	  (if this-win-2nd (other-window 1))
+	  (set-window-buffer (selected-window) this-win-buffer)
+	  (set-window-buffer (next-window) next-win-buffer)
+	  (select-window first-win)
+	  (if this-win-2nd (other-window 1))))))
+
+
+;;----------------------------------------------------------------------------;;
+;;                           Keyboard Shortcuts                               ;;
+;;----------------------------------------------------------------------------;;
+
+
+(global-set-key (kbd "M-o") 'other-window) ;; Default C-x o
+
+(global-set-key (kbd "M-*") 'pop-tag-mark) ;; Pops back to M-. 
+
+(global-set-key (kbd "C-x |") 'toggle-window-split)
+
+;; Use ibuffer for buffer list
+;;
+;; More information about ibuffer could be found here:
+;;   http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
+;;   https://www.emacswiki.org/emacs/IbufferMode
+(global-set-key (kbd "C-x C-b") 'ibuffer) 
+
+
+;;----------------------------------------------------------------------------;;
+;;                       omnisharp customization                              ;;
+;;----------------------------------------------------------------------------;;
+
+;; ToDo: Fix this
 (if (require 'omnisharp nil 'noerror)
     (progn
       (require 'company)
@@ -50,28 +137,15 @@
       )
   )
 
-;;-----------------------------------------------------
-;;--                ibuffer customization            --
-;;-----------------------------------------------------
-
-;; ibuffer should be preloaded in order to make this work.
-(require 'ibuffer)
-
-;; Use ibuffer for buffer list
-;;
-;; More information about ibuffer could be found here:
-;;   http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-;;   https://www.emacswiki.org/emacs/IbufferMode
-(global-set-key (kbd "C-x C-b") 'ibuffer) 
-
+;;----------------------------------------------------------------------------;;
+;;                         ibuffer customization                              ;;
+;;----------------------------------------------------------------------------;;
 
 ;; Hidding empty filter groups in ibuffer
 (setq ibuffer-show-empty-filter-groups nil)
 
-
 ;; Disable confirmation for unsafe actions
 ;;(setq ibuffer-expert t)
-
 
 ;; TODO: re-define this
 ;; Customizaing ibuffer grouping
@@ -139,10 +213,9 @@
             (ibuffer-switch-to-saved-filter-groups "default-home")))
 
 
-;;-----------------------------------------------------
-;;--         sql interactive mode customization      --
-;;-----------------------------------------------------
-
+;;----------------------------------------------------------------------------;;
+;;                SQL Interactive Mode Customization                          ;;
+;;----------------------------------------------------------------------------;;
 
 ;; We really want to have well formated tables without any truncated
 ;; lines, so this is must have option.
@@ -157,76 +230,33 @@
 ;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
 ;; but i want to keep it vanila as for now
 
-;;-----------------------------------------------------
-;;--          Toggle Window Split                    --
-;;-----------------------------------------------------
 
-;; This implementation is coming from here:
-;; https://www.emacswiki.org/emacs/ToggleWindowSplit
-(defun toggle-window-split ()
-  (interactive)
-  (if (= (count-windows) 2)
-      (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))))
+;;----------------------------------------------------------------------------;;
+;;                           Default-Frame-Alist                              ;;
+;;----------------------------------------------------------------------------;;
 
-;; Using C-x | to toogle window direction.
-(global-set-key (kbd "C-x |") 'toggle-window-split)
-
-;;-----------------------------------------------------
-;;--                                                 --
-;;-----------------------------------------------------
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;(add-to-list 'default-frame-alist '(cursor-color . "white"))
 
 
-;; Using M-o to select next window
-;; The default combination for this command is C-x o
-(global-set-key (kbd "M-o") 'other-window)
+;;----------------------------------------------------------------------------;;
+;;                          General Configuration                             ;;
+;;----------------------------------------------------------------------------;;
 
-;; Pops back to where M-. was last invoked
-(global-set-key (kdb "M-*") 'pop-tag-mark)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 
+(desktop-save-mode t)
+(winner-mode t)
+(global-auto-revert-mode t)
 
+(setq ido-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+(setq indent-tabs-mode -1)
+
+;; Windows Specific
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
-
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(desktop-save-mode t)
- '(global-auto-revert-mode t)
- '(ido-enable-flex-matching t)
- '(ido-everywhere t)
- '(ido-mode (quote both) nil (ido))
- '(indent-tabs-mode nil)
- '(menu-bar-mode nil)
- '(scroll-bar-mode nil)
- '(tool-bar-mode nil)
- '(winner-mode t))
-
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
