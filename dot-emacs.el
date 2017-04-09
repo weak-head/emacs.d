@@ -55,9 +55,13 @@
 ;; Loading the selected theme
 (load-theme 'zenburn t)
 
-(require 'omnisharp)
 (require 'company)
+(require 'csharp-mode)
+(require 'ghc)
+(require 'haskell-mode)
 (require 'ibuffer)
+(require 'markdown-mode)
+(require 'omnisharp)
 
 
 ;; Commonly used Sans-serif fonts review could be found here:
@@ -101,9 +105,8 @@
 
 
 ;;----------------------------------------------------------------------------;;
-;;                           Keyboard Shortcuts                               ;;
+;;                      Global Keyboard Shortcuts                             ;;
 ;;----------------------------------------------------------------------------;;
-
 
 (global-set-key (kbd "M-o") 'other-window) ;; Default C-x o
 
@@ -120,22 +123,29 @@
 
 
 ;;----------------------------------------------------------------------------;;
-;;                       omnisharp customization                              ;;
+;;                          DotNet customization                              ;;
 ;;----------------------------------------------------------------------------;;
 
-;; ToDo: Fix this
-(if (require 'omnisharp nil 'noerror)
-    (progn
-      (require 'company)
-      ;;(setq omnisharp--curl-executable-path "~/emacs-env/curl.exe")
-      (setq omnisharp-server-executable-path "/path/to/OmniSharp.exe")
-      (push 'company-omnisharp company-backends)
-      (add-hook 'csharp-mode-hook 'company-mode)
-      (add-hook 'csharp-mode-hook 'omnisharp-mode)
-      (add-hook 'csharp-mode-hook 'linum-mode)
-      (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
-      )
-  )
+(setq omnisharp-server-executable-path "/path/to/OmniSharp.exe")
+;;(setq omnisharp--curl-executable-path "~/emacs-env/curl.exe")
+
+
+(define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
+
+
+(push 'company-omnisharp company-backends)
+
+
+(add-hook 'csharp-mode-hook 'company-mode)
+(add-hook 'csharp-mode-hook 'omnisharp-mode)
+(add-hook 'csharp-mode-hook 'linum-mode)
+
+;;----------------------------------------------------------------------------;;
+;;                         Haskell customization                              ;;
+;;----------------------------------------------------------------------------;;
+
+(add-hook 'haskell-mode-hook 'linum-mode)
+
 
 ;;----------------------------------------------------------------------------;;
 ;;                         ibuffer customization                              ;;
