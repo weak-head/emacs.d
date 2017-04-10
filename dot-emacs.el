@@ -1,7 +1,7 @@
 ;; My init file for emacs
 ;; Started in 2017
 
-;; This current modification is based on original init file from here:
+;; This layout is based on the one i've seen here:
 ;;   https://github.com/501st-alpha1/emacs-init/blob/master/init.el
 
 
@@ -36,7 +36,6 @@
 (package-initialize)
 (package-refresh-contents)
 
-
 (unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
 (unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
 (unless (package-installed-p 'ghc) (package-install 'ghc))
@@ -52,9 +51,6 @@
 ;; Load all needed libraries first
 ;; Using require so it is obvious when something breaks
 
-;; Loading the selected theme
-(load-theme 'zenburn t)
-
 (require 'company)
 (require 'csharp-mode)
 (require 'ghc)
@@ -64,13 +60,26 @@
 (require 'omnisharp)
 
 
+;;----------------------------------------------------------------------------;;
+;;                          Customize Styles                                  ;;
+;;----------------------------------------------------------------------------;;
+
+;; Loading the selected theme
+(load-theme 'zenburn t)
+
 ;; Commonly used Sans-serif fonts review could be found here:
 ;;   https://spin.atomicobject.com/2016/07/11/programming-fonts/
 ;;
 ;; The fonts could be downloaded from here:
 ;;   https://github.com/hbin/top-programming-fonts
+;; 
 ;;(set-frame-font "Menlo 12")
 
+(set-face-attribute 'default nil
+                    :family "Droid Sans Mono"
+                    :height 120
+                    :weight 'normal
+                    :width 'normal)
 
 ;;----------------------------------------------------------------------------;;
 ;;                               Functions                                    ;;
@@ -126,19 +135,17 @@
 ;;                          DotNet customization                              ;;
 ;;----------------------------------------------------------------------------;;
 
-(setq omnisharp-server-executable-path "/path/to/OmniSharp.exe")
+(setq omnisharp-server-executable-path "/usr/share/omnisharp/OmniSharp")
 ;;(setq omnisharp--curl-executable-path "~/emacs-env/curl.exe")
-
 
 (define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
 
-
 (push 'company-omnisharp company-backends)
-
 
 (add-hook 'csharp-mode-hook 'company-mode)
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 (add-hook 'csharp-mode-hook 'linum-mode)
+
 
 ;;----------------------------------------------------------------------------;;
 ;;                         Haskell customization                              ;;
@@ -157,27 +164,27 @@
 ;; Disable confirmation for unsafe actions
 ;;(setq ibuffer-expert t)
 
-;; TODO: re-define this
 ;; Customizaing ibuffer grouping
 (setq ibuffer-saved-filter-groups
       (quote (("default-home"
                ("dired" (mode . dired-mode))
                ("csharp" (mode . csharp-mode))
                ("haskell" (mode . haskell-mode))
-               ("sql" (or
+	       ("sql" (or
                        (name . "*SQL*")
                        (mode . sql-mode)))
+	       ("markdown" (mode . markdown-mode))
+	       ("java-script" (mode . js-mode))
                ("planner" (or
                            (name . "^\\*Calendar\\*$")
                            (name . "^diary$")
                            (mode . muse-mode)))
-               ("emacs-config" (or
-                                (filename . ".emacs")
-                                (filename . "dot-emacs.l")
-                                (filename . ".emacs.d")))
                ("emacs" (or
                          (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")))
+                         (name . "^\\*Messages\\*$")
+			 (filename . ".emacs")
+			 (filename . "dot-emacs.el")
+			 (filename . ".emacs.d")))
                ("gnus" (or
                         (mode . message-mode)
                         (mode . bbdb-mode)
@@ -187,7 +194,6 @@
                         (mode . gnus-article-mode)
                         (name . "^\\.bbdb$")
                         (name . "^\\.newsrc-dribble")))))))
-
 
 ;; Use human readable Size column instead of original one
 (define-ibuffer-column size-h
@@ -227,26 +233,26 @@
 ;;                SQL Interactive Mode Customization                          ;;
 ;;----------------------------------------------------------------------------;;
 
+;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
+;; but i want to keep it vanila as for now
+
+;; - Windows specific -
+;; This is required to make MySql work under Windows
+(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+
+
 ;; We really want to have well formated tables without any truncated
 ;; lines, so this is must have option.
 (add-hook 'sql-interactive-mode-hook
           (lambda ()
             (toggle-truncate-lines t)))
 
-
-;; This is required to make MySql work under Windows
-(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
-
-;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
-;; but i want to keep it vanila as for now
-
-
 ;;----------------------------------------------------------------------------;;
 ;;                           Default-Frame-Alist                              ;;
 ;;----------------------------------------------------------------------------;;
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-;;(add-to-list 'default-frame-alist '(cursor-color . "white"))
+;(add-to-list 'default-frame-alist '(cursor-color . "white"))
 
 
 ;;----------------------------------------------------------------------------;;
@@ -271,6 +277,6 @@
 
 (mouse-wheel-mode -1)
 
-;; Windows Specific
+;; - Windows Specific -
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
