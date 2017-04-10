@@ -191,7 +191,10 @@
 			  (mode . csharp-mode)
 			  (name . ".*\\.sln")
 			  (name . ".*\\.csproj")))
-               ("haskell" (mode . haskell-mode))
+	       ("haskell" (or
+			   (mode . haskell-mode)
+			   (mode . haskell-cabal-mode)
+			   (filename . "stack\\.yaml")))
 	       ("sql" (or
                        (name . "^\\*SQL\\*$")
                        (mode . sql-mode)))
@@ -210,9 +213,9 @@
 			 (name . "^\\*Help\\*$")
 			 (name . "^\\*info\\*$")
 			 (name . "^\\*Apropos\\*$")
-			 (filename . ".emacs")
-			 (filename . "dot-emacs.el")
-			 (filename . ".emacs.d")))
+			 (filename . "\\.emacs")
+			 (filename . "dot-emacs\\.el")
+			 (filename . "\\.emacs\\.d")))
                ("gnus" (or
                         (mode . message-mode)
                         (mode . bbdb-mode)
