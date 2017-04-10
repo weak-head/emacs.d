@@ -290,6 +290,15 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; Automatically save and restore sessions
+(setq ;desktop-dirname             "~/.emacs.d/"
+      ;desktop-base-file-name      ".emacs.desktop"
+      ;desktop-base-lock-name      ".emacs.desktop.lock"
+      ;desktop-path                (list desktop-dirname)      
+      ;desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
+      desktop-save                t
+      desktop-load-locked-desktop t
+      desktop-auto-save-timeout   30)
 (desktop-save-mode t)
 (winner-mode t)
 (global-auto-revert-mode t)
