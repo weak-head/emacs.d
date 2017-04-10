@@ -155,6 +155,25 @@
 
 
 ;;----------------------------------------------------------------------------;;
+;;                SQL Interactive Mode Customization                          ;;
+;;----------------------------------------------------------------------------;;
+
+;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
+;; but i want to keep it vanila as for now
+
+;; - Windows specific -
+;; This is required to make MySql work under Windows
+(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+
+
+;; We really want to have well formated tables without any truncated
+;; lines, so this is must have option.
+(add-hook 'sql-interactive-mode-hook
+          (lambda ()
+            (toggle-truncate-lines t)))
+
+
+;;----------------------------------------------------------------------------;;
 ;;                         ibuffer customization                              ;;
 ;;----------------------------------------------------------------------------;;
 
@@ -230,22 +249,21 @@
 
 
 ;;----------------------------------------------------------------------------;;
-;;                SQL Interactive Mode Customization                          ;;
+;;                         Dired Customization                                ;;
 ;;----------------------------------------------------------------------------;;
 
-;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
-;; but i want to keep it vanila as for now
+;; https://www.emacswiki.org/emacs/DiredReuseDirectoryBuffer
+;; We can use 'a' to open directory in the same buffer
+(put 'dired-find-alternate-file 'disabled nil)
 
-;; - Windows specific -
-;; This is required to make MySql work under Windows
-(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+;; Same buffer using '^'
+(add-hook 'dired-mode-hook
+ (lambda ()
+  (define-key dired-mode-map (kbd "^")
+    (lambda () (interactive) (find-alternate-file "..")))
+  ; was dired-up-directory
+  ))
 
-
-;; We really want to have well formated tables without any truncated
-;; lines, so this is must have option.
-(add-hook 'sql-interactive-mode-hook
-          (lambda ()
-            (toggle-truncate-lines t)))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Default-Frame-Alist                              ;;
