@@ -187,13 +187,19 @@
 (setq ibuffer-saved-filter-groups
       (quote (("default-home"
                ("dired" (mode . dired-mode))
-               ("csharp" (mode . csharp-mode))
+               ("csharp" (or
+			  (mode . csharp-mode)
+			  (name . ".*\\.sln")
+			  (name . ".*\\.csproj")))
                ("haskell" (mode . haskell-mode))
 	       ("sql" (or
-                       (name . "*SQL*")
+                       (name . "^\\*SQL\\*$")
                        (mode . sql-mode)))
 	       ("markdown" (mode . markdown-mode))
 	       ("java-script" (mode . js-mode))
+	       ("shell-script" (or
+			 (mode . sh-mode)
+			 (mode . bat-mode)))
                ("planner" (or
                            (name . "^\\*Calendar\\*$")
                            (name . "^diary$")
@@ -201,6 +207,9 @@
                ("emacs" (or
                          (name . "^\\*scratch\\*$")
                          (name . "^\\*Messages\\*$")
+			 (name . "^\\*Help\\*$")
+			 (name . "^\\*info\\*$")
+			 (name . "^\\*Apropos\\*$")
 			 (filename . ".emacs")
 			 (filename . "dot-emacs.el")
 			 (filename . ".emacs.d")))
@@ -256,7 +265,7 @@
 ;; We can use 'a' to open directory in the same buffer
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; Same buffer using '^'
+;; We are replacing the current buffer using '^'
 (add-hook 'dired-mode-hook
  (lambda ()
   (define-key dired-mode-map (kbd "^")
