@@ -75,9 +75,20 @@
 ;; 
 ;;(set-frame-font "Menlo 12")
 
+;; The fonts to consider:
+;;  - Menlo
+;;  - Courier New
+;;  - Droid Sans Mono
+;;  - Consolas
+;;  - DejaVuSans Mono
+;;  - Monaco
+;;  - 3270Medium
+;;
+;; Recommended weights:
+;;  - [98 - 120]
 (set-face-attribute 'default nil
                     :family "Droid Sans Mono"
-                    :height 120
+                    :height 98
                     :weight 'normal
                     :width 'normal)
 
