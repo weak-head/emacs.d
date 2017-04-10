@@ -213,6 +213,7 @@
 			 (name . "^\\*Help\\*$")
 			 (name . "^\\*info\\*$")
 			 (name . "^\\*Apropos\\*$")
+			 (name . "^\\*Completions\\*$")
 			 (filename . "\\.emacs")
 			 (filename . "dot-emacs\\.el")
 			 (filename . "\\.emacs\\.d")))
