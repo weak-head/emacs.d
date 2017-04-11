@@ -43,7 +43,7 @@
 (unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
 (unless (package-installed-p 'company) (package-install 'company))
-
+(unless (package-installed-p 'flycheck) (package-install 'flycheck))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Load Libraries                                   ;;
@@ -53,6 +53,7 @@
 
 (require 'company)
 (require 'csharp-mode)
+(require 'flycheck)
 (require 'ghc)
 (require 'haskell-mode)
 (require 'ibuffer)
@@ -140,6 +141,14 @@
 ;;   http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 ;;   https://www.emacswiki.org/emacs/IbufferMode
 (global-set-key (kbd "C-x C-b") 'ibuffer) 
+
+
+
+;;----------------------------------------------------------------------------;;
+;;                         Flycheck customization                             ;;
+;;----------------------------------------------------------------------------;;
+
+(global-flycheck-mode)
 
 
 ;;----------------------------------------------------------------------------;;
