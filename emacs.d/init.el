@@ -1,29 +1,14 @@
-;; My init file for emacs
-;; Started in 2017
+;;; init.el --- Alex Zinchenko emacs init
+;;; Commentary:
+;;
+;; TODO:
+;;  My init file for Emacs
+;;  Started in 2017
+;;
 
-;; This layout is based on the one i've seen here:
-;;   https://github.com/501st-alpha1/emacs-init/blob/master/init.el
 
-
-;;----------------------------------------------------------------------------;;
-;;                          Custom Load Path                                  ;;
-;;----------------------------------------------------------------------------;;
-;; Load path for various external libraries, managed with git.
-
-;; TODO -> adopt this part
-
-;; (unless (boundp 'my-external-library-location)
-;;   (error "External library location not defined!"))
-
-;; (add-to-list 'load-path my-external-library-location)
-
-;; (let* ((my-lisp-dir my-external-library-location)
-;;        (default-directory my-lisp-dir)
-;;        (orig-load-path load-path))
-;;   (setq load-path (cons my-lisp-dir nil))
-;;   (normal-top-level-add-subdirs-to-load-path)
-;;   (nconc load-path orig-load-path))
-
+;;; Code:
+;;
 
 ;;----------------------------------------------------------------------------;;
 ;;                          Install Packages                                  ;;
@@ -37,15 +22,16 @@
 (package-initialize)
 (package-refresh-contents)
 
-(unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
-(unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
+
+(unless (package-installed-p 'company) (package-install 'company))
+(unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
+(unless (package-installed-p 'flycheck) (package-install 'flycheck))
 (unless (package-installed-p 'ghc) (package-install 'ghc))
 (unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
-(unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
-(unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
-(unless (package-installed-p 'company) (package-install 'company))
-(unless (package-installed-p 'flycheck) (package-install 'flycheck))
 (unless (package-installed-p 'intero) (package-install 'intero))
+(unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
+(unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
+(unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Load Libraries                                   ;;
@@ -356,3 +342,5 @@
 ;; - Windows Specific -
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
 (setq w32-recognize-altgr nil)
+
+;;; init.el ends here
