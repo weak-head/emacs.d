@@ -31,8 +31,9 @@
 
 ;; Adding MELPA repository
 (require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
+(add-to-list
+ 'package-archives
+ '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
 (package-refresh-contents)
 
@@ -44,6 +45,7 @@
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
 (unless (package-installed-p 'company) (package-install 'company))
 (unless (package-installed-p 'flycheck) (package-install 'flycheck))
+(unless (package-installed-p 'intero) (package-install 'intero))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Load Libraries                                   ;;
@@ -57,6 +59,7 @@
 (require 'ghc)
 (require 'haskell-mode)
 (require 'ibuffer)
+(require 'intero)
 (require 'markdown-mode)
 (require 'omnisharp)
 
@@ -71,21 +74,32 @@
 ;; Commonly used Sans-serif fonts review could be found here:
 ;;   https://spin.atomicobject.com/2016/07/11/programming-fonts/
 ;;
+;; Another subjective font rating:
+;;   https://www.narga.net/top-best-programing-fonts/
+;;
 ;; The fonts could be downloaded from here:
 ;;   https://github.com/hbin/top-programming-fonts
-;; 
-;;(set-frame-font "Menlo 12")
-
+;;
+;; Set font for the frame:
+;; (set-frame-font "Menlo 12")
+;;
 ;; The fonts to consider:
 ;;  - Menlo
 ;;  - Courier New
 ;;  - Droid Sans Mono
 ;;  - Consolas
-;;  - DejaVuSans Mono
+;;  - DejaVu Sans Mono
 ;;  - Monaco
 ;;  - 3270Medium
+;;  - Inconsolata
+;;  - Anonymous Pro
+;;  - Terminus
+;;  - Source Code Pro
+;;  - Bitstream Vera Sans Mono
+;;  - Envy Code R
+;;  - Monofur
 ;;
-;; Recommended weights:
+;; My preferred font heights:
 ;;  - [98 - 120]
 (set-face-attribute 'default nil
                     :family "Droid Sans Mono"
@@ -100,6 +114,7 @@
 ;; This implementation is coming from here:
 ;; https://www.emacswiki.org/emacs/ToggleWindowSplit
 (defun toggle-window-split ()
+  "If the frame is split vertically, split it horizontally or vice versa."
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
@@ -131,7 +146,7 @@
 
 (global-set-key (kbd "M-o") 'other-window) ;; Default C-x o
 
-(global-set-key (kbd "M-*") 'pop-tag-mark) ;; Pops back to M-. 
+(global-set-key (kbd "M-*") 'pop-tag-mark) ;; Pops back to M-.
 
 (global-set-key (kbd "C-x |") 'toggle-window-split)
 
@@ -140,7 +155,7 @@
 ;; More information about ibuffer could be found here:
 ;;   http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
 ;;   https://www.emacswiki.org/emacs/IbufferMode
-(global-set-key (kbd "C-x C-b") 'ibuffer) 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 
@@ -172,6 +187,7 @@
 ;;----------------------------------------------------------------------------;;
 
 (add-hook 'haskell-mode-hook 'linum-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 
 ;;----------------------------------------------------------------------------;;
@@ -318,7 +334,7 @@
 (setq ;desktop-dirname             "~/.emacs.d/"
       ;desktop-base-file-name      ".emacs.desktop"
       ;desktop-base-lock-name      ".emacs.desktop.lock"
-      ;desktop-path                (list desktop-dirname)      
+      ;desktop-path                (list desktop-dirname)
       ;desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
       desktop-save                t
       desktop-load-locked-desktop t
