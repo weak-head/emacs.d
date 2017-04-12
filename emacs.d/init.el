@@ -28,6 +28,7 @@
 (unless (package-installed-p 'flycheck) (package-install 'flycheck))
 (unless (package-installed-p 'ghc) (package-install 'ghc))
 (unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
+(unless (package-installed-p 'hindent) (package-install 'hindent))
 (unless (package-installed-p 'intero) (package-install 'intero))
 (unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
@@ -44,6 +45,7 @@
 (require 'flycheck)
 (require 'ghc)
 (require 'haskell-mode)
+(require 'hindent)
 (require 'ibuffer)
 (require 'intero)
 (require 'markdown-mode)
@@ -174,6 +176,9 @@
 
 (add-hook 'haskell-mode-hook 'linum-mode)
 (add-hook 'haskell-mode-hook 'intero-mode)
+;; stack install --resolver nightly-2016-10-17 hindent
+;; > 5.0
+(add-hook 'haskell-mode-hook 'hindent-mode)
 
 
 ;;----------------------------------------------------------------------------;;
