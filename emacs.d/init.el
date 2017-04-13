@@ -51,7 +51,7 @@
 (require 'intero)
 (require 'markdown-mode)
 (require 'omnisharp)
-(require 'rainbow-delimeters)
+(require 'rainbow-delimiters)
 
 ;;----------------------------------------------------------------------------;;
 ;;                          Customize Styles                                  ;;
