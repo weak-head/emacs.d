@@ -32,6 +32,7 @@
 (unless (package-installed-p 'intero) (package-install 'intero))
 (unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
+(unless (package-installed-p 'rainbow-delimiters) (package-install 'rainbow-delimiters))
 (unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
 
 ;;----------------------------------------------------------------------------;;
@@ -50,7 +51,7 @@
 (require 'intero)
 (require 'markdown-mode)
 (require 'omnisharp)
-
+(require 'rainbow-delimeters)
 
 ;;----------------------------------------------------------------------------;;
 ;;                          Customize Styles                                  ;;
@@ -168,7 +169,7 @@
 (add-hook 'csharp-mode-hook 'company-mode)
 (add-hook 'csharp-mode-hook 'omnisharp-mode)
 (add-hook 'csharp-mode-hook 'linum-mode)
-
+(add-hook 'csharp-mode-hook 'rainbow-delimiters-mode)
 
 ;;----------------------------------------------------------------------------;;
 ;;                         Haskell customization                              ;;
@@ -179,6 +180,7 @@
 ;; stack install --resolver nightly-2016-10-17 hindent
 ;; > 5.0
 (add-hook 'haskell-mode-hook 'hindent-mode)
+(add-hook 'haskell-mode-hook 'rainbow-delimiters-mode)
 
 
 ;;----------------------------------------------------------------------------;;
