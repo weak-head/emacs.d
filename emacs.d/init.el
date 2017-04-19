@@ -323,6 +323,11 @@
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 
+;; stop creating backup~ files
+(setq make-backup-files nil)
+;; stop creating #autosave# files
+(setq auto-save-default nil)
+
 ;; Automatically save and restore sessions
 (setq ;desktop-dirname             "~/.emacs.d/"
       ;desktop-base-file-name      ".emacs.desktop"
