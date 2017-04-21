@@ -35,6 +35,7 @@
 (unless (package-installed-p 'rainbow-delimiters) (package-install 'rainbow-delimiters))
 (unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
 (unless (package-installed-p 'dockerfile-mode) (package-install 'dockerfile-mode))
+(unless (package-installed-p 'yaml-mode) (package-install 'yaml-mode))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Load Libraries                                   ;;
@@ -54,6 +55,7 @@
 (require 'omnisharp)
 (require 'rainbow-delimiters)
 (require 'dockerfile-mode)
+(require 'yaml-mode)
 
 ;;----------------------------------------------------------------------------;;
 ;;                          Customize Styles                                  ;;
@@ -109,26 +111,26 @@
   (interactive)
   (if (= (count-windows) 2)
       (let* ((this-win-buffer (window-buffer))
-	     (next-win-buffer (window-buffer (next-window)))
-	     (this-win-edges (window-edges (selected-window)))
-	     (next-win-edges (window-edges (next-window)))
-	     (this-win-2nd (not (and (<= (car this-win-edges)
-					 (car next-win-edges))
-				     (<= (cadr this-win-edges)
-					 (cadr next-win-edges)))))
-	     (splitter
-	      (if (= (car this-win-edges)
-		     (car (window-edges (next-window))))
-		  'split-window-horizontally
-		'split-window-vertically)))
-	(delete-other-windows)
-	(let ((first-win (selected-window)))
-	  (funcall splitter)
-	  (if this-win-2nd (other-window 1))
-	  (set-window-buffer (selected-window) this-win-buffer)
-	  (set-window-buffer (next-window) next-win-buffer)
-	  (select-window first-win)
-	  (if this-win-2nd (other-window 1))))))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
 
 
 ;;----------------------------------------------------------------------------;;
@@ -219,37 +221,38 @@
       (quote (("default-home"
                ("dired" (mode . dired-mode))
                ("csharp" (or
-			  (mode . csharp-mode)
-			  (name . ".*\\.sln")
-			  (name . ".*\\.csproj")))
-	       ("haskell" (or
-			   (mode . haskell-mode)
-			   (mode . haskell-cabal-mode)
-			   (filename . "stack\\.yaml")))
-	       ("sql" (or
+                          (mode . csharp-mode)
+                          (name . ".*\\.sln")
+                          (name . ".*\\.csproj")))
+               ("haskell" (or
+                           (mode . haskell-mode)
+                           (mode . haskell-cabal-mode)
+                           (filename . "stack\\.yaml")))
+               ("sql" (or
                        (name . "^\\*SQL\\*$")
                        (mode . sql-mode)))
-	       ("markdown" (mode . markdown-mode))
-	       ("java-script" (mode . js-mode))
-	       ("shell-script" (or
-			 (mode . sh-mode)
-			 (mode . bat-mode)))
+               ("markdown" (mode . markdown-mode))
+               ("java-script" (mode . js-mode))
+               ("shell-script" (or
+                         (mode . sh-mode)
+                         (mode . bat-mode)))
+               ("docker" (mode . dockerfile-mode))
+               ("yaml" (mode . yaml-mode))
+               ("emacs" (or
+                         (name . "^\\*scratch\\*$")
+                         (name . "^\\*Messages\\*$")
+                         (name . "^\\*Help\\*$")
+                         (name . "^\\*info\\*$")
+                         (name . "^\\*Apropos\\*$")
+                         (name . "^\\*Completions\\*$")
+                         (name . "^\\*Compile-Log\\*$")
+                         (filename . "\\.emacs")
+                         (filename . "dot-emacs\\.el")
+                         (filename . "\\.emacs\\.d")))
                ("planner" (or
                            (name . "^\\*Calendar\\*$")
                            (name . "^diary$")
                            (mode . muse-mode)))
-	       ("docker" (mode . dockerfile-mode))
-               ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")
-			 (name . "^\\*Help\\*$")
-			 (name . "^\\*info\\*$")
-			 (name . "^\\*Apropos\\*$")
-			 (name . "^\\*Completions\\*$")
-			 (name . "^\\*Compile-Log\\*$")
-			 (filename . "\\.emacs")
-			 (filename . "dot-emacs\\.el")
-			 (filename . "\\.emacs\\.d")))
                ("gnus" (or
                         (mode . message-mode)
                         (mode . bbdb-mode)
@@ -279,7 +282,7 @@
               (size-h 9 -1 :right) " "
               (mode 16 16 :left :elide) " "
               filename-and-process)
-	    (mark " " (name 16 -1) " " filename)))
+            (mark " " (name 16 -1) " " filename)))
 
 
 ;; Adding hook for the custom grouping defined abowe
