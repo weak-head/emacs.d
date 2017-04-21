@@ -34,6 +34,7 @@
 (unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
 (unless (package-installed-p 'rainbow-delimiters) (package-install 'rainbow-delimiters))
 (unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
+(unless (package-installed-p 'dockerfile-mode) (package-install 'dockerfile-mode))
 
 ;;----------------------------------------------------------------------------;;
 ;;                           Load Libraries                                   ;;
@@ -52,6 +53,7 @@
 (require 'markdown-mode)
 (require 'omnisharp)
 (require 'rainbow-delimiters)
+(require 'dockerfile-mode)
 
 ;;----------------------------------------------------------------------------;;
 ;;                          Customize Styles                                  ;;
@@ -236,6 +238,7 @@
                            (name . "^\\*Calendar\\*$")
                            (name . "^diary$")
                            (mode . muse-mode)))
+	       ("docker" (mode . dockerfile-mode))
                ("emacs" (or
                          (name . "^\\*scratch\\*$")
                          (name . "^\\*Messages\\*$")
@@ -243,6 +246,7 @@
 			 (name . "^\\*info\\*$")
 			 (name . "^\\*Apropos\\*$")
 			 (name . "^\\*Completions\\*$")
+			 (name . "^\\*Compile-Log\\*$")
 			 (filename . "\\.emacs")
 			 (filename . "dot-emacs\\.el")
 			 (filename . "\\.emacs\\.d")))
