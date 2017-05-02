@@ -20,7 +20,8 @@
  'package-archives
  '("melpa" . "http://melpa.org/packages/") t)
 (package-initialize)
-(package-refresh-contents)
+(when (not package-archive-contents)
+  (package-refresh-contents))
 
 
 (unless (package-installed-p 'company) (package-install 'company))
