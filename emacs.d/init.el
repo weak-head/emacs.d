@@ -44,6 +44,7 @@
 ;; Using require so it is obvious when something breaks
 
 (require 'company)
+(require 'cl)
 (require 'csharp-mode)
 (require 'flycheck)
 (require 'ghc)
@@ -358,7 +359,8 @@
 
 (column-number-mode 1)
 
-(mouse-wheel-mode -1)
+(when (require 'mwheel nil 'noerror)
+  (mouse-wheel-mode -1))
 
 ;; - Windows Specific -
 ;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
