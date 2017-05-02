@@ -326,9 +326,11 @@
 ;;                          General Configuration                             ;;
 ;;----------------------------------------------------------------------------;;
 
-(tool-bar-mode -1)
 (menu-bar-mode -1)
-(scroll-bar-mode -1)
+(if (display-graphic-p)
+    (progn
+      (tool-bar-mode -1)
+      (scroll-bar-mode -1)))
 
 ;; stop creating backup~ files
 (setq make-backup-files nil)
