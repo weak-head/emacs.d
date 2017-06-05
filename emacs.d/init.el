@@ -1,9 +1,7 @@
-;;; init.el --- Alex Zinchenko emacs init
+;;; init.el --- Oleksandr Zinchenko emacs init
 ;;; Commentary:
 ;;
-;; TODO:
-;;  My init file for Emacs
-;;  Started in 2017
+;; TODO: add comments here
 ;;
 
 
@@ -133,6 +131,15 @@
           (set-window-buffer (next-window) next-win-buffer)
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
+
+;; Removes ^M line endings from files with mixed UNIX and DOS line endings modes.
+;; as option we can execute this for all files on load:
+;;   (add-hook 'text-mode-hook 'remove-dos-eol)
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
 
 
 ;;----------------------------------------------------------------------------;;
