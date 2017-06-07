@@ -1,68 +1,127 @@
-;;; init.el --- Oleksandr Zinchenko emacs init
+;;; init.el --- Emacs configuration of Oleksandr Zinchenko
+;;
+;;  Copyright (c) 2017 Oleksandr Zinchenko <zinchenko@live.com>
+;;
+;; Author: Oleksandr Zinchenko <zinchenko@live.com>
+;; URL: TBD
+;; 
+
+
 ;;; Commentary:
 ;;
-;; TODO: add comments here
+;; This is my personal Emacs configuration.
 ;;
+
+
+;;; License:
+;;
+;; This program is free software; you can redistribute it and/or
+;; modify it under the terms of the GNU General Public License
+;; as published by the Free Software Foundation; either version 3
+;; of the License, or (at your option) any later version.
+;;
+;; This program is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+;;
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs; see the file COPYING.  If not, write to the
+;; Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
+;; Boston, MA 02110-1301, USA.
 
 
 ;;; Code:
 ;;
 
 ;;----------------------------------------------------------------------------;;
-;;                          Install Packages                                  ;;
+;;                        Package management                                  ;;
 ;;----------------------------------------------------------------------------;;
 
-;; Adding MELPA repository
+(setq load-prefer-newer t)
+
 (require 'package)
-(add-to-list
- 'package-archives
- '("melpa" . "http://melpa.org/packages/") t)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+
 (package-initialize)
-(when (not package-archive-contents)
-  (package-refresh-contents))
 
-
-(unless (package-installed-p 'company) (package-install 'company))
-(unless (package-installed-p 'csharp-mode) (package-install 'csharp-mode))
-(unless (package-installed-p 'flycheck) (package-install 'flycheck))
-(unless (package-installed-p 'ghc) (package-install 'ghc))
-(unless (package-installed-p 'haskell-mode) (package-install 'haskell-mode))
-(unless (package-installed-p 'hindent) (package-install 'hindent))
-(unless (package-installed-p 'intero) (package-install 'intero))
-(unless (package-installed-p 'markdown-mode) (package-install 'markdown-mode))
-(unless (package-installed-p 'omnisharp) (package-install 'omnisharp))
-(unless (package-installed-p 'rainbow-delimiters) (package-install 'rainbow-delimiters))
-(unless (package-installed-p 'zenburn-theme) (package-install 'zenburn-theme))
-(unless (package-installed-p 'dockerfile-mode) (package-install 'dockerfile-mode))
-(unless (package-installed-p 'yaml-mode) (package-install 'yaml-mode))
 
 ;;----------------------------------------------------------------------------;;
-;;                           Load Libraries                                   ;;
-;;----------------------------------------------------------------------------;;
-;; Load all needed libraries first
-;; Using require so it is obvious when something breaks
-
-(require 'company)
-(require 'cl)
-(require 'csharp-mode)
-(require 'flycheck)
-(require 'ghc)
-(require 'haskell-mode)
-(require 'hindent)
-(require 'ibuffer)
-(require 'intero)
-(require 'markdown-mode)
-(require 'omnisharp)
-(require 'rainbow-delimiters)
-(require 'dockerfile-mode)
-(require 'yaml-mode)
-
-;;----------------------------------------------------------------------------;;
-;;                          Customize Styles                                  ;;
+;;                        Initialize use-package                              ;;
+;;                https://github.com/jwiegley/use-package                     ;;
 ;;----------------------------------------------------------------------------;;
 
-;; Loading the selected theme
-(load-theme 'zenburn t)
+;;(setq use-package-always-ensure t)
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+
+;;----------------------------------------------------------------------------;;
+;;                               Requires                                     ;;
+;;----------------------------------------------------------------------------;;
+
+
+(eval-when-compile
+  (require 'use-package))
+
+(require 'bind-key)
+(require 'diminish)
+
+
+;;----------------------------------------------------------------------------;;
+;;                               Functions                                    ;;
+;;----------------------------------------------------------------------------;;
+
+;; https://www.emacswiki.org/emacs/ToggleWindowSplit
+(defun toggle-window-split ()
+  "If the frame is split vertically, split it horizontally or vice versa."
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
+
+
+;; Removes ^M line endings from files with mixed UNIX and DOS line endings modes.
+;; as option we can execute this for all files on load:
+;;   (add-hook 'text-mode-hook 'remove-dos-eol)
+(defun remove-dos-eol ()
+  "Do not show ^M in files containing mixed UNIX and DOS line endings."
+  (interactive)
+  (setq buffer-display-table (make-display-table))
+  (aset buffer-display-table ?\^M []))
+
+
+(defun init-kill-buffer-current ()
+  "Kill the current buffer."
+  (interactive)
+  (kill-buffer (current-buffer)))
+
+
+;;----------------------------------------------------------------------------;;
+;;                                 Fonts                                      ;;
+;;----------------------------------------------------------------------------;;
 
 ;; Commonly used Sans-serif fonts review could be found here:
 ;;   https://spin.atomicobject.com/2016/07/11/programming-fonts/
@@ -100,278 +159,589 @@
                     :weight 'normal
                     :width 'normal)
 
-;;----------------------------------------------------------------------------;;
-;;                               Functions                                    ;;
-;;----------------------------------------------------------------------------;;
-
-;; This implementation is coming from here:
-;; https://www.emacswiki.org/emacs/ToggleWindowSplit
-(defun toggle-window-split ()
-  "If the frame is split vertically, split it horizontally or vice versa."
-  (interactive)
-  (if (= (count-windows) 2)
-      (let* ((this-win-buffer (window-buffer))
-             (next-win-buffer (window-buffer (next-window)))
-             (this-win-edges (window-edges (selected-window)))
-             (next-win-edges (window-edges (next-window)))
-             (this-win-2nd (not (and (<= (car this-win-edges)
-                                         (car next-win-edges))
-                                     (<= (cadr this-win-edges)
-                                         (cadr next-win-edges)))))
-             (splitter
-              (if (= (car this-win-edges)
-                     (car (window-edges (next-window))))
-                  'split-window-horizontally
-                'split-window-vertically)))
-        (delete-other-windows)
-        (let ((first-win (selected-window)))
-          (funcall splitter)
-          (if this-win-2nd (other-window 1))
-          (set-window-buffer (selected-window) this-win-buffer)
-          (set-window-buffer (next-window) next-win-buffer)
-          (select-window first-win)
-          (if this-win-2nd (other-window 1))))))
-
-;; Removes ^M line endings from files with mixed UNIX and DOS line endings modes.
-;; as option we can execute this for all files on load:
-;;   (add-hook 'text-mode-hook 'remove-dos-eol)
-(defun remove-dos-eol ()
-  "Do not show ^M in files containing mixed UNIX and DOS line endings."
-  (interactive)
-  (setq buffer-display-table (make-display-table))
-  (aset buffer-display-table ?\^M []))
-
 
 ;;----------------------------------------------------------------------------;;
-;;                      Global Keyboard Shortcuts                             ;;
+;;                              User interface                                ;;
 ;;----------------------------------------------------------------------------;;
 
-(global-set-key (kbd "M-o") 'other-window) ;; Default C-x o
+;; Get rid of tool bar, menu bar and scrool bar
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (and (not (eq system-type 'darwin)) (fboundp 'menu-bar-mode))
+  (menu-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 
-(global-set-key (kbd "M-*") 'pop-tag-mark) ;; Pops back to M-.
+;; Zenburn is pretty good
+(use-package zenburn-theme
+	     :ensure t
+	     :demand
+	     :init
+	     (progn
+	       ;; Increase contrast for presentation.
+	       (defvar zenburn-override-colors-alist
+		 '(("zenburn-bg-1"     . "#101010")
+		   ("zenburn-bg-05"    . "#202020")
+		   ("zenburn-bg"       . "#2B2B2B")
+		   ("zenburn-bg+05"    . "#383838")
+		   ("zenburn-bg+1"     . "#3F3F3F")
+		   ("zenburn-bg+2"     . "#494949")
+		   ("zenburn-bg+3"     . "#4F4F4F")))
+	       (load-theme 'zenburn 'no-confirm)))
 
-(global-set-key (kbd "C-x |") 'toggle-window-split)
+;; Prevent accidental Emacs closure.
+(setq confirm-kill-emacs 'y-or-n-p)
 
-;; Use ibuffer for buffer list
-;;
-;; More information about ibuffer could be found here:
-;;   http://martinowen.net/blog/2010/02/03/tips-for-emacs-ibuffer.html
-;;   https://www.emacswiki.org/emacs/IbufferMode
-(global-set-key (kbd "C-x C-b") 'ibuffer)
+;; Simplify prompts.
+(fset 'yes-or-no-p 'y-or-n-p)
 
+;; Reduce UI noise.
+(setq confirm-nonexistent-file-or-buffer nil
+      inhibit-splash-screen t
+      inhibit-startup-echo-area-message t
+      inhibit-startup-message t
+      initial-scratch-message nil
+      kill-buffer-query-functions (remq 'process-kill-buffer-query-function kill-buffer-query-functions)
+      ring-bell-function 'ignore)
 
 
 ;;----------------------------------------------------------------------------;;
-;;                         Flycheck customization                             ;;
+;;                          General configuration                             ;;
 ;;----------------------------------------------------------------------------;;
 
-(global-flycheck-mode)
+;;(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+;;(load custom-file)
 
+;; Store auto-saves and backups in emacs.d/var.
+(let* ((vdir (expand-file-name "var" user-emacs-directory))
+       (adir (expand-file-name "autosaves/" vdir))
+       (ldir (expand-file-name "auto-save-list/" vdir))
+       (bdir (expand-file-name "backups/" vdir)))
+  (make-directory adir t)
+  (make-directory bdir t)
+  (setq auto-save-file-name-transforms `((".*" ,(concat adir "\\1") t))
+        auto-save-list-file-prefix (concat ldir "/saves-")
+        backup-directory-alist `((".*" . ,bdir))))
 
-;;----------------------------------------------------------------------------;;
-;;                          DotNet customization                              ;;
-;;----------------------------------------------------------------------------;;
+;; stop creating backup~ files
+;;(setq make-backup-files nil)
 
-(setq omnisharp-server-executable-path "/usr/share/omnisharp/OmniSharp")
-;;(setq omnisharp--curl-executable-path "~/emacs-env/curl.exe")
+;; stop creating #autosave# files
+;;(setq auto-save-default nil)
 
-(define-key omnisharp-mode-map (kbd "M-.") 'omnisharp-go-to-definition)
+;; Display column number in modeline.
+(setq column-number-mode t)
 
-(push 'company-omnisharp company-backends)
+;; Collect garbage less frequently.
+(setq gc-cons-threshold 104857600)
 
-(add-hook 'csharp-mode-hook 'company-mode)
-(add-hook 'csharp-mode-hook 'omnisharp-mode)
-(add-hook 'csharp-mode-hook 'linum-mode)
-(add-hook 'csharp-mode-hook 'rainbow-delimiters-mode)
+;; - Windows Specific -
+;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
+(setq w32-recognize-altgr nil)
 
-;;----------------------------------------------------------------------------;;
-;;                         Haskell customization                              ;;
-;;----------------------------------------------------------------------------;;
+;; Delete the trailing newline.
+(setq kill-whole-line t)
 
-(add-hook 'haskell-mode-hook 'linum-mode)
-(add-hook 'haskell-mode-hook 'intero-mode)
-;; stack install --resolver nightly-2016-10-17 hindent
-;; > 5.0
-(add-hook 'haskell-mode-hook 'hindent-mode)
-(add-hook 'haskell-mode-hook 'rainbow-delimiters-mode)
+;; Adjust indentation and line wrapping.
+(let ((spaces 2)
+      (max-line-length 100))
+  (setq-default fill-column max-line-length
+                indent-tabs-mode nil
+                tab-width spaces
+                tab-stop-list (number-sequence spaces max-line-length spaces)))
 
+;; Open URLs within Emacs.
+(when (package-installed-p 'eww)
+  (setq browse-url-browser-function 'eww-browse-url))
 
-;;----------------------------------------------------------------------------;;
-;;                SQL Interactive Mode Customization                          ;;
-;;----------------------------------------------------------------------------;;
+;; Move cursor into between CamelCaseWords.
+(global-subword-mode 1)
 
-;; TODO: There are a few good examples here: https://www.emacswiki.org/emacs/SqlMode
-;; but i want to keep it vanila as for now
+;; Undo and Redo changes in the window configuration
+;; with 'C-c left' and 'C-c right'
+;;(winner-mode t)
 
-;; - Windows specific -
-;; This is required to make MySql work under Windows
-(setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+;; Automatically revert all bufers every 5 seccons
+;; if associated file has changed.
+;;(global-auto-revert-mode t)
 
+;; Automatically save and restore sessions
+;;(desktop-save-mode t)
+;;(setq ;desktop-dirname             "~/.emacs.d/"
+;;      ;desktop-base-file-name      ".emacs.desktop"
+;;      ;desktop-base-lock-name      ".emacs.desktop.lock"
+;;      ;desktop-path                (list desktop-dirname)
+;;      ;desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
+;;      desktop-save                t
+;;      desktop-load-locked-desktop t
+;;      desktop-auto-save-timeout   30)
 
-;; We really want to have well formated tables without any truncated
-;; lines, so this is must have option.
-(add-hook 'sql-interactive-mode-hook
-          (lambda ()
-            (toggle-truncate-lines t)))
-
-
-;;----------------------------------------------------------------------------;;
-;;                         ibuffer customization                              ;;
-;;----------------------------------------------------------------------------;;
-
-;; Hidding empty filter groups in ibuffer
-(setq ibuffer-show-empty-filter-groups nil)
-
-;; Disable confirmation for unsafe actions
-;;(setq ibuffer-expert t)
-
-;; Customizaing ibuffer grouping
-(setq ibuffer-saved-filter-groups
-      (quote (("default-home"
-               ("dired" (mode . dired-mode))
-               ("csharp" (or
-                          (mode . csharp-mode)
-                          (name . ".*\\.sln")
-                          (name . ".*\\.csproj")))
-               ("haskell" (or
-                           (mode . haskell-mode)
-                           (mode . haskell-cabal-mode)
-                           (filename . "stack\\.yaml")))
-               ("sql" (or
-                       (name . "^\\*SQL\\*$")
-                       (mode . sql-mode)))
-               ("markdown" (mode . markdown-mode))
-               ("java-script" (mode . js-mode))
-               ("shell-script" (or
-                         (mode . sh-mode)
-                         (mode . bat-mode)))
-               ("docker" (mode . dockerfile-mode))
-               ("yaml" (mode . yaml-mode))
-               ("emacs" (or
-                         (name . "^\\*scratch\\*$")
-                         (name . "^\\*Messages\\*$")
-                         (name . "^\\*Help\\*$")
-                         (name . "^\\*info\\*$")
-                         (name . "^\\*Apropos\\*$")
-                         (name . "^\\*Completions\\*$")
-                         (name . "^\\*Compile-Log\\*$")
-                         (filename . "\\.emacs")
-                         (filename . "dot-emacs\\.el")
-                         (filename . "\\.emacs\\.d")))
-               ("planner" (or
-                           (name . "^\\*Calendar\\*$")
-                           (name . "^diary$")
-                           (mode . muse-mode)))
-               ("gnus" (or
-                        (mode . message-mode)
-                        (mode . bbdb-mode)
-                        (mode . mail-mode)
-                        (mode . gnus-group-mode)
-                        (mode . gnus-summary-mode)
-                        (mode . gnus-article-mode)
-                        (name . "^\\.bbdb$")
-                        (name . "^\\.newsrc-dribble")))))))
-
-;; Use human readable Size column instead of original one
-(define-ibuffer-column size-h
-  (:name "Size"
-   :inline t)
-  (cond
-   ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
-   ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
-   (t (format "%8d" (buffer-size)))))
-
-
-;; Modify the default ibuffer-formats
-;; Using 35 chars for the buffer name
-;; and setting new size-h column
-(setq ibuffer-formats
-      '((mark modified read-only " "
-              (name 35 35 :left :elide) " "
-              (size-h 9 -1 :right) " "
-              (mode 16 16 :left :elide) " "
-              filename-and-process)
-            (mark " " (name 16 -1) " " filename)))
-
-
-;; Adding hook for the custom grouping defined abowe
-(add-hook 'ibuffer-mode-hook
-          (lambda ()
-            ;; keeps the buffer list up to date
-            (ibuffer-auto-mode 1)
-            ;; I am using M-o for switcing between windows
-            ;; and this combination is used by ibuffer
-            ;; so unsetting it localy
-            (local-unset-key (kbd "M-o"))
-            (ibuffer-switch-to-saved-filter-groups "default-home")))
 
 
 ;;----------------------------------------------------------------------------;;
-;;                         Dired Customization                                ;;
+;;                          Global key bindings                               ;;
+;;----------------------------------------------------------------------------;;
+
+(bind-key "C-c C-SPC" #'delete-trailing-whitespace)
+(bind-key "C-x C-b" #'ibuffer)
+(bind-key "C-x C-k" #'init-kill-buffer-current)
+(bind-key "C-x |" #'toogle-window-split)
+(bind-key "M-/" #'hippie-expand)
+(bind-key "M-o" #'other-window) ;; Default C-x o
+(bind-key "M-*" #'pop-tag-mark) ;; Pops back to M-.
+
+
+;;----------------------------------------------------------------------------;;
+;;                          General Packages                                  ;;
+;;----------------------------------------------------------------------------;;
+
+(use-package company
+	     :ensure t
+	     :demand
+	     :diminish ""
+	     :init
+	     (progn
+	       (setq company-idle-delay 0.3)
+	       (global-company-mode)))
+
+
+(use-package exec-path-from-shell
+	     :ensure t
+	     :defer t
+	     :if (memq window-system '(mac ns))
+	     :init
+	     (progn
+	       (setq exec-path-from-shell-check-startup-files nil)
+	       (exec-path-from-shell-initialize)))
+
+
+(use-package helm
+	     :ensure t
+	     :demand
+	     :diminish ""
+	     :bind (("C-M-y" . helm-show-kill-ring)
+		    ("C-h a" . helm-apropos)
+		    ("C-x C-f" . helm-find-files)
+		    ("C-x b" . helm-mini)
+		    ("M-s o" . helm-occur)
+		    ("M-x" . helm-M-x)
+		    :map helm-map
+		    ([tab] . helm-execute-persistent-action))
+	     :init
+	     (progn
+	       (setq helm-M-x-fuzzy-match t
+		     helm-apropos-fuzzy-match t
+		     helm-buffers-fuzzy-matching t
+		     helm-ff-newfile-prompt-p nil
+		     helm-locate-fuzzy-match t
+		     helm-recentf-fuzzy-match t)
+	       (require 'helm-config)
+	       (helm-mode)))
+
+
+(use-package which-key
+	     :ensure t
+	     :demand
+	     :pin melpa
+	     :init (which-key-mode))
+
+
+(use-package yaml-mode
+	     :ensure t
+	     :defer t)
+
+
+(use-package yasnippet
+	     :ensure t
+	     :demand
+	     :diminish (yas-minor-mode . "")
+	     :init
+	     (progn
+	       (add-to-list 'hippie-expand-try-functions-list #'yas-hippie-try-expand)
+	       (yas-global-mode))
+	     :config
+	     (progn
+	       (defun init-yas-uncapitalize (cap)
+		 (concat (downcase (substring cap 0 1))
+			 (substring cap 1)))
+
+	       (unbind-key "TAB" yas-minor-mode-map)
+	       (unbind-key "<tab>" yas-minor-mode-map)))
+
+
+;;; Demo packages
+
+(use-package demo-it
+	     :ensure t
+	     :defer t)
+
+
+(use-package expand-region
+	     :ensure t
+	     :defer t
+	     :bind ("C-=" . er/expand-region))
+
+
+(use-package fancy-narrow
+	     :ensure t
+	     :defer t)
+
+
+(use-package org
+	     :ensure t
+	     :defer t
+	     :init
+	     (progn
+	       (setq org-hide-emphasis-markers t
+		     org-log-done 'time
+		     org-src-fontify-natively t
+		     org-startup-truncated nil))
+	     :config
+	     (progn
+	       (progn
+		 (org-babel-do-load-languages
+		  'org-babel-load-languages
+		  '((emacs-lisp . t)
+		    (sh . t))))))
+
+
+(use-package org-bullets
+	     :ensure t
+	     :defer t
+	     :init
+	     (progn
+	       (add-hook 'org-mode-hook #'org-bullets-mode)))
+
+
+(use-package org-tree-slide
+	     :ensure t
+	     :defer t)
+
+
+;;; Development Packages
+
+(use-package compile
+	     :ensure t
+	     :defer t
+	     :init
+	     (progn
+	       (setq compilation-scroll-output 'first-error)
+
+	       (defun init-compilation-colorize ()
+		 "Colorize compilation."
+		 (let ((inhibit-read-only t))
+		   (goto-char compilation-filter-start)
+		   (move-beginning-of-line nil)
+		   (ansi-color-apply-on-region (point) (point-max))))
+
+	       (add-hook 'compilation-filter-hook #'init-compilation-colorize)))
+
+
+(use-package etags
+	     :ensure t
+	     :bind (("M-." . init-goto-tag))
+	     :init
+	     (progn
+	       (setq tags-revert-without-query t))
+	     :config
+	     (progn
+	       (defun init-goto-tag ()
+		 "Jump to the definition."
+		 (interactive)
+		 (find-tag (find-tag-default)))))
+
+
+(use-package helm-projectile
+	     :ensure t
+	     :demand
+	     :init
+	     (progn
+	       (setq projectile-completion-system 'helm)
+	       (helm-projectile-on)))
+
+
+(use-package flycheck
+	     :ensure t
+	     :demand
+	     :diminish ""
+	     :bind (:map flycheck-mode-map
+			 ("M-n" . flycheck-next-error)
+			 ("M-p" . flycheck-previous-error))
+	     :init
+	     (progn
+	       (add-hook 'after-init-hook #'global-flycheck-mode))
+	     :config
+	     (progn
+	       (defun init-flycheck-may-enable-mode (f)
+		 "Disallow flycheck in special buffers."
+		 (interactive)
+		 (and (not (string-prefix-p "*" (buffer-name)))
+		      (apply (list f))))
+
+	       (advice-add 'flycheck-may-enable-mode :around
+			   #'init-flycheck-may-enable-mode)))
+
+
+(use-package magit
+	     :ensure t
+	     :defer t
+	     :init
+	     (progn
+	       (setq magit-push-always-verify nil
+		     magit-revert-buffers t)
+	       (add-hook 'git-commit-mode-hook #'flyspell-mode)))
+
+
+(use-package paren
+	     :ensure t
+	     :defer t
+	     :init
+	     (show-paren-mode))
+
+
+(use-package projectile
+	     :ensure t
+	     :demand
+	     :diminish ""
+	     :init
+	     (progn
+	       (defun init-projectile-test-suffix (project-type)
+		 "Find default test files suffix based on PROJECT-TYPE."
+		 (cond ((member project-type '(haskell-stack)) "Spec")
+		       (t (projectile-test-suffix project-type))))
+
+	       (setq projectile-create-missing-test-files t
+		     projectile-mode-line nil
+		     projectile-test-suffix-function #'init-projectile-test-suffix
+		     projectile-use-git-grep t)
+	       (make-variable-buffer-local 'projectile-tags-command)
+	       (projectile-mode)))
+
+
+;;; Haskell Packages
+
+(use-package haskell-mode
+	     :ensure t
+	     :defer t
+	     :bind (:map haskell-mode-map
+			 ("M-g i" . haskell-navigate-imports)
+			 ("M-g M-i" . haskell-navigate-imports))
+	     :init
+	     (progn
+	       (setq haskell-compile-cabal-build-alt-command
+		     "cd %s && stack clean && stack build --ghc-options -ferror-spans"
+		     haskell-compile-cabal-build-command
+		     "cd %s && stack build --ghc-options -ferror-spans"
+		     haskell-compile-command
+		     "stack ghc -- -Wall -ferror-spans -fforce-recomp -c %s")))
+
+
+(use-package haskell-snippets
+	     :ensure t
+	     :defer t)
+
+
+(use-package hlint-refactor
+	     :ensure t
+	     :defer t
+	     :diminish ""
+	     :init (add-hook 'haskell-mode-hook #'hlint-refactor-mode))
+
+
+(use-package intero
+	     :ensure t
+	     :defer t
+	     :diminish " λ"
+	     :bind (:map intero-mode-map
+			 ("M-." . init-intero-goto-definition))
+	     :init
+	     (progn
+	       (defun init-intero ()
+		 "Enable Intero unless visiting a cached dependency."
+		 (if (and buffer-file-name
+			  (string-match ".+/\\.\\(stack\\|stack-work\\)/.+" buffer-file-name))
+		     (progn
+		       (eldoc-mode -1)
+		       (flycheck-mode -1))
+		   (intero-mode)
+		   (setq projectile-tags-command "codex update")))
+
+	       (add-hook 'haskell-mode-hook #'init-intero))
+	     :config
+	     (progn
+	       (defun init-intero-goto-definition ()
+		 "Jump to the definition of the thing at point using Intero or etags."
+		 (interactive)
+		 (or (intero-goto-definition)
+		     (find-tag (find-tag-default))))
+
+	       (flycheck-add-next-checker 'intero '(warning . haskell-hlint))))
+
+
+;;; DotNet packages
+
+(use-package csharp-mode
+	     :ensure t
+	     :defer t)
+
+
+(use-package omnisharp
+	     :ensure t
+             :defer t
+             :bind (:map omnisharp-mode-map
+                         ("M-." . omnisharp-go-to-definition))
+             :init
+             (progn
+               (setq omnisharp-server-executable-path
+                     "/usr/share/omnisharp/OmniSharp")
+               ;;omnisharp--curl-executable-path "~/emacs-env/curl.exe"
+               (add-hook 'csharp-mode-hook #'omnisharp-mode)))
+
+
+(use-package rainbow-delimiters
+	     :ensure t
+             :defer t
+             :init
+             (progn
+               (add-hook 'csharp-mode-hook #'rainbow-delimiters-mode)))
+
+
+(use-package markdown-mode
+	     :ensure t
+             :defer t)
+
+
+(use-package dockerfile-mode
+	     :ensure t
+             :defer t)
+
+
+(use-package sql
+	     :ensure t
+	     :defer t
+             :init
+             (progn
+               (setq sql-mysql-options '("-C" "-t" "-f" "-n"))
+               (add-hook 'sql-interactive-mode-hook
+                         (lambda ()
+                           (toggle-truncate-lines t)))))
+
+
+(use-package dired
+	     :ensure nil
+	     :defer t
+	     
+	     :bind (:map dired-mode-map
+			 ("^" . up-dir-in-same-buf))
+	     
+	     :config
+	     (defun up-dir-in-same-buf ()
+	       "Up to parent directory in the same buffer."
+	       (interactive)
+	       (find-alternate-file ".."))
+
+	     ;; always delete and copy recursively
+	     (setq dired-recursive-deletes 'always)
+	     (setq dired-recursive-copies 'always)
+
+	     ;; if there is a dired buffer displayed in the next window, use its
+	     ;; current subdir, instead of the current subdir of this dired buffer
+	     (setq dired-dwim-target t))
+
+
+(use-package ibuffer
+	     :ensure t
+	     :defer t
+	     :init
+	     (progn
+	       (defun init-ibuffer ()
+		 "Sets the default filter group for ibuffer."
+		 (ibuffer-auto-mode 1)
+		 (ibuffer-switch-to-saved-filter-groups "default-home"))
+
+	       (add-hook 'ibuffer-mode-hook #'init-ibuffer))
+	     
+	     :config
+	     (progn
+	       (setq ibuffer-show-empty-filter-groups nil)
+	       (setq ibuffer-saved-filter-groups
+		     (quote (("default-home"
+			      ("dired" (mode . dired-mode))
+			      ("csharp" (or
+					 (mode . csharp-mode)
+					 (name . ".*\\.sln")
+					 (name . ".*\\.csproj")))
+			      ("haskell" (or
+					  (mode . haskell-mode)
+					  (mode . haskell-cabal-mode)
+					  (filename . "stack\\.yaml")))
+			      ("sql" (or
+				      (name . "^\\*SQL\\*$")
+				      (mode . sql-mode)))
+			      ("markdown" (mode . markdown-mode))
+			      ("java-script" (mode . js-mode))
+			      ("shell-script" (or
+					       (mode . sh-mode)
+					       (mode . bat-mode)))
+			      ("docker" (mode . dockerfile-mode))
+			      ("yaml" (mode . yaml-mode))
+			      ("emacs" (or
+					(name . "^\\*scratch\\*$")
+					(name . "^\\*Messages\\*$")
+					(name . "^\\*Help\\*$")
+					(name . "^\\*info\\*$")
+					(name . "^\\*Apropos\\*$")
+					(name . "^\\*Completions\\*$")
+					(name . "^\\*Compile-Log\\*$")
+					(filename . "\\.emacs")
+					(filename . "dot-emacs\\.el")
+					(filename . "\\.emacs\\.d")))
+			      ("planner" (or
+					  (name . "^\\*Calendar\\*$")
+					  (name . "^diary$")
+					  (mode . muse-mode)))
+			      ("gnus" (or
+				       (mode . message-mode)
+				       (mode . bbdb-mode)
+				       (mode . mail-mode)
+				       (mode . gnus-group-mode)
+				       (mode . gnus-summary-mode)
+				       (mode . gnus-article-mode)
+				       (name . "^\\.bbdb$")
+				       (name . "^\\.newsrc-dribble")))))))
+	       
+	       (define-ibuffer-column size-h
+		 (:name "Size"
+			:inline t)
+		 (cond
+		  ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+		  ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+		  (t (format "%8d" (buffer-size)))))
+	       
+	       (setq ibuffer-formats
+		     '((mark modified read-only " "
+			     (name 35 35 :left :elide) " "
+			     (size-h 9 -1 :right) " "
+			     (mode 16 16 :left :elide) " "
+			     filename-and-process)
+		       (mark " " (name 16 -1) " " filename)))
+	       (unbind-key "M-o" ibuffer-mode-map)))
+
+
+;;----------------------------------------------------------------------------;;
+;;                          Enable Disabled Features                          ;;
 ;;----------------------------------------------------------------------------;;
 
 ;; https://www.emacswiki.org/emacs/DiredReuseDirectoryBuffer
 ;; We can use 'a' to open directory in the same buffer
 (put 'dired-find-alternate-file 'disabled nil)
 
-;; We are replacing the current buffer using '^'
-(add-hook 'dired-mode-hook
- (lambda ()
-  (define-key dired-mode-map (kbd "^")
-    (lambda () (interactive) (find-alternate-file "..")))
-  ; was dired-up-directory
-  ))
+(put 'downcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)
+(put 'upcase-region 'disabled nil)
 
-
-;;----------------------------------------------------------------------------;;
-;;                           Default-Frame-Alist                              ;;
-;;----------------------------------------------------------------------------;;
 
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-;(add-to-list 'default-frame-alist '(cursor-color . "white"))
-
-
-;;----------------------------------------------------------------------------;;
-;;                          General Configuration                             ;;
-;;----------------------------------------------------------------------------;;
-
-(menu-bar-mode -1)
-(if window-system
-    (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
-
-;; stop creating backup~ files
-(setq make-backup-files nil)
-;; stop creating #autosave# files
-(setq auto-save-default nil)
-
-;; Automatically save and restore sessions
-(setq ;desktop-dirname             "~/.emacs.d/"
-      ;desktop-base-file-name      ".emacs.desktop"
-      ;desktop-base-lock-name      ".emacs.desktop.lock"
-      ;desktop-path                (list desktop-dirname)
-      ;desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
-      desktop-save                t
-      desktop-load-locked-desktop t
-      desktop-auto-save-timeout   30)
-(desktop-save-mode t)
-(winner-mode t)
-(global-auto-revert-mode t)
-
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
-(ido-mode 1)
-
-(setq indent-tabs-mode -1)
-
-(column-number-mode 1)
-
-(when (require 'mwheel nil 'noerror)
-  (mouse-wheel-mode -1))
-
-;; - Windows Specific -
-;; C+M works: http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
-(setq w32-recognize-altgr nil)
+					;(add-to-list 'default-frame-alist '(cursor-color . "white"))
 
 ;;; init.el ends here
