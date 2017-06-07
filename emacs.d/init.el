@@ -755,9 +755,11 @@
               ("M-." . omnisharp-go-to-definition))
   
   :init
-  (setq omnisharp-server-executable-path
-        "/usr/share/omnisharp/OmniSharp")
-  ;;omnisharp--curl-executable-path "~/emacs-env/curl.exe"
+  ;;(setq omnisharp-server-executable-path
+  ;;      "/usr/share/omnisharp/OmniSharp"
+  ;;      omnisharp--curl-executable-path
+  ;;      "~/emacs-env/curl.exe")
+  (push 'company-omnisharp company-backends)
   (add-hook 'csharp-mode-hook #'omnisharp-mode))
 
 
