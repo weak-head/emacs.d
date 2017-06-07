@@ -448,20 +448,28 @@
   (unbind-key "M-o" ibuffer-mode-map))
 
 
-;; (use-package ibuffer-vc
-;;   :ensure t
-;;   :defer t
-;;   :init (add-hook 'ibuffer-hook
-;;                   (lambda ()
-;;                     (ibuffer-vc-set-filter-groups-by-vc-root)
-;;                     (unless (eq ibuffer-sorting-mode 'alphabetic)
-;;                       (ibuffer-do-sort-by-alphabetic)))))
+(use-package ibuffer-vc
+  :ensure t
+  :defer t
+  :disabled t
+  
+  :init
+  (defun init-ibuffer-vc-groups ()
+    "Inits vc groups for ibuffer"
+    (ibuffer-vc-set-filter-groups-by-vc-root)
+    (unless (eq ibuffer-sorting-mode 'alphabetic)
+      (ibuffer-do-sort-by-alphabetic)))
+  
+  (add-hook 'ibuffer-hook #'init-ibuffer-vc-groups))
 
-;; (use-package ibuffer-projectile
-;;   :ensure t
-;;   :disabled t
-;;   :defer t
-;;   :init (add-hook 'ibuffer-hook #'ibuffer-projectile-set-filter-groups))
+
+(use-package ibuffer-projectile
+  :ensure t
+  :disabled t
+  :defer t
+  
+  :init
+  (add-hook 'ibuffer-hook #'ibuffer-projectile-set-filter-groups))
   
 ;;----------------------------------------------------------------------------;;
 ;;                          Demo-it related packages                          ;;
