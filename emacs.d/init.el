@@ -4,7 +4,7 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
-;; 
+;;
 
 
 ;;; Commentary:
@@ -185,7 +185,7 @@
       ("zenburn-bg+1"     . "#3F3F3F")
       ("zenburn-bg+2"     . "#494949")
       ("zenburn-bg+3"     . "#4F4F4F")))
-  
+
   (load-theme 'zenburn 'no-confirm))
 
 ;; Prevent accidental Emacs closure.
@@ -306,7 +306,7 @@
   :ensure t
   :defer t
   :if (memq window-system '(mac ns))
-  
+
   :init
   (setq exec-path-from-shell-check-startup-files nil)
   (exec-path-from-shell-initialize))
@@ -316,7 +316,7 @@
   :ensure t
   :demand
   :diminish ""
-  
+
   :bind (("C-M-y" . helm-show-kill-ring)
          ("C-h a" . helm-apropos)
          ("C-x C-f" . helm-find-files)
@@ -325,7 +325,7 @@
          ("M-x" . helm-M-x)
          :map helm-map
          ([tab] . helm-execute-persistent-action))
-  
+
   :init
   (setq helm-M-x-fuzzy-match t
         helm-apropos-fuzzy-match t
@@ -341,23 +341,36 @@
   :ensure t
   :demand
   :pin melpa
+
   :init
-  (which-key-mode))
+  (which-key-mode)
+
+  :config
+  (setq which-key-idle-delay 0.4)
+  (setq which-key-sort-order 'which-key-prefix-then-key-order)
+
+   ; global map prefixes
+  (which-key-add-key-based-replacements
+    "C-c !" "flycheck"
+    "C-c &" "yasnippet"
+    "C-c f" "files"
+    "C-c p" "projects"
+    "C-c t" "toggle"))
 
 
 (use-package dired
   :ensure nil
   :defer t
-  
+
   :bind (:map dired-mode-map
               ("^" . up-dir-in-same-buf))
-  
+
   :config
   (defun up-dir-in-same-buf ()
     "Up to parent directory in the same buffer."
     (interactive)
     (find-alternate-file ".."))
-  
+
   ;; always delete and copy recursively
   (setq dired-recursive-deletes 'always)
   (setq dired-recursive-copies 'always)
@@ -379,13 +392,13 @@
 (use-package dired-x
   :defer nil
   :after dired
-  
+
   :bind (("C-c f j" . dired-jump)
          ("C-x C-j" . dired-jump))
-  
+
   :init
   (add-hook 'dired-mode-hook #'dired-omit-mode)
-  
+
   :config
   (setq dired-omit-verbose nil)
 
@@ -405,7 +418,7 @@
 (use-package ibuffer
   :ensure t
   :defer t
-  
+
   :init
   (defun init-ibuffer ()
     "Sets the default filter group for ibuffer."
@@ -413,7 +426,7 @@
     (ibuffer-switch-to-saved-filter-groups "default-home"))
 
   (add-hook 'ibuffer-mode-hook #'init-ibuffer)
-  
+
   :config
   (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-saved-filter-groups
@@ -449,7 +462,6 @@
                            (filename . "dot-emacs\\.el")
                            (filename . "\\.emacs\\.d")
                            (filename . "init\\.el")))
-                 
                  ("planner" (or
                              (name . "^\\*Calendar\\*$")
                              (name . "^diary$")
@@ -463,7 +475,7 @@
                           (mode . gnus-article-mode)
                           (name . "^\\.bbdb$")
                           (name . "^\\.newsrc-dribble")))))))
-  
+
   (define-ibuffer-column size-h
     (:name "Size"
      :inline t)
@@ -471,7 +483,7 @@
      ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
      ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
      (t (format "%8d" (buffer-size)))))
-  
+
   (setq ibuffer-formats
         '((mark modified read-only " "
                 (name 35 35 :left :elide) " "
@@ -479,7 +491,7 @@
                 (mode 16 16 :left :elide) " "
                 filename-and-process)
           (mark " " (name 16 -1) " " filename)))
-  
+
   (unbind-key "M-o" ibuffer-mode-map))
 
 
@@ -487,14 +499,14 @@
   :ensure t
   :defer t
   :disabled t
-  
+
   :init
   (defun init-ibuffer-vc-groups ()
     "Inits vc groups for ibuffer"
     (ibuffer-vc-set-filter-groups-by-vc-root)
     (unless (eq ibuffer-sorting-mode 'alphabetic)
       (ibuffer-do-sort-by-alphabetic)))
-  
+
   (add-hook 'ibuffer-hook #'init-ibuffer-vc-groups))
 
 
@@ -502,10 +514,14 @@
   :ensure t
   :disabled t
   :defer t
-  
+
   :init
   (add-hook 'ibuffer-hook #'ibuffer-projectile-set-filter-groups))
-  
+
+
+(use-package bug-hunter
+  :ensure t)
+
 ;;----------------------------------------------------------------------------;;
 ;;                          Demo-it related packages                          ;;
 ;;----------------------------------------------------------------------------;;
@@ -534,7 +550,7 @@
         org-log-done 'time
         org-src-fontify-natively t
         org-startup-truncated nil)
-  
+
   :config
   (org-babel-do-load-languages
    'org-babel-load-languages '((emacs-lisp . t) (sh . t))))
@@ -558,10 +574,10 @@
 (use-package compile
   :ensure t
   :defer t
-  
+
   :init
   (setq compilation-scroll-output 'first-error)
-  
+
   (defun init-compilation-colorize ()
     "Colorize compilation."
     (let ((inhibit-read-only t))
@@ -575,10 +591,10 @@
 (use-package etags
   :ensure t
   :bind (("M-." . init-goto-tag))
-  
+
   :init
   (setq tags-revert-without-query t)
-  
+
   :config
   (defun init-goto-tag ()
     "Jump to the definition."
@@ -590,7 +606,7 @@
   :ensure t
   :demand
   :diminish ""
-  
+
   :init
   (defun init-projectile-test-suffix (project-type)
     "Find default test files suffix based on PROJECT-TYPE."
@@ -601,7 +617,7 @@
         projectile-mode-line nil
         projectile-test-suffix-function #'init-projectile-test-suffix
         projectile-use-git-grep t)
-  
+
   (make-variable-buffer-local 'projectile-tags-command)
   (projectile-mode))
 
@@ -609,7 +625,7 @@
 (use-package helm-projectile
   :ensure t
   :demand
-  
+
   :init
   (setq projectile-completion-system 'helm)
   (helm-projectile-on))
@@ -622,10 +638,10 @@
   :bind (:map flycheck-mode-map
               ("M-n" . flycheck-next-error)
               ("M-p" . flycheck-previous-error))
-  
+
   :init
   (add-hook 'after-init-hook #'global-flycheck-mode)
-  
+
   :config
   (defun init-flycheck-may-enable-mode (f)
     "Disallow flycheck in special buffers."
@@ -640,7 +656,7 @@
 (use-package magit
   :ensure t
   :defer t
-  
+
   :init
   (setq magit-push-always-verify nil
         magit-revert-buffers t)
@@ -662,11 +678,11 @@
   :ensure t
   :demand
   :diminish (yas-minor-mode . "")
-  
+
   :init
   (add-to-list 'hippie-expand-try-functions-list #'yas-hippie-try-expand)
   (yas-global-mode)
-  
+
   :config
   (defun init-yas-uncapitalize (cap)
     (concat (downcase (substring cap 0 1))
@@ -689,6 +705,17 @@
   :bind (("C-c t l" . nlinum-mode)))
 
 
+(use-package whitespace
+  :ensure nil
+  :bind (("C-c t w" . whitespace-mode))
+
+  :config
+  (setq whitespace-style '(face indentation space-after-tab
+                                space-before-tab tab-mark
+                                empty trailing lines-tail))
+  (setq whitespace-line-column nil))
+
+
 (use-package markdown-mode
   :ensure t
   :defer t)
@@ -707,7 +734,7 @@
 (use-package sql
   :ensure t
   :defer t
-  
+
   :init
   (setq sql-mysql-options '("-C" "-t" "-f" "-n"))
   (add-hook 'sql-interactive-mode-hook
@@ -722,11 +749,11 @@
 (use-package haskell-mode
   :ensure t
   :defer t
-  
+
   :bind (:map haskell-mode-map
               ("M-g i" . haskell-navigate-imports)
               ("M-g M-i" . haskell-navigate-imports))
-  
+
   :init
   (setq haskell-compile-cabal-build-alt-command
         "cd %s && stack clean && stack build --ghc-options -ferror-spans"
@@ -745,7 +772,7 @@
   :ensure t
   :defer t
   :diminish ""
-  
+
   :init
   (add-hook 'haskell-mode-hook #'hlint-refactor-mode))
 
@@ -754,10 +781,10 @@
   :ensure t
   :defer t
   :diminish " λ"
-  
+
   :bind (:map intero-mode-map
               ("M-." . init-intero-goto-definition))
-  
+
   :init
   (defun init-intero ()
     "Enable Intero unless visiting a cached dependency."
@@ -770,7 +797,7 @@
       (setq projectile-tags-command "codex update")))
 
   (add-hook 'haskell-mode-hook #'init-intero)
-  
+
   :config
   (defun init-intero-goto-definition ()
     "Jump to the definition of the thing at point using Intero or etags."
@@ -793,10 +820,10 @@
 (use-package omnisharp
   :ensure t
   :defer t
-  
+
   :bind (:map omnisharp-mode-map
               ("M-." . omnisharp-go-to-definition))
-  
+
   :init
   ;;(setq omnisharp-server-executable-path
   ;;      "/usr/share/omnisharp/OmniSharp"
