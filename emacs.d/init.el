@@ -475,7 +475,7 @@
                           (mode . gnus-article-mode)
                           (name . "^\\.bbdb$")
                           (name . "^\\.newsrc-dribble")))
-                 ("helm" (mode . helm-major-mode)))))))
+                 ("helm" (mode . helm-major-mode))))))
 
   (define-ibuffer-column size-h
     (:name "Size"
