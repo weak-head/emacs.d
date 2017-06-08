@@ -283,7 +283,7 @@
 (bind-key "C-c C-SPC" #'delete-trailing-whitespace)
 (bind-key "C-x C-b" #'ibuffer)
 (bind-key "C-x C-k" #'init-kill-buffer-current)
-(bind-key "C-x |" #'toogle-window-split)
+(bind-key "C-x |" #'toggle-window-split)
 (bind-key "M-/" #'hippie-expand)
 (bind-key "M-o" #'other-window) ;; Default C-x o
 (bind-key "M-*" #'pop-tag-mark) ;; Pops back to M-.
