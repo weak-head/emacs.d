@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Configuration for company mode.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package company
   :ensure t

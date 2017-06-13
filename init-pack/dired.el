@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Configuration for dirred mode.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package dired
   :ensure nil

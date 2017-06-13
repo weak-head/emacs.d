@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Projectile configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package projectile
   :ensure t

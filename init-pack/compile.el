@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Configuration for compile.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package compile
   :ensure t

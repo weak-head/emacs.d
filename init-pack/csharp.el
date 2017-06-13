@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Configuration for csharp and dotnet.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package csharp-mode
   :ensure t

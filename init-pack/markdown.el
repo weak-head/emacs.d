@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Markdown mode configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package markdown-mode
   :ensure t

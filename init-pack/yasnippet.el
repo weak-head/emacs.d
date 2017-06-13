@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Yasnippet configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package yasnippet
   :ensure t

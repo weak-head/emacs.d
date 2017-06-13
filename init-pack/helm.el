@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Helm configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package helm
   :ensure t

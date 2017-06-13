@@ -4,6 +4,7 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
 ;;
@@ -11,9 +12,11 @@
 ;;
 
 ;;; Code:
+;;
+;;
 
 
-;;; Package management
+;;; -- Package management --
 
 (setq load-prefer-newer t)
 
@@ -24,7 +27,7 @@
 (package-initialize)
 
 
-;;; Initializing use-package
+;;; -- Initializing use-package --
 
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
@@ -37,27 +40,30 @@
 (require 'diminish)
 
 
-;;; Loading configuration
+;;; -- Loading configuration --
 
-;; Store customizations in a separate file.
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+;; Customizations goes into separate file.
+(setq custom-file
+      (expand-file-name "init-glob/custom.el" user-emacs-directory))
 (load custom-file)
 
-;; Global configuration.
-(load (expand-file-name "global.el" user-emacs-directory))
+;; Functions.
+(load (expand-file-name "init-glob/defun.el" user-emacs-directory))
 
-;; Load all init/*.el files.
-(dolist (file (directory-files (expand-file-name "init" user-emacs-directory) :full "\\.el$"))
+;; UI.
+(load (expand-file-name "init-glob/ui.el" user-emacs-directory))
+
+;; Common global config.
+(load (expand-file-name "init-glob/common.el" user-emacs-directory))
+
+;; Global key bindings.
+(load (expand-file-name "init-glob/keys.el" user-emacs-directory))
+
+;; Packages.
+(dolist (file (directory-files
+               (expand-file-name "init-pack" user-emacs-directory)
+               :full "\\.el$"))
   (load file))
-
-
-;;; Enabling some usefull features
-
-(put 'dired-find-alternate-file 'disabled nil)
-(put 'downcase-region 'disabled nil)
-(put 'narrow-to-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
-(put 'set-goal-column 'disabled nil)
 
 
 ;;; init.el ends here

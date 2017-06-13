@@ -1,15 +1,19 @@
-;;; demo-it.el --- Configuration for demo and related packages. -*- lexical-binding: t; -*-
+;;; demo.el --- Configuration for demo and related packages. -*- lexical-binding: t; -*-
 ;;
 ;; Copyright (c) 2017 Oleksandr Zinchenko
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Demo configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package demo-it
   :ensure t
@@ -24,4 +28,4 @@
   :ensure t
   :defer t)
 
-;;; demo-it.el ends here
+;;; demo.el ends here

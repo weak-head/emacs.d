@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; which-key configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package which-key
   :ensure t

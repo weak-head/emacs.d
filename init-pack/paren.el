@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Paren realated configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package paren
   :ensure t

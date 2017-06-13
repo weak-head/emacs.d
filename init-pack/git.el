@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Git related configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package git-gutter
   :ensure t

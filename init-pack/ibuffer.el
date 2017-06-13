@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Ibuffer related configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package ibuffer
   :ensure t

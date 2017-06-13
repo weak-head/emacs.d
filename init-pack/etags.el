@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Etags configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package etags
   :ensure t

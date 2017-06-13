@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Sql related configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package sql
   :ensure t

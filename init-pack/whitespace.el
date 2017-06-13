@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; whitespace mode configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package whitespace
   :ensure nil

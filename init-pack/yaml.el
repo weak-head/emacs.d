@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Yaml mode configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package yaml-mode
   :ensure t

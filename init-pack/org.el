@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Org configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package org
   :ensure t

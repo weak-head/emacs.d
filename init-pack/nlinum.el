@@ -4,12 +4,16 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Linum mode configuration.
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package nlinum
   :ensure t

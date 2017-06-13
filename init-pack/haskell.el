@@ -4,16 +4,20 @@
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
+;;
 
 ;;; Commentary:
-
+;;
 ;; Haskell related configuration.
 ;;
 ;; Requirements:
 ;;
 ;;   stack install apply-refact codex hasktags hlint
+;;
 
 ;;; Code:
+;;
+;;
 
 (use-package haskell-mode
   :ensure t
