@@ -82,6 +82,9 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+;; No cursor blinking.
+(blink-cursor-mode 0)
+
 ;; Display column number in modeline.
 (setq column-number-mode t)
 
