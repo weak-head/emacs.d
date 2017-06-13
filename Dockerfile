@@ -3,5 +3,5 @@ MAINTAINER Oleksandr Zinchenko "zinchenko@live.com"
 
 RUN apt-get update && apt-get install -y emacs24-nox
 
-COPY emacs.d/ /root/.emacs.d/
+COPY ./ /root/.emacs.d/
 CMD ["/bin/bash"]
