@@ -1,20 +1,17 @@
 ;;; init.el --- Emacs configuration of Oleksandr Zinchenko -*- lexical-binding: t; -*-
 ;;
-;; Copyright (c) 2017 Oleksandr Zinchenko <zinchenko@live.com>
+;; Copyright (c) 2017 Oleksandr Zinchenko
 ;;
 ;; Author: Oleksandr Zinchenko <zinchenko@live.com>
 ;; URL: TBD
-
 
 ;;; Commentary:
 ;;
 ;; Emacs configuration of Oleksandr Zinchenko.
 ;;
 
-
 ;;; Code:
-;;
-;;
+
 
 ;;; Package management
 
