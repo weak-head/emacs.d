@@ -40,7 +40,7 @@
                              (mode . haskell-mode)
                              (mode . haskell-cabal-mode)
                              (filename . "stack\\.yaml")))
-                 ("elisp" (mode . elisp-mode))
+                 ("elisp" (mode . emacs-lisp-mode))
                  ("sql" (or
                          (name . "^\\*SQL\\*$")
                          (mode . sql-mode)))
