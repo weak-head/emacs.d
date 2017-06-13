@@ -23,14 +23,14 @@
   (defun init-ibuffer ()
     "Sets the default filter group for ibuffer."
     (ibuffer-auto-mode 1)
-    (ibuffer-switch-to-saved-filter-groups "default-home"))
+    (ibuffer-switch-to-saved-filter-groups "mode-based-groups"))
 
   (add-hook 'ibuffer-mode-hook #'init-ibuffer)
 
   :config
   (setq ibuffer-show-empty-filter-groups nil)
   (setq ibuffer-saved-filter-groups
-        (quote (("default-home"
+        (quote (("mode-based-groups"
                  ("dired" (mode . dired-mode))
                  ("csharp" (or
                             (mode . csharp-mode)
@@ -40,6 +40,7 @@
                              (mode . haskell-mode)
                              (mode . haskell-cabal-mode)
                              (filename . "stack\\.yaml")))
+                 ("elisp" (mode . elisp-mode))
                  ("sql" (or
                          (name . "^\\*SQL\\*$")
                          (mode . sql-mode)))
@@ -50,6 +51,7 @@
                                   (mode . bat-mode)))
                  ("docker" (mode . dockerfile-mode))
                  ("yaml" (mode . yaml-mode))
+                 ("helm" (mode . helm-major-mode))
                  ("emacs" (or
                            (name . "^\\*scratch\\*$")
                            (name . "^\\*Messages\\*$")
@@ -57,11 +59,7 @@
                            (name . "^\\*info\\*$")
                            (name . "^\\*Apropos\\*$")
                            (name . "^\\*Completions\\*$")
-                           (name . "^\\*Compile-Log\\*$")
-                           (filename . "\\.emacs")
-                           (filename . "dot-emacs\\.el")
-                           (filename . "\\.emacs\\.d")
-                           (filename . "init\\.el")))
+                           (name . "^\\*Compile-Log\\*$")))
                  ("planner" (or
                              (name . "^\\*Calendar\\*$")
                              (name . "^diary$")
@@ -74,8 +72,7 @@
                           (mode . gnus-summary-mode)
                           (mode . gnus-article-mode)
                           (name . "^\\.bbdb$")
-                          (name . "^\\.newsrc-dribble")))
-                 ("helm" (mode . helm-major-mode))))))
+                          (name . "^\\.newsrc-dribble")))))))
 
   (define-ibuffer-column size-h
     (:name "Size"
