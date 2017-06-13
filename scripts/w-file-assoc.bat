@@ -28,7 +28,7 @@ REM -----------------------------------------
 REM The Emacs bin folder and main executables
 
 REM The Emacs bin folder
-set EMACS_PATH_BIN=C:\Program Files\emacs-25.1-2-x86_64-w64-mingw32\bin\
+set EMACS_PATH_BIN=C:\emacs\bin\
 
 REM The Emacs client executable
 set EMACS_PATH_CLIENTW=%EMACS_PATH_BIN%emacsclientw.exe
