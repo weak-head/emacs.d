@@ -32,7 +32,7 @@
     "C-c !" "flycheck"
     "C-c &" "yasnippet"
     "C-c f" "files"
-    "C-c p" "projects"
+    "C-c p" "projectile"
     "C-c t" "toggle"))
 
 ;;; which-key.el ends here

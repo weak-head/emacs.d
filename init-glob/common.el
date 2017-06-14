@@ -39,6 +39,12 @@
 ;; Memory threshold for GC
 (setq gc-cons-threshold 100000000)
 
+;; UTF-8 as default encoding
+(prefer-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+
 ;; -- Windows Specific --
 ;; C+M works:
 ;;   http://www.gnu.org/software/emacs/manual/html_node/emacs/Windows-Keyboard.html
