@@ -76,9 +76,10 @@ set EMACS_FILE_TYPE[300]=.md
 
 REM Other files (500 - 999)
 set EMACS_FILE_TYPE[500]=.gitignore
-set EMACS_FILE_TYPE[501]=.ini
-set EMACS_FILE_TYPE[502]=.markdown
-set EMACS_FILE_TYPE[503]=.makefile
+set EMACS_FILE_TYPE[501]=.gitattributes
+set EMACS_FILE_TYPE[510]=.ini
+set EMACS_FILE_TYPE[520]=.markdown
+set EMACS_FILE_TYPE[530]=.makefile
 
 
 REM --------------------------------------------------------------------------
