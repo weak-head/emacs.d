@@ -12,7 +12,10 @@
 ;;
 ;; Requirements:
 ;;
-;;   stack install apply-refact codex hasktags hlint
+;;   stack setup
+;;   stack build intero
+;;   stack install apply-refact codex hasktags hlint hpack
+;;   codex set format emacs
 ;;
 
 ;;; Code:
