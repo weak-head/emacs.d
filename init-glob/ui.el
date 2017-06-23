@@ -21,14 +21,14 @@
   :demand
   :init
   ;; Increase background contrast.
-  (defvar zenburn-override-colors-alist
-    '(("zenburn-bg-1"     . "#101010")
-      ("zenburn-bg-05"    . "#202020")
-      ("zenburn-bg"       . "#2B2B2B")
-      ("zenburn-bg+05"    . "#383838")
-      ("zenburn-bg+1"     . "#3F3F3F")
-      ("zenburn-bg+2"     . "#494949")
-      ("zenburn-bg+3"     . "#4F4F4F")))
+  ;; (defvar zenburn-override-colors-alist
+  ;;   '(("zenburn-bg-1"     . "#101010")
+  ;;     ("zenburn-bg-05"    . "#202020")
+  ;;     ("zenburn-bg"       . "#2B2B2B")
+  ;;     ("zenburn-bg+05"    . "#383838")
+  ;;     ("zenburn-bg+1"     . "#3F3F3F")
+  ;;     ("zenburn-bg+2"     . "#494949")
+  ;;     ("zenburn-bg+3"     . "#4F4F4F")))
 
   (load-theme 'zenburn 'no-confirm))
 
