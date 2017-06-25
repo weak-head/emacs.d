@@ -15,10 +15,20 @@
 ;;
 ;;
 
+;; Kaolin theme
+(use-package kaolin-theme
+  :ensure t
+  :demand
+  
+  :init
+  (load-theme 'kaolin 'no-confirm))
+
 ;; Using the UI theme
 (use-package zenburn-theme
   :ensure t
   :demand
+  :disabled t
+
   :init
   ;; Increase background contrast.
   ;; (defvar zenburn-override-colors-alist
