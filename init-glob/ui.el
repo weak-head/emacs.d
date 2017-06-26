@@ -49,10 +49,10 @@
 
 ;; My favorite fonts:
 ;;  - Droid Sans Mono
-;;
-;; Fonts to check:
-;;  - Inconsolata  (Medium)
-;;  - Source Code Pro (Light)
+;;  - Consolas
+;;  - Ubuntu Mono
+;;  - Source Code Pro Light
+;;  - Inconsolata
 ;;
 ;; Other fonts:
 ;;  - Menlo
@@ -61,7 +61,6 @@
 ;;  - Anonymous Pro
 ;;  - Bitstream Vera Sans Mono
 ;;  - Monaco
-;;  - Consolas
 ;;  - Courier New
 ;;  - Terminus
 ;;  - Envy Code R
@@ -73,7 +72,7 @@
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts
 (set-face-attribute 'default nil
-                    :family "Droid Sans Mono"
+                    :family "Consolas"
                     :height 98
                     :weight 'normal
                     :width 'normal)
