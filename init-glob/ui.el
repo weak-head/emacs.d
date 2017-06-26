@@ -8,7 +8,10 @@
 
 ;;; Commentary:
 ;;
-;; This file contains UI configuration, fonts and themes.
+;; This file contains:
+;;  - general UI configuration
+;;  - fonts
+;;  - themes
 ;;
 
 ;;; Code:
@@ -16,6 +19,7 @@
 ;;
 
 ;; Kaolin theme
+;; https://emacsthemes.com/themes/kaolin-theme.html
 (use-package kaolin-theme
   :ensure t
   :demand
@@ -23,7 +27,8 @@
   :init
   (load-theme 'kaolin 'no-confirm))
 
-;; Using the UI theme
+;; Good old zenburn theme
+;; https://emacsthemes.com/themes/zenburn-theme.html
 (use-package zenburn-theme
   :ensure t
   :demand
@@ -42,36 +47,31 @@
 
   (load-theme 'zenburn 'no-confirm))
 
-;; Commonly used Sans-serif fonts review could be found here:
-;;   https://spin.atomicobject.com/2016/07/11/programming-fonts/
-;;
-;; Another subjective font rating:
-;;   https://www.narga.net/top-best-programing-fonts/
-;;
-;; The fonts could be downloaded from here:
-;;   https://github.com/hbin/top-programming-fonts
-;;
-;; Set font for the frame:
-;; (set-frame-font "Menlo 12")
-;;
-;; The fonts to consider:
-;;  - Menlo
-;;  - Courier New
+;; My favorite fonts:
 ;;  - Droid Sans Mono
-;;  - Consolas
+;;
+;; Fonts to check:
+;;  - Inconsolata  (Medium)
+;;  - Source Code Pro (Light)
+;;
+;; Other fonts:
+;;  - Menlo
 ;;  - DejaVu Sans Mono
-;;  - Monaco
 ;;  - 3270Medium
-;;  - Inconsolata
 ;;  - Anonymous Pro
-;;  - Terminus
-;;  - Source Code Pro
 ;;  - Bitstream Vera Sans Mono
+;;  - Monaco
+;;  - Consolas
+;;  - Courier New
+;;  - Terminus
 ;;  - Envy Code R
 ;;  - Monofur
 ;;
-;; My preferred font heights:
-;;  - [98 - 120]
+;; Some basic fonts could be downloaded from here:
+;;   https://github.com/hbin/top-programming-fonts
+;;
+;; Full google fonts repo:
+;;   https://github.com/google/fonts
 (set-face-attribute 'default nil
                     :family "Droid Sans Mono"
                     :height 98
