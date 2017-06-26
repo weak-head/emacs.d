@@ -18,6 +18,7 @@
 (use-package which-key
   :ensure t
   :demand
+  :diminish ""
   :pin melpa
 
   :init

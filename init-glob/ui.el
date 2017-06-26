@@ -48,23 +48,23 @@
   (load-theme 'zenburn 'no-confirm))
 
 ;; My favorite fonts:
-;;  - Droid Sans Mono
 ;;  - Consolas
-;;  - Ubuntu Mono
-;;  - Source Code Pro Light
+;;  - Droid Sans Mono
 ;;  - Inconsolata
+;;  - Source Code Pro Light
+;;  - Ubuntu Mono
 ;;
 ;; Other fonts:
-;;  - Menlo
-;;  - DejaVu Sans Mono
 ;;  - 3270Medium
 ;;  - Anonymous Pro
 ;;  - Bitstream Vera Sans Mono
-;;  - Monaco
 ;;  - Courier New
-;;  - Terminus
+;;  - DejaVu Sans Mono
 ;;  - Envy Code R
+;;  - Menlo
+;;  - Monaco
 ;;  - Monofur
+;;  - Terminus
 ;;
 ;; Some basic fonts could be downloaded from here:
 ;;   https://github.com/hbin/top-programming-fonts

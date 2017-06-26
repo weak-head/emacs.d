@@ -66,7 +66,12 @@
   (setq browse-url-browser-function 'eww-browse-url))
 
 ;; Move cursor into between CamelCaseWords.
-(global-subword-mode 1)
+(use-package subword
+  :ensure nil
+  :diminish ""
+  
+  :init
+  (global-subword-mode 1))
 
 ;; Undo and Redo changes in the window configuration
 ;; with 'C-c left' and 'C-c right'
