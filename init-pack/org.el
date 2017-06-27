@@ -15,14 +15,34 @@
 ;;
 ;;
 
+;; We are using this library for searching org files recursively.
+(require 'find-lisp)
+
+;;
+;; C-c l   Store link
+;; C-c a   Agenda
+;;
+;; C-c C-o   Open at point
+;; C-c C-l   Insert link
+;; C-c C-t   To do
+;; C-c C-s   Schedule
+;;
+;; Shift-TAB   Document overview
+;;
 (use-package org
   :ensure t
   :defer t
+
+  :bind (("C-c l" . org-store-link)
+         ("C-c a" . org-agenda))
+  
   :init
-  (setq org-hide-emphasis-markers t
-        org-log-done 'time
-        org-src-fontify-natively t
-        org-startup-truncated nil)
+  (setq org-hide-emphasis-markers t)
+  (setq org-log-done 'time)
+  (setq org-src-fontify-natively t)
+  (setq org-startup-truncated nil)
+  (setq org-agenda-files
+        (find-lisp-find-files "~/org" "\.org$"))
 
   :config
   (org-babel-do-load-languages

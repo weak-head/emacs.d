@@ -73,6 +73,7 @@ set EMACS_FILE_TYPE[304]=.bashrc
 
 REM Documentation (400 - 499)
 set EMACS_FILE_TYPE[300]=.md
+set EMACS_FILE_TYPE[301]=.org
 
 REM Other files (500 - 999)
 set EMACS_FILE_TYPE[500]=.gitignore
