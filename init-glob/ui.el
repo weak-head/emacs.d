@@ -66,13 +66,16 @@
 ;;  - Monofur
 ;;  - Terminus
 ;;
+;; Variable-width fonts:
+;;  - Purisa
+;;
 ;; Some basic fonts could be downloaded from here:
 ;;   https://github.com/hbin/top-programming-fonts
 ;;
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts
 (set-face-attribute 'default nil
-                    :family "Consolas"
+                    :family "Source Code Pro light"
                     :height 98
                     :weight 'normal
                     :width 'normal)
