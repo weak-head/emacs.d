@@ -63,6 +63,8 @@ set EMACS_FILE_TYPE[112]=.xml
 set EMACS_FILE_TYPE[113]=.xaml
 set EMACS_FILE_TYPE[114]=.yaml
 set EMACS_FILE_TYPE[115]=.sql
+set EMACS_FILE_TYPE[116]=.cabal
+set EMACS_FILE_TYPE[117]=.go
 
 REM Shell scripts (300 - 399)
 set EMACS_FILE_TYPE[300]=.bat

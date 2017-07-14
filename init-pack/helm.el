@@ -15,6 +15,16 @@
 ;;
 ;;
 
+;;
+;; C-M-y     helm show kill ring
+;; C-x C-f   helm find files
+;; C-h a     helm apropos
+;; C-x b     helm mini
+;; M-s o     helm occur
+;; M-x       helm M-x
+;;
+;; Use "C-j" instead of TAB
+;;
 (use-package helm
   :ensure t
   :demand

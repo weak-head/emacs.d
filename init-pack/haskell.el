@@ -22,6 +22,9 @@
 ;;
 ;;
 
+;;
+;; M-g i    navigate to imports
+;; C-c C-,  format imports
 (use-package haskell-mode
   :ensure t
   :defer t
@@ -38,10 +41,20 @@
         haskell-compile-command
         "stack ghc -- -Wall -ferror-spans -fforce-recomp -c %s"))
 
+;;
+;; mod     modele declaration
+;; main    main module and main function
+;; lang    LANGUAGE pragma
+;; opt     OPTIONS_GHC pragma
+;;
+;; M-/   hippie-expand the snippet
 (use-package haskell-snippets
   :ensure t
   :defer t)
 
+;;
+;; C-c , b   hlint refactor buffer
+;; C-c , r   hlint refactor at point
 (use-package hlint-refactor
   :ensure t
   :defer t
@@ -50,6 +63,15 @@
   :init
   (add-hook 'haskell-mode-hook #'hlint-refactor-mode))
 
+;;
+;; C-c C-i   intero info
+;; C-c C-l   load the current module in REPL
+;; C-c C-r   apply suggestion
+;; C-c C-t   type at (C-u C-c C-t   insert type signature)
+;; C-c C-z   switch back and forth between REPL and module
+;; M-.       goto definition
+;;
+;; M-x intero-targets     -> add targets for intero  ->  C-c C-c  to apply
 (use-package intero
   :ensure t
   :defer t

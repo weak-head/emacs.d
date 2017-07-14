@@ -15,6 +15,11 @@
 ;;
 ;;
 
+;;
+;; M-n    select next
+;; M-p    select previous
+;; C-s    search candidates
+;; C-M-s  filter candidates
 (use-package company
   :ensure t
   :demand

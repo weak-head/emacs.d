@@ -15,6 +15,16 @@
 ;;
 ;;
 
+;;
+;; C-c ! l   flycheck list errors
+;;
+;; Default:
+;;   C-c ! p   previous error
+;;   C-c ! n   next error
+;;
+;; Redefined:
+;;   M-p    previous error
+;;   M-n    next error
 (use-package flycheck
   :ensure t
   :demand

@@ -34,6 +34,8 @@
 ;; C-c p D    Opens the root of the project in dired
 ;; C-c p c    Runs a standard compilation command for your type of project
 ;; C-c p P    Runs a standard test command for your type of project
+;; C-c p j    Find tags and definitions
+;; C-c p t    Toggle between implementation and test
 ;;
 ;; C-c p r    Runs interactive query-replace on all files in the project
 ;;
