@@ -44,24 +44,24 @@
 
 ;; Customizations goes into separate file.
 (setq custom-file
-      (expand-file-name "init-glob/custom.el" user-emacs-directory))
+      (expand-file-name "global/custom.el" user-emacs-directory))
 (load custom-file)
 
 ;; Functions.
-(load (expand-file-name "init-glob/defun.el" user-emacs-directory))
+(load (expand-file-name "global/defun.el" user-emacs-directory))
 
 ;; UI.
-(load (expand-file-name "init-glob/ui.el" user-emacs-directory))
+(load (expand-file-name "global/ui.el" user-emacs-directory))
 
 ;; Common global config.
-(load (expand-file-name "init-glob/common.el" user-emacs-directory))
+(load (expand-file-name "global/common.el" user-emacs-directory))
 
 ;; Global key bindings.
-(load (expand-file-name "init-glob/keys.el" user-emacs-directory))
+(load (expand-file-name "global/keys.el" user-emacs-directory))
 
 ;; Packages.
 (dolist (file (directory-files
-               (expand-file-name "init-pack" user-emacs-directory)
+               (expand-file-name "packages" user-emacs-directory)
                :full "\\.el$"))
   (load file))
 

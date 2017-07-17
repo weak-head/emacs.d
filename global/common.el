@@ -62,8 +62,8 @@
                 tab-stop-list (number-sequence spaces max-line-length spaces)))
 
 ;; Open URLs within Emacs.
-(when (package-installed-p 'eww)
-  (setq browse-url-browser-function 'eww-browse-url))
+;;(when (package-installed-p 'eww)
+;;  (setq browse-url-browser-function 'eww-browse-url))
 
 ;; Move cursor into between CamelCaseWords.
 (use-package subword

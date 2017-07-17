@@ -41,8 +41,8 @@
   (setq org-log-done 'time)
   (setq org-src-fontify-natively t)
   (setq org-startup-truncated nil)
-  (setq org-agenda-files
-        (find-lisp-find-files "~/org" "\.org$"))
+  ;;(setq org-agenda-files
+  ;;      (find-lisp-find-files "~/org" "\.org$"))
 
   :config
   (org-babel-do-load-languages

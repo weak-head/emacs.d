@@ -7,7 +7,7 @@
 *TBD*
 
 Build docker image:  
-  ``` docker build -f ./docker/min/Dockerfile -t=zinchenko/emacs.d . ```
+  ``` docker build -f ./docker/Dockerfile -t=zinchenko/emacs.d . ```
 
 Run docker image:  
   ``` docker run -i -t --name emacs zinchenko/emacs.d ```
