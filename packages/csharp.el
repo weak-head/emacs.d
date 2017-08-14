@@ -27,10 +27,11 @@
               ("M-." . omnisharp-go-to-definition))
 
   :init
-  ;;(setq omnisharp-server-executable-path
-  ;;      "/usr/share/omnisharp/OmniSharp"
-  ;;      omnisharp--curl-executable-path
-  ;;      "~/emacs-env/curl.exe")
+  (when (eq system-type 'windows-nt)
+      ;; For windows we are having this hardcoded path
+      (setq omnisharp-server-executable-path
+            "C:\\Program Files\\omnisharp\\OmniSharp.exe"))
+  
   (push 'company-omnisharp company-backends)
   (add-hook 'csharp-mode-hook #'omnisharp-mode))
 
