@@ -58,4 +58,15 @@
   (interactive)
   (kill-buffer (current-buffer)))
 
+;; Copies the full path of the file in the active buffer.
+(defun copy-buffer-file-path ()
+  "Copies the full path of the file in the active buffer."
+  (interactive)
+  (let ((filename (if (equal major-mode 'dired-mode)
+                      default-directory
+                    (buffer-file-name))))
+    (when filename
+      (let ((select-enable-clipboard t)) (kill-new filename))
+      (message filename))))
+
 ;;; defun.el ends here
