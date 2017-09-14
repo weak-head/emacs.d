@@ -21,6 +21,16 @@
   :init
   (show-paren-mode))
 
+;;
+;; M-s   splice-sexp
+;;
+;; M-S   split-sexp
+;; M-J   join-sexps
+;;
+;; M-;   comment-dwim
+;;
+;; M-r   raise-sexp
+;;
 (use-package paredit
   :ensure t
   :defer t
