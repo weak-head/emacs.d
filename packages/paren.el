@@ -69,6 +69,7 @@
   
   :config
   (progn
+    (unbind-key "M-s" smartparens-mode-map)
     (require 'smartparens-config)))
 
 (use-package rainbow-delimiters
