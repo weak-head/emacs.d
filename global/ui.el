@@ -20,12 +20,12 @@
 
 ;; Kaolin theme
 ;; https://emacsthemes.com/themes/kaolin-theme.html
-(use-package kaolin-theme
+(use-package kaolin-themes
   :ensure t
   :demand
   
   :init
-  (load-theme 'kaolin 'no-confirm))
+  (load-theme 'kaolin-dark 'no-confirm))
 
 ;; Good old zenburn theme
 ;; https://emacsthemes.com/themes/zenburn-theme.html
