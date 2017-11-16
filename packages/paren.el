@@ -22,14 +22,6 @@
   (show-paren-mode))
 
 ;;
-;; M-s   splice-sexp
-;;
-;; M-S   split-sexp
-;; M-J   join-sexps
-;;
-;; M-;   comment-dwim
-;;
-;; M-r   raise-sexp
 ;;
 (use-package paredit
   :ensure t
@@ -50,6 +42,11 @@
     (unbind-key "M-?" paredit-mode-map)
     (unbind-key "\\" paredit-mode-map)))
 
+;;
+;; C-c e s   sp-splice-sexp
+;; C-c e t   sp-split-sexp
+;; C-c e j   sp-join-sexp
+;;
 (use-package smartparens
   :ensure t
   :defer t
@@ -57,7 +54,10 @@
   
   :bind (:map smartparens-mode-map
               ("M-N" . sp-next-sexp)
-              ("M-P" . sp-previous-sexp))
+              ("M-P" . sp-previous-sexp)
+              ("C-c e s" . sp-splice-sexp)
+              ("C-c e t" . sp-split-sexp)
+              ("C-c e j" . sp-join-sexp))
   
   :bind (:map smartparens-strict-mode-map
               (")" . sp-up-sexp))
