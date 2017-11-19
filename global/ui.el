@@ -77,13 +77,13 @@
 (if (eq system-type 'windows-nt)
     ;; Consolas looks good and consistent on Windows
   (set-face-attribute 'default nil
-                      :family "Consolas"
+                      :font "Consolas"
                       :height 98
                       :weight 'normal
                       :width 'normal)
     ;; For any other OS I would like to use Sorce Code Pro
   (set-face-attribute 'default nil
-                      :family "Source Code Pro light"
+                      :font "Source Code Pro"
                       :height 98
                       :weight 'normal
                       :width 'normal))
