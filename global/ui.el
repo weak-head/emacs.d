@@ -40,9 +40,24 @@
 ;; https://draculatheme.com/emacs/
 (use-package dracula-theme
   :ensure t
+  :disabled t
   :demand
   :init
   (load-theme 'dracula 'no-confirm))
+
+;; Doom theme
+;; https://github.com/hlissner/emacs-doom-themes
+(use-package doom-themes
+  :ensure t
+  :demand
+
+  :init
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-one 'no-confirm)
+  (doom-themes-visual-bell-config)
+  (doom-themes-neotree-config)
+  (doom-themes-org-config))
 
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts
