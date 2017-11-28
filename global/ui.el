@@ -23,65 +23,27 @@
 (use-package kaolin-themes
   :ensure t
   :demand
-  
   :init
   (load-theme 'kaolin-dark 'no-confirm))
 
-;; Good old zenburn theme
+;; Zenburn theme
 ;; https://emacsthemes.com/themes/zenburn-theme.html
 (use-package zenburn-theme
   :ensure t
   :demand
   :disabled t
-
   :init
-  ;; Increase background contrast.
-  ;; (defvar zenburn-override-colors-alist
-  ;;   '(("zenburn-bg-1"     . "#101010")
-  ;;     ("zenburn-bg-05"    . "#202020")
-  ;;     ("zenburn-bg"       . "#2B2B2B")
-  ;;     ("zenburn-bg+05"    . "#383838")
-  ;;     ("zenburn-bg+1"     . "#3F3F3F")
-  ;;     ("zenburn-bg+2"     . "#494949")
-  ;;     ("zenburn-bg+3"     . "#4F4F4F")))
-
   (load-theme 'zenburn 'no-confirm))
 
-;; My favorite fonts:
-;;  - Consolas
-;;  - Droid Sans Mono
-;;  - Inconsolata
-;;  - Source Code Pro light
-;;  - Ubuntu Mono
-;;
-;; Other fonts:
-;;  - 3270Medium
-;;  - Anonymous Pro
-;;  - Bitstream Vera Sans Mono
-;;  - Courier New
-;;  - DejaVu Sans Mono
-;;  - Envy Code R
-;;  - Menlo
-;;  - Monaco
-;;  - Monofur
-;;  - Terminus
-;;
-;; Variable-width fonts:
-;;  - Purisa
-;;
-;; Some basic fonts could be downloaded from here:
-;;   https://github.com/hbin/top-programming-fonts
-;;
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts
 (if (eq system-type 'windows-nt)
-    ;; Consolas looks good and consistent on Windows
   (set-face-attribute 'default nil
-                      :font "Consolas"
+                      ;; :font "Roboto Mono"
+                      :family "Roboto Mono"
                       :height 98
                       :weight 'normal
                       :width 'normal)
-    ;; For any other OS I would like to use Sorce Code Pro
   (set-face-attribute 'default nil
                       :font "Source Code Pro"
                       :height 98
