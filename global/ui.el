@@ -22,6 +22,7 @@
 ;; https://emacsthemes.com/themes/kaolin-theme.html
 (use-package kaolin-themes
   :ensure t
+  :disabled t
   :demand
   :init
   (load-theme 'kaolin-dark 'no-confirm))
@@ -30,10 +31,18 @@
 ;; https://emacsthemes.com/themes/zenburn-theme.html
 (use-package zenburn-theme
   :ensure t
-  :demand
   :disabled t
+  :demand
   :init
   (load-theme 'zenburn 'no-confirm))
+
+;; Drakula theme
+;; https://draculatheme.com/emacs/
+(use-package dracula-theme
+  :ensure t
+  :demand
+  :init
+  (load-theme 'dracula 'no-confirm))
 
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts
