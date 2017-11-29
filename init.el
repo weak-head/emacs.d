@@ -36,8 +36,8 @@
 (eval-when-compile
   (require 'use-package))
 
-(require 'bind-key)
-(require 'diminish)
+(use-package bind-key :ensure t)
+(use-package diminish :ensure t)
 
 
 ;;; -- Loading configuration --
