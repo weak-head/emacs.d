@@ -24,11 +24,10 @@
   :ensure t)
 
 ;;
-;; F8   neotree toggle
 (use-package neotree
   :ensure t
 
-  :bind ([f8] . neotree-toggle)
+  :bind  ([f8] . neotree-project-dir)
 
   :init
   (setq neo-theme (if (display-graphic-p) 'icons 'arrow))

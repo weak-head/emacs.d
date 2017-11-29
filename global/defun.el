@@ -69,4 +69,20 @@
       (let ((select-enable-clipboard t)) (kill-new filename))
       (message filename))))
 
+;; Open NeoTree using projectile root or toggle neotree if outside of a project.
+(defun neotree-project-dir ()
+  "Open NeoTree using projectile root or toggle neotree if outside of a project."
+  (interactive)
+  (condition-case nil
+      (let ((project-dir (projectile-project-root))
+            (file-name (buffer-file-name)))
+        (neotree-toggle)
+        (if project-dir
+            (if (neo-global--window-exists-p)
+                (progn
+                  (neotree-dir project-dir)
+                  (neotree-find file-name)))
+          (message "Could not find project root.")))
+      (error (neotree-toggle))))
+
 ;;; defun.el ends here
