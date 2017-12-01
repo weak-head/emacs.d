@@ -72,4 +72,10 @@
   (setq helm-swoop-split-with-multiple-windows t)
   (setq helm-swoop-speed-or-color t))
 
+;;
+(use-package helm-flx
+  :ensure t
+  :config
+  (helm-flx-mode t))
+
 ;;; helm.el ends here
