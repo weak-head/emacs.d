@@ -21,9 +21,6 @@
 (bind-key "C-x |" #'toggle-window-split)
 (bind-key "M-/" #'hippie-expand)
 
-;; C-x o
-(bind-key "M-o" #'other-window)
-
 ;; M-.
 (bind-key "M-*" #'pop-tag-mark)
 
