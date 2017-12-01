@@ -26,4 +26,10 @@
                                 empty trailing lines-tail))
   (setq whitespace-line-column nil))
 
+(use-package ws-butler
+  :ensure t
+  :diminish ""
+  :config
+  (ws-butler-global-mode t))
+
 ;;; whitespace.el ends here
