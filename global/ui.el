@@ -56,8 +56,22 @@
         doom-themes-enable-italic t)
   (load-theme 'doom-one 'no-confirm)
   (doom-themes-visual-bell-config)
-  (doom-themes-neotree-config)
+  ;;(doom-themes-neotree-config)
   (doom-themes-org-config))
+
+;; Speceline
+;; https://github.com/TheBB/spaceline
+(use-package spaceline
+  :ensure t
+  
+  :init
+  (require 'spaceline-config)
+  (setq spaceline-highlight-face-func 'spaceline-highlight-face-evil-state
+        powerline-default-separator 'arrow)
+
+  :config
+  (spaceline-helm-mode)
+  (spaceline-emacs-theme))
 
 ;; Full google fonts repo:
 ;;   https://github.com/google/fonts

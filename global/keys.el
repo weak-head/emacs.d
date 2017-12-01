@@ -27,4 +27,8 @@
 ;; M-.
 (bind-key "M-*" #'pop-tag-mark)
 
+(bind-key "<f2>" (lambda ()
+                   (interactive)
+                   (find-file "~/.emacs.d/init.el")))
+
 ;;; keys.el ends here
