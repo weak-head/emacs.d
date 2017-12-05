@@ -2,7 +2,7 @@
   :ensure t
   :demand
   :diminish ""
-  
+
   :init
   (setq company-idle-delay 0.3)
   (global-company-mode))
