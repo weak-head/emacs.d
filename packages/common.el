@@ -1,20 +1,3 @@
-;;; common.el --- Common Emacs configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; This file contains common global Emacs configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 ;; Ensure environment variables are up to date.
 (use-package exec-path-from-shell
   :ensure t
@@ -99,5 +82,3 @@
 (put 'narrow-to-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (put 'set-goal-column 'disabled nil)
-
-;;; common.el ends here

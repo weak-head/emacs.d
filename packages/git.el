@@ -1,20 +1,3 @@
-;;; git.el --- Configuration for git. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Git related configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package git-gutter
   :ensure t
   :demand
@@ -38,5 +21,3 @@
   (setq magit-push-always-verify nil
         magit-revert-buffers t)
   (add-hook 'git-commit-mode-hook #'flyspell-mode))
-
-;;; git.el ends here

@@ -1,30 +1,3 @@
-;;; helm.el --- Configuration for helm. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Helm configuration.
-;;
-
-;;; Code:
-;;
-;;
-
-;;
-;; C-M-y     helm show kill ring
-;; C-x C-f   helm find files
-;; C-h a     helm apropos
-;; C-x b     helm mini
-;; M-s o     helm occur
-;; M-x       helm M-x
-;;
-;; Use "C-j" instead of TAB
-;;
 (use-package helm
   :ensure t
   :demand
@@ -49,7 +22,6 @@
   (require 'helm-config)
   (helm-mode))
 
-;;
 (use-package helm-swoop
   :ensure t
   :demand
@@ -72,10 +44,7 @@
   (setq helm-swoop-split-with-multiple-windows t)
   (setq helm-swoop-speed-or-color t))
 
-;;
 (use-package helm-flx
   :ensure t
   :config
   (helm-flx-mode t))
-
-;;; helm.el ends here

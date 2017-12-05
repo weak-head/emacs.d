@@ -1,20 +1,3 @@
-;;; whitespace.el --- Whitespace related configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; whitespace mode configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package whitespace
   :ensure nil
 
@@ -31,5 +14,3 @@
   :diminish ""
   :config
   (ws-butler-global-mode t))
-
-;;; whitespace.el ends here

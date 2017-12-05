@@ -1,20 +1,3 @@
-;;; which-key.el --- Which-key configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; which-key configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package which-key
   :ensure t
   :demand
@@ -35,5 +18,3 @@
     "C-c f" "files"
     "C-c p" "projectile"
     "C-c t" "toggle"))
-
-;;; which-key.el ends here

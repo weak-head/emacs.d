@@ -1,20 +1,3 @@
-;;; defun.el --- Global function definitions. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; This file contains global function definitions.
-;;
-
-;;; Code:
-;;
-;;
-
 ;; Toggles the window split.
 ;; Works well for 2 windows.
 (defun toggle-window-split ()
@@ -84,5 +67,3 @@
                   (neotree-find file-name)))
           (message "Could not find project root.")))
       (error (neotree-toggle))))
-
-;;; defun.el ends here

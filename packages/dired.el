@@ -1,20 +1,3 @@
-;;; dired.el --- Сonfiguration for dirrec mode. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Configuration for dirred mode.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package dired
   :ensure nil
   :defer t
@@ -69,5 +52,3 @@
   (add-function :after (symbol-function 'dired-omit-startup)
                 (lambda () (diminish 'dired-omit-mode " ⓞ"))
                 '((name . dired-omit-mode-diminish))))
-
-;;; dired.el ends here

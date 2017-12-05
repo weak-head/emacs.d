@@ -1,20 +1,3 @@
-;;; ibuffer.el --- Ibuffer related configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Ibuffer related configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package ibuffer
   :ensure t
   :defer t
@@ -113,5 +96,3 @@
 
   :init
   (add-hook 'ibuffer-hook #'ibuffer-projectile-set-filter-groups))
-
-;;; ibuffer.el ends here

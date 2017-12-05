@@ -1,28 +1,9 @@
-;;; paren.el --- Paren related configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Paren realated configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package paren
   :ensure t
   :defer t
   :init
   (show-paren-mode))
 
-;;
-;;
 (use-package paredit
   :ensure t
   :defer t
@@ -42,11 +23,6 @@
     (unbind-key "M-?" paredit-mode-map)
     (unbind-key "\\" paredit-mode-map)))
 
-;;
-;; C-c e s   sp-splice-sexp
-;; C-c e t   sp-split-sexp
-;; C-c e j   sp-join-sexp
-;;
 (use-package smartparens
   :ensure t
   :defer t
@@ -78,5 +54,3 @@
   :init
   (dolist (hook '(text-mode-hook prog-mode-hook))
     (add-hook hook #'rainbow-delimiters-mode)))
-
-;;; paren.el ends here

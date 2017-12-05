@@ -1,34 +1,6 @@
-;;; org.el --- Org related configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Org configuration.
-;;
-
-;;; Code:
-;;
-;;
-
-;; We are using this library for searching org files recursively.
+;; Library for searching org files recursively.
 (require 'find-lisp)
 
-;;
-;; C-c l   Store link
-;; C-c a   Agenda
-;;
-;; C-c C-o   Open at point
-;; C-c C-l   Insert link
-;; C-c C-t   To do
-;; C-c C-s   Schedule
-;;
-;; Shift-TAB   Document overview
-;;
 (use-package org
   :ensure t
   :defer t
@@ -57,5 +29,3 @@
 (use-package org-tree-slide
   :ensure t
   :defer t)
-
-;;; org.el ends here

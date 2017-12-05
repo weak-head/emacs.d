@@ -1,30 +1,3 @@
-;;; flycheck.el --- Configuration for flycheck. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Configuration for flycheck.
-;;
-
-;;; Code:
-;;
-;;
-
-;;
-;; C-c ! l   flycheck list errors
-;;
-;; Default:
-;;   C-c ! p   previous error
-;;   C-c ! n   next error
-;;
-;; Redefined:
-;;   M-p    previous error
-;;   M-n    next error
 (use-package flycheck
   :ensure t
   :demand
@@ -45,5 +18,3 @@
 
   (advice-add 'flycheck-may-enable-mode :around
               #'init-flycheck-may-enable-mode))
-
-;;; flycheck.el ends here

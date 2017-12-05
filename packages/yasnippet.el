@@ -1,20 +1,3 @@
-;;; yasnippet.el --- Yasnippet configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Yasnippet configuration.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package yasnippet
   :ensure t
   :demand
@@ -31,5 +14,3 @@
 
   (unbind-key "TAB" yas-minor-mode-map)
   (unbind-key "<tab>" yas-minor-mode-map))
-
-;;; yasnippet.el ends here

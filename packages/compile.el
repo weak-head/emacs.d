@@ -1,20 +1,3 @@
-;;; compile.el --- Configuration for compile. -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; Configuration for compile.
-;;
-
-;;; Code:
-;;
-;;
-
 (use-package compile
   :ensure t
   :defer t
@@ -31,4 +14,3 @@
 
   (add-hook 'compilation-filter-hook #'init-compilation-colorize))
 
-;;; compile.el ends here

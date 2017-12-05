@@ -1,24 +1,3 @@
-;;; ui.el --- UI configuration -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
-
-;;; Commentary:
-;;
-;; This file contains:
-;;  - general UI configuration
-;;  - fonts
-;;  - themes
-;;
-
-;;; Code:
-;;
-;;
-
-;; Kaolin theme
 ;; https://emacsthemes.com/themes/kaolin-theme.html
 (use-package kaolin-themes
   :ensure t
@@ -27,7 +6,6 @@
   :init
   (load-theme 'kaolin-dark 'no-confirm))
 
-;; Zenburn theme
 ;; https://emacsthemes.com/themes/zenburn-theme.html
 (use-package zenburn-theme
   :ensure t
@@ -36,7 +14,6 @@
   :init
   (load-theme 'zenburn 'no-confirm))
 
-;; Drakula theme
 ;; https://draculatheme.com/emacs/
 (use-package dracula-theme
   :ensure t
@@ -45,7 +22,6 @@
   :init
   (load-theme 'dracula 'no-confirm))
 
-;; Doom theme
 ;; https://github.com/hlissner/emacs-doom-themes
 (use-package doom-themes
   :ensure t
@@ -59,7 +35,6 @@
   ;;(doom-themes-neotree-config)
   (doom-themes-org-config))
 
-;; Speceline
 ;; https://github.com/TheBB/spaceline
 (use-package spaceline
   :ensure t
@@ -73,8 +48,7 @@
   (spaceline-helm-mode)
   (spaceline-emacs-theme))
 
-;; Full google fonts repo:
-;;   https://github.com/google/fonts
+;; https://github.com/google/fonts
 (if (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
                       ;; :font "Roboto Mono"
@@ -135,5 +109,3 @@
 
 ;; Running Emacs maximized.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
-
-;;; ui.el ends here
