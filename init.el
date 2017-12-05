@@ -43,21 +43,7 @@
 ;;; -- Loading configuration --
 
 ;; Customizations goes into separate file.
-(setq custom-file
-      (expand-file-name "global/custom.el" user-emacs-directory))
-(load custom-file)
-
-;; Functions.
-(load (expand-file-name "global/defun.el" user-emacs-directory))
-
-;; UI.
-(load (expand-file-name "global/ui.el" user-emacs-directory))
-
-;; Common global config.
-(load (expand-file-name "global/common.el" user-emacs-directory))
-
-;; Global key bindings.
-(load (expand-file-name "global/keys.el" user-emacs-directory))
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; Packages.
 (dolist (file (directory-files
@@ -65,5 +51,7 @@
                :full "\\.el$"))
   (load file))
 
+(when (file-exists-p custom-file)
+  (load custom-file))
 
 ;;; init.el ends here
