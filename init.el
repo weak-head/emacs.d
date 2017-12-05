@@ -1,34 +1,31 @@
-;;; init.el --- Emacs configuration of Oleksandr Zinchenko -*- lexical-binding: t; -*-
-;;
-;; Copyright (c) 2017 Oleksandr Zinchenko
-;;
-;; Author: Oleksandr Zinchenko <zinchenko@live.com>
-;; URL: TBD
-;;
+;; -*- lexical-binding: t; -*-
 
-;;; Commentary:
-;;
-;; Emacs configuration of Oleksandr Zinchenko.
-;;
-
-;;; Code:
-;;
-;;
+;;; This file bootstraps the configuration
 
 
-;;; -- Package management --
-
+;;----------------------------------------------------------------------------
+;; Initialize package repositories
+;;----------------------------------------------------------------------------
 (setq load-prefer-newer t)
-
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-
 (package-initialize)
 
 
-;;; -- Initializing use-package --
+;;----------------------------------------------------------------------------
+;; Adjust garbage collection thresholds during startup, and thereafter
+;;----------------------------------------------------------------------------
+(let ((normal-gc-cons-threshold (* 20 1024 1024))
+      (init-gc-cons-threshold (* 128 1024 1024)))
+  (setq gc-cons-threshold init-gc-cons-threshold)
+  (add-hook 'after-init-hook
+            (lambda () (setq gc-cons-threshold normal-gc-cons-threshold))))
 
+
+;;----------------------------------------------------------------------------
+;; Initialize use-package
+;;----------------------------------------------------------------------------
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
@@ -36,22 +33,26 @@
 (eval-when-compile
   (require 'use-package))
 
-(use-package bind-key :ensure t)
-(use-package diminish :ensure t)
-
-
-;;; -- Loading configuration --
-
-;; Customizations goes into separate file.
+  
+;;----------------------------------------------------------------------------
+;; Bootstrap general configuration
+;;----------------------------------------------------------------------------
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
-;; Packages.
+
+;;----------------------------------------------------------------------------
+;; Load and initialize all the packages and configs
+;;----------------------------------------------------------------------------
+(use-package bind-key :ensure t)
+(use-package diminish :ensure t)
 (dolist (file (directory-files
                (expand-file-name "packages" user-emacs-directory)
                :full "\\.el$"))
   (load file))
 
+
+;;----------------------------------------------------------------------------
+;; Variables configured via the interactive 'customize' interface
+;;----------------------------------------------------------------------------
 (when (file-exists-p custom-file)
   (load custom-file))
-
-;;; init.el ends here
