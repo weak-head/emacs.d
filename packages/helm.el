@@ -11,6 +11,9 @@
          ("M-x" . helm-M-x)
 
          ("C-c h" . helm-command-prefix)
+         :map helm-command-map
+         ("s" . helm-multi-swoop-all)
+         ("S" . helm-multi-swoop)
 
          :map helm-map
          ([tab] . helm-execute-pers))
@@ -54,6 +57,7 @@
 
   (helm-mode))
 
+
 (use-package helm-swoop
   :ensure t
   :demand
@@ -75,6 +79,11 @@
   (setq helm-swoop-use-fuzzy-match t)
   (setq helm-swoop-split-with-multiple-windows t)
   (setq helm-swoop-speed-or-color t))
+
+
+(use-package helm-ag
+  :ensure t)
+
 
 (use-package helm-flx
   :ensure t
