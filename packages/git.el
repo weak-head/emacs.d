@@ -17,6 +17,19 @@
   :ensure t
   :defer t
 
+  :bind (("C-c g s" . magit-status)
+         ("C-c g l" . magit-log-all)
+
+         ("C-c g k" . magit-discard)
+         ("C-c g t" . magit-stage-file)
+         ("C-c g u" . magit-unstage-file)
+         ("C-c g c" . magit-commit)
+
+         ("C-c g b" . magit-branch)
+
+         ("C-c g P" . magit-pull)
+         ("C-c g p" . magit-push))
+
   :init
   (setq magit-push-always-verify nil
         magit-revert-buffers t)
