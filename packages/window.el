@@ -5,6 +5,16 @@
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (setq aw-background nil))
 
+(use-package winner
+  :bind (:map winner-mode-map
+              ("C-c w u" . winner-undo)
+              ("C-c w r" . winner-redo))
+
+  :config
+  (unbind-key "C-c <left>" winner-mode-map)
+  (unbind-key "C-c <right>" winner-mode-map)
+  (winner-mode t))
+
 ;; Toggles the window split. Works well for 2 windows.
 (defun toggle-window-split ()
   "If the frame is split vertically, split it horizontally or vice versa."

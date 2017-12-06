@@ -27,7 +27,6 @@
   (scroll-bar-mode -1))
 
 (blink-cursor-mode 0)
-(winner-mode t)
 ;;(global-auto-revert-mode t)
 
 (setq column-number-mode t

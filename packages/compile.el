@@ -13,4 +13,3 @@
       (ansi-color-apply-on-region (point) (point-max))))
 
   (add-hook 'compilation-filter-hook #'init-compilation-colorize))
-
