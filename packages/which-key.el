@@ -17,4 +17,8 @@
     "C-c &" "yasnippet"
     "C-c f" "files"
     "C-c p" "projectile"
-    "C-c t" "toggle"))
+    "C-c t" "toggle"
+    "C-c e" "smartparens"
+    "C-c h" "helm"
+    "C-c g" "magit"
+    "M-s h" "highlight"))

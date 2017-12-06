@@ -9,17 +9,21 @@
          ("C-x b" . helm-mini)
          ("M-s o" . helm-occur)
          ("M-x" . helm-M-x)
+
+         ("C-c h" . helm-command-prefix)
+
          :map helm-map
-         ([tab] . helm-execute-persistent-action))
+         ([tab] . helm-execute-pers))
 
   :init
+  (require 'helm-config)
+  (unbind-key "C-x c")
   (setq helm-M-x-fuzzy-match t
         helm-apropos-fuzzy-match t
         helm-buffers-fuzzy-matching t
         helm-ff-newfile-prompt-p nil
         helm-locate-fuzzy-match t
         helm-recentf-fuzzy-match t)
-  (require 'helm-config)
   (helm-mode))
 
 (use-package helm-swoop
