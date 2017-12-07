@@ -47,6 +47,7 @@
   (unbind-key "M-g" helm-command-map)
   (unbind-key "M-s" helm-command-map)
   (unbind-key "h" helm-command-map)
+  (define-key helm-command-map (kbd "ESC") nil)
 
   (setq helm-M-x-fuzzy-match t
         helm-apropos-fuzzy-match t
