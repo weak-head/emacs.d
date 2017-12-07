@@ -5,11 +5,12 @@
 
   :init
   (which-key-mode)
+  (which-key-setup-side-window-right)
 
   :config
-  (setq which-key-idle-delay 0.4)
-  (setq which-key-compute-remaps t)
-  (setq which-key-sort-order 'which-key-prefix-then-key-order)
+  (setq which-key-idle-delay 0.4
+        which-key-compute-remaps t
+        which-key-sort-order 'which-key-key-order-alpha)
 
   (which-key-add-key-based-replacements
     ;; default
