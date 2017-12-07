@@ -2,17 +2,21 @@
   :ensure t
   :demand
   :diminish ""
-  :pin melpa
 
   :init
   (which-key-mode)
 
   :config
   (setq which-key-idle-delay 0.4)
+  (setq which-key-compute-remaps t)
   (setq which-key-sort-order 'which-key-prefix-then-key-order)
 
    ; global map prefixes
   (which-key-add-key-based-replacements
+    "C-x 8" "unicode"
+    "C-x a" "abbrev/expand"
+    "C-x r" "register/bookmark"
+
     "C-c !" "flycheck"
     "C-c &" "yasnippet"
     "C-c f" "files"
