@@ -26,4 +26,17 @@
     "C-c w" "window"
     "C-c h" "helm"
     "C-c g" "magit"
-    "M-s h" "highlight"))
+    "M-s h" "highlight"
+
+    ;; git
+    "C-c g s" "status"
+    "C-c g l" "log"
+    "C-c g k" "discard"
+    "C-c g t" "stage"
+    "C-c g u" "unstage"
+    "C-c g c" "commit"
+    "C-c g b" "branch"
+    "C-c g p" "push"
+    "C-c g P" "pull"
+
+    ))
