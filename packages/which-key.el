@@ -24,7 +24,7 @@
     "C-c f" "files"
     "C-c p" "projectile"
     "C-c t" "toggle"
-    "C-c e" "smartparens"
+    "C-c e" "paren"
     "C-c w" "window"
     "C-c h" "helm"
     "C-c g" "magit"
@@ -47,5 +47,10 @@
     "C-c h I" "imenu all"
     "C-c h s" "swoop all"
     "C-c h S" "swoop selected"
+
+    ;; paren
+    "C-c e s" "splice"
+    "C-c e t" "split"
+    "C-c e j" "join"
     )
   )
