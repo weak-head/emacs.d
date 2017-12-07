@@ -65,13 +65,14 @@
 
   :bind (("M-i" . helm-swoop)
          ("M-I" . helm-swoop-back-to-last-point)
-         ("C-c M-i" . helm-multi-swoop)
-         ("C-x M-i" . helm-multi-swoop-all)
+
          :map isearch-mode-map
          ("M-i" . helm-swoop-from-isearch)
+
          :map helm-swoop-map
          ("C-r" . helm-previous-line)
          ("C-s" . helm-next-line)
+
          :map helm-multi-swoop-map
          ("C-r" . helm-previous-line)
          ("C-s" . helm-next-line))
