@@ -11,12 +11,13 @@
   (setq which-key-compute-remaps t)
   (setq which-key-sort-order 'which-key-prefix-then-key-order)
 
-   ; global map prefixes
   (which-key-add-key-based-replacements
+    ;; default
     "C-x 8" "unicode"
     "C-x a" "abbrev/expand"
     "C-x r" "register/bookmark"
 
+    ;; prefixes
     "C-c !" "flycheck"
     "C-c &" "yasnippet"
     "C-c f" "files"
@@ -39,4 +40,11 @@
     "C-c g p" "push"
     "C-c g P" "pull"
 
-    ))
+    ;; helm
+    "C-c h f" "multi files"
+    "C-c h i" "imenu"
+    "C-c h I" "imenu all"
+    "C-c h s" "swoop all"
+    "C-c h S" "swoop selected"
+    )
+  )
