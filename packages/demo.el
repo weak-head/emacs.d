@@ -1,12 +1,12 @@
 (use-package demo-it
-  :ensure t
+  :ensure f
   :defer t)
 
 (use-package expand-region
-  :ensure t
+  :ensure f
   :defer t
   :bind ("C-=" . er/expand-region))
 
 (use-package fancy-narrow
-  :ensure t
+  :ensure f
   :defer t)
