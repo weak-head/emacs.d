@@ -62,7 +62,14 @@
     "C-c t w" "whitespace"
 
     ;; highlight
-    "M-s h" "highlight"
+    "M-s h"   "highlight"
+    "M-s h w" "save pattern"
+    "M-s h f" "load pattern"
+    "M-s h l" "line"
+    "M-s h p" "phrase"
+    "M-s h r" "regexp"
+    "M-s h ." "symbol"
+    "M-s h u" "unhighlight"
 
     ;; flycheck
     "C-c !" "flycheck"
