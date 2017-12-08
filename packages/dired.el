@@ -32,6 +32,10 @@
   :defer nil
   :after dired
 
+  :commands (dired-jump
+             dired-jump-other-window
+             dired-omit-mode)
+
   :bind (("C-c f j" . dired-jump)
          ("C-x C-j" . dired-jump))
 
