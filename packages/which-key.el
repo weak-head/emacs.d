@@ -5,7 +5,7 @@
 
   :init
   (which-key-mode)
-  (which-key-setup-side-window-right)
+  (which-key-setup-side-window-right-bottom)
 
   :config
   (setq which-key-idle-delay 0.4
