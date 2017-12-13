@@ -134,5 +134,8 @@
 
     ;; yasnippet
     "C-c &" "yasnippet"
+    "C-c & C-n" "new snippet"
+    "C-c & C-s" "insert snippet"
+    "C-c & C-v" "visit snippet file"
     )
   )
