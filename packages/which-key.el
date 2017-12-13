@@ -104,6 +104,13 @@
     "C-c i r"     "refactor [hlint]"
     "C-c i r b"   "refactor buffer"
     "C-c i r p"   "refactor at point"
+    "C-c i t"     "type at point"
+    "C-c i i"     "info at point"
+    "C-c i c"     "[REPL] eval region"
+    "C-c i a"     "apply GHC suggestion"
+    "C-c i z"     "[REPL] switch to/from"
+    "C-c i l"     "[REPL] load module"
+    "C-c i e"     "expand template"
 
     ;; paren
     "C-c e"   "paren"

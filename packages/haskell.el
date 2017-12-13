@@ -48,6 +48,13 @@
 
   :bind (:map intero-mode-map
               ("M-." . init-intero-goto-definition)
+              ("C-c i t" . intero-type-at)
+              ("C-c i i" . intero-info)
+              ("C-c i c" . intero-repl-eval-region)
+              ("C-c i a" . intero-apply-suggestions)
+              ("C-c i z" . intero-repl)
+              ("C-c i l" . intero-repl-load)
+              ("C-c i e" . intero-expand-splice-at-point)
               )
 
   :init
