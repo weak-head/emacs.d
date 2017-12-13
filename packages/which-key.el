@@ -99,6 +99,11 @@
     "C-c p v"     "run vc-dir on root"
     "C-c p z"     "add the file to cache"
 
+    ;; haskell/hlint/intero
+    "C-c i"       "haskell"
+    "C-c i b"     "[hlint] refactor buffer"
+    "C-c i r"     "[hlint] refactor at point"
+
     ;; paren
     "C-c e"   "paren"
     "C-c e s" "splice"
