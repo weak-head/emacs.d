@@ -130,7 +130,23 @@
     "M-s h u" "unhighlight"
 
     ;; flycheck
-    "C-c !" "flycheck"
+    "C-c !"     "flycheck"
+    "C-c ! C-c" ""
+    "C-c ! C-w" "copy message at point"
+    "C-c ! ?"   "describe sytax checker"
+    "C-c ! C"   "clear errors in buffer"
+    "C-c ! H"   "show local help"
+    "C-c ! V"   "show flycheck version"
+    "C-c ! c"   "check current buffer"
+    "C-c ! e"   "explain error at point"
+    "C-c ! h"   "display error at point"
+    "C-c ! i"   "read flycheck manual"
+    "C-c ! l"   "list all errors"
+    "C-c ! n"   "go to next error"
+    "C-c ! p"   "go to previous error"
+    "C-c ! s"   "select syntax checker"
+    "C-c ! v"   "verify setup"
+    "C-c ! x"   "disable checker"
 
     ;; yasnippet
     "C-c &" "yasnippet"
