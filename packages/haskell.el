@@ -15,12 +15,19 @@
               ("M-g M-i" . haskell-navigate-imports))
 
   :init
-  (setq haskell-compile-cabal-build-alt-command
-        "cd %s && stack clean && stack build --ghc-options -ferror-spans"
-        haskell-compile-cabal-build-command
-        "cd %s && stack build --ghc-options -ferror-spans"
-        haskell-compile-command
-        "stack ghc -- -Wall -ferror-spans -fforce-recomp -c %s"))
+  (setq haskell-compile-cabal-build-alt-command "cd %s && stack clean && stack build --ghc-options -ferror-spans"
+        haskell-compile-cabal-build-command     "cd %s && stack build --ghc-options -ferror-spans"
+        haskell-compile-command                 "stack ghc -- -Wall -ferror-spans -fforce-recomp -c %s")
+
+  :config
+  (unbind-key "C-c C-b" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
+  (unbind-key "C-c TAB" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
+  (unbind-key "C-c C-l" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
+  (unbind-key "C-c C-s" haskell-mode-map) ;; haskell-mode-toggle-scc-at-point
+  (unbind-key "C-c C-t" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
+  (unbind-key "C-c C-v" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
+  (unbind-key "C-c C-," haskell-mode-map) ;; haskell-mode-format-imports
+  )
 
 (use-package haskell-snippets
   :ensure t
