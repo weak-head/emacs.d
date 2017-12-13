@@ -112,6 +112,31 @@
     "C-c i l"     "load module to REPL"
     "C-c i e"     "expand template"
 
+    ;; flycheck
+    "C-c !"     "flycheck"
+    "C-c ! C-c" "compile using checker"
+    "C-c ! C-w" "copy error at point"
+    "C-c ! ?"   "describe a flycheck checker"
+    "C-c ! C"   "clear errors in buffer"
+    "C-c ! H"   "show local help"
+    "C-c ! V"   "show flycheck version"
+    "C-c ! c"   "check current buffer"
+    "C-c ! e"   "explain error at point"
+    "C-c ! h"   "display error at point"
+    "C-c ! i"   "open flycheck manual"
+    "C-c ! l"   "list all errors"
+    "C-c ! n"   "jump to next error"
+    "C-c ! p"   "jump to previous error"
+    "C-c ! s"   "select syntax checker"
+    "C-c ! v"   "verify setup"
+    "C-c ! x"   "disable checker"
+
+    ;; yasnippet
+    "C-c &" "yasnippet"
+    "C-c & C-n" "new snippet"
+    "C-c & C-s" "insert snippet"
+    "C-c & C-v" "visit snippet file"
+
     ;; paren
     "C-c e"   "paren"
     "C-c e s" "splice"
@@ -142,29 +167,14 @@
     "M-s h ." "symbol"
     "M-s h u" "unhighlight"
 
-    ;; flycheck
-    "C-c !"     "flycheck"
-    "C-c ! C-c" "compile using checker"
-    "C-c ! C-w" "copy error at point"
-    "C-c ! ?"   "describe a flycheck checker"
-    "C-c ! C"   "clear errors in buffer"
-    "C-c ! H"   "show local help"
-    "C-c ! V"   "show flycheck version"
-    "C-c ! c"   "check current buffer"
-    "C-c ! e"   "explain error at point"
-    "C-c ! h"   "display error at point"
-    "C-c ! i"   "open flycheck manual"
-    "C-c ! l"   "list all errors"
-    "C-c ! n"   "jump to next error"
-    "C-c ! p"   "jump to previous error"
-    "C-c ! s"   "select syntax checker"
-    "C-c ! v"   "verify setup"
-    "C-c ! x"   "disable checker"
-
-    ;; yasnippet
-    "C-c &" "yasnippet"
-    "C-c & C-n" "new snippet"
-    "C-c & C-s" "insert snippet"
-    "C-c & C-v" "visit snippet file"
+    ;; goto
+    "M-g TAB" "column"
+    "M-g c"   "char"
+    "M-g g"   "line"
+    "M-g n"   "next error"
+    "M-g p"   "previous error"
+    "M-g M-g" "line"           ;; redundant
+    "M-g M-n" "next error"     ;; redundant
+    "M-g M-p" "previous error" ;; redundant
     )
   )
