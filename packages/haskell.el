@@ -38,8 +38,8 @@
   (unbind-key "C-c , b" hlint-refactor-mode-map)
   (unbind-key "C-c , r" hlint-refactor-mode-map)
   (define-key hlint-refactor-mode-map (kbd "C-c ,") nil)
-  (define-key hlint-refactor-mode-map (kbd "C-c i b") 'hlint-refactor-refactor-buffer)
-  (define-key hlint-refactor-mode-map (kbd "C-c i r") 'hlint-refactor-refactor-at-point))
+  (define-key hlint-refactor-mode-map (kbd "C-c i r b") 'hlint-refactor-refactor-buffer)
+  (define-key hlint-refactor-mode-map (kbd "C-c i r p") 'hlint-refactor-refactor-at-point))
 
 (use-package intero
   :ensure t
@@ -47,7 +47,8 @@
   :diminish " λ"
 
   :bind (:map intero-mode-map
-              ("M-." . init-intero-goto-definition))
+              ("M-." . init-intero-goto-definition)
+              )
 
   :init
   (defun init-intero ()
@@ -63,6 +64,14 @@
   (add-hook 'haskell-mode-hook #'init-intero)
 
   :config
+  (unbind-key "C-c C-c" intero-mode-map)
+  (unbind-key "C-c C-e" intero-mode-map)
+  (unbind-key "C-c TAB" intero-mode-map)
+  (unbind-key "C-c C-l" intero-mode-map)
+  (unbind-key "C-c C-r" intero-mode-map)
+  (unbind-key "C-c C-t" intero-mode-map)
+  (unbind-key "C-c C-z" intero-mode-map)
+
   (defun init-intero-goto-definition ()
     "Jump to the definition of the thing at point using Intero or etags."
     (interactive)

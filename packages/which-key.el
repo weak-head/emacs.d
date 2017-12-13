@@ -101,8 +101,9 @@
 
     ;; haskell/hlint/intero
     "C-c i"       "haskell"
-    "C-c i b"     "[hlint] refactor buffer"
-    "C-c i r"     "[hlint] refactor at point"
+    "C-c i r"     "refactor [hlint]"
+    "C-c i r b"   "refactor buffer"
+    "C-c i r p"   "refactor at point"
 
     ;; paren
     "C-c e"   "paren"
