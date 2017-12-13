@@ -37,6 +37,7 @@
   :config
   (unbind-key "C-c , b" hlint-refactor-mode-map)
   (unbind-key "C-c , r" hlint-refactor-mode-map)
+  (define-key hlint-refactor-mode-map (kbd "C-c ,") nil)
   (define-key hlint-refactor-mode-map (kbd "C-c i b") 'hlint-refactor-refactor-buffer)
   (define-key hlint-refactor-mode-map (kbd "C-c i r") 'hlint-refactor-refactor-at-point))
 
