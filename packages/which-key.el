@@ -101,15 +101,15 @@
 
     ;; haskell/hlint/intero
     "C-c i"       "haskell"
-    "C-c i r"     "refactor [hlint]"
-    "C-c i r b"   "refactor buffer"
-    "C-c i r p"   "refactor at point"
+    "C-c i r"     "refactor"
+    "C-c i r b"   "[hlint] refactor buffer"
+    "C-c i r p"   "[hlint] refactor at point"
+    "C-c i r a"   "[intero] apply suggestion"
     "C-c i t"     "type at point"
     "C-c i i"     "info at point"
     "C-c i c"     "[REPL] eval region"
-    "C-c i a"     "apply GHC suggestion"
-    "C-c i z"     "[REPL] switch to/from"
-    "C-c i l"     "[REPL] load module"
+    "C-c i z"     "switch to REPL"
+    "C-c i l"     "load module to REPL"
     "C-c i e"     "expand template"
 
     ;; paren

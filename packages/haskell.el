@@ -44,7 +44,7 @@
   :config
   (unbind-key "C-c , b" hlint-refactor-mode-map)
   (unbind-key "C-c , r" hlint-refactor-mode-map)
-  (define-key hlint-refactor-mode-map (kbd "C-c ,") nil)
+  (define-key hlint-refactor-mode-map (kbd "C-c ,")      nil)
   (define-key hlint-refactor-mode-map (kbd "C-c i r b") 'hlint-refactor-refactor-buffer)
   (define-key hlint-refactor-mode-map (kbd "C-c i r p") 'hlint-refactor-refactor-at-point))
 
@@ -54,14 +54,14 @@
   :diminish " λ"
 
   :bind (:map intero-mode-map
-              ("M-." . init-intero-goto-definition)
-              ("C-c i t" . intero-type-at)
-              ("C-c i i" . intero-info)
-              ("C-c i c" . intero-repl-eval-region)
-              ("C-c i a" . intero-apply-suggestions)
-              ("C-c i z" . intero-repl)
-              ("C-c i l" . intero-repl-load)
-              ("C-c i e" . intero-expand-splice-at-point)
+              ("M-."       . init-intero-goto-definition)
+              ("C-c i t"   . intero-type-at)
+              ("C-c i i"   . intero-info)
+              ("C-c i c"   . intero-repl-eval-region)
+              ("C-c i r a" . intero-apply-suggestions)
+              ("C-c i z"   . intero-repl)
+              ("C-c i l"   . intero-repl-load)
+              ("C-c i e"   . intero-expand-splice-at-point)
               )
 
   :init
