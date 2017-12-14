@@ -99,21 +99,6 @@
     "C-c p v"     "run vc-dir on root"
     "C-c p z"     "add the file to cache"
 
-    ;; haskell/hlint/intero
-    "C-c i"       "haskell"
-    "C-c i r"     "refactor"
-    "C-c i r b"   "[hlint] refactor buffer"
-    "C-c i r p"   "[hlint] refactor at point"
-    "C-c i r a"   "[intero] apply suggestion"
-    "C-c i r i"   "[hmode] format imports"
-    "C-c i t"     "type at point"
-    "C-c i i"     "info at point"
-    "C-c i c"     "compile"
-    "C-c i z"     "switch to/from REPL"
-    "C-c i k"     "clean REPL"
-    "C-c i l"     "load module to REPL"
-    "C-c i e"     "expand template"
-
     ;; flycheck
     "C-c !"     "flycheck"
     "C-c ! C-c" "compile using checker"
@@ -178,5 +163,31 @@
     "M-g M-g" "line"           ;; redundant
     "M-g M-n" "next error"     ;; redundant
     "M-g M-p" "previous error" ;; redundant
+    )
+
+  (which-key-add-major-mode-key-based-replacements 'haskell-mode
+    ;; haskell/hlint/intero
+    "C-c i"       "haskell"
+    "C-c i r"     "refactor"
+    "C-c i r b"   "[hlint] refactor buffer"
+    "C-c i r p"   "[hlint] refactor at point"
+    "C-c i r a"   "[intero] apply suggestion"
+    "C-c i r i"   "[hmode] format imports"
+    "C-c i t"     "type at point"
+    "C-c i i"     "info at point"
+    "C-c i c"     "compile"
+    "C-c i z"     "switch to REPL"
+    "C-c i l"     "load module to REPL"
+    "C-c i e"     "expand template"
+
+    "M-g i"       "navigate to imports"
+    "M-g M-i"     "navigate to imports"
+    )
+
+  (which-key-add-major-mode-key-based-replacements 'intero-repl-mode
+    ;;intero-repl
+    "C-c i"       "repl"
+    "C-c i z"     "switch from REPL"
+    "C-c i k"     "clean REPL"
     )
   )
