@@ -11,8 +11,10 @@
   :defer t
 
   :bind (:map haskell-mode-map
-              ("M-g i" . haskell-navigate-imports)
-              ("M-g M-i" . haskell-navigate-imports))
+              ("M-g i"     . haskell-navigate-imports)
+              ("M-g M-i"   . haskell-navigate-imports)
+              ("C-c i c"   . haskell-compile)
+              ("C-c i r i" . haskell-mode-format-imports ))
 
   :init
   (setq haskell-compile-cabal-build-alt-command "cd %s && stack clean && stack build --ghc-options -ferror-spans"
@@ -57,11 +59,15 @@
               ("M-."       . init-intero-goto-definition)
               ("C-c i t"   . intero-type-at)
               ("C-c i i"   . intero-info)
-              ("C-c i c"   . intero-repl-eval-region)
+              ;;("C-c i c"   . intero-repl-eval-region)
               ("C-c i r a" . intero-apply-suggestions)
               ("C-c i z"   . intero-repl)
               ("C-c i l"   . intero-repl-load)
               ("C-c i e"   . intero-expand-splice-at-point)
+
+         :map intero-repl-mode-map
+              ("C-c i z"   . intero-repl-switch-back)
+              ("C-c i k"   . intero-repl-clear-buffer)
               )
 
   :init
@@ -85,6 +91,9 @@
   (unbind-key "C-c C-r" intero-mode-map)
   (unbind-key "C-c C-t" intero-mode-map)
   (unbind-key "C-c C-z" intero-mode-map)
+
+  (unbind-key "C-c C-z" intero-repl-mode-map)
+  (unbind-key "C-c C-k" intero-repl-mode-map)
 
   (defun init-intero-goto-definition ()
     "Jump to the definition of the thing at point using Intero or etags."
