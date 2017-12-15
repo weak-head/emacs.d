@@ -119,10 +119,17 @@
     "C-c ! x"   "disable checker"
 
     ;; yasnippet
-    "C-c &" "yasnippet"
+    "C-c &"     "yasnippet"
     "C-c & C-n" "new snippet"
     "C-c & C-s" "insert snippet"
     "C-c & C-v" "visit snippet file"
+
+    ;; fancy-narrow
+    "C-c 0"     "fancy narrow"
+    "C-c 0 r"   "region"
+    "C-c 0 d"   "defun"
+    "C-c 0 p"   "page"
+    "C-c 0 w"   "widen"
 
     ;; paren
     "C-c e"   "paren"
