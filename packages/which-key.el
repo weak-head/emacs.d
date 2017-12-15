@@ -8,7 +8,7 @@
   (which-key-setup-side-window-right-bottom)
 
   :config
-  (setq which-key-idle-delay 0.4
+  (setq which-key-idle-delay 0.7
         which-key-compute-remaps t
         which-key-sort-order 'which-key-key-order-alpha)
 
