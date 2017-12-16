@@ -15,7 +15,6 @@ RUN apt-get update \
 
 # add emacs configuration
 COPY init.el   /root/.emacs.d/
-COPY global    /root/.emacs.d/global
 COPY packages  /root/.emacs.d/packages
 
 # trigger the package initialization
