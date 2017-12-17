@@ -26,6 +26,7 @@
 (when (fboundp 'scroll-bar-mode)
   (scroll-bar-mode -1))
 
+(delete-selection-mode 1)
 (blink-cursor-mode 0)
 ;;(global-auto-revert-mode t)
 
