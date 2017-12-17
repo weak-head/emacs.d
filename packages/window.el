@@ -6,7 +6,7 @@
   (setq aw-background nil))
 
 (use-package winner
-  :bind (:map winner-mode-map
+  :bind (:map global-map
               ("C-c w u" . winner-undo)
               ("C-c w r" . winner-redo))
 
