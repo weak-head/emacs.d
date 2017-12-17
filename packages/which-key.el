@@ -16,7 +16,6 @@
     ;; default prefixes
     "C-x 8" "unicode"
     "C-x a" "abbrev/expand"
-    "C-x r" "register/bookmark"
 
     ;; magit
     "C-c g"   "magit"
@@ -170,6 +169,22 @@
     "M-g M-g" "line"           ;; redundant
     "M-g M-n" "next error"     ;; redundant
     "M-g M-p" "previous error" ;; redundant
+
+    ;; registers, bookmarks, rectangles
+    "C-x r"     "register/bookmark"
+    "C-x r m"   "[bookmark] set"
+    "C-x r l"   "[bookmark] list"
+    "C-x r b"   "[bookmark] jump"
+    "C-x r n"   "[reg] store number"
+    "C-x r s"   "[reg] store region"
+    "C-x r SPC" "[reg] store point"
+    "C-x r +"   "[reg] increment number"
+    "C-x r j"   "[reg] jump"
+    "C-x r i"   "[reg] insert content"
+    "C-x r w"   "[reg] store window config"
+    "C-x r f"   "[reg] store frameset"
+    ;; TODO: rectangles
+    ;; TODO: other register keys
     )
 
   (which-key-add-major-mode-key-based-replacements 'haskell-mode
