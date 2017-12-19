@@ -183,6 +183,12 @@
     "C-x r i"   "[reg] insert content"
     "C-x r w"   "[reg] store window config"
     "C-x r f"   "[reg] store frameset"
+    "C-x r k"   "[rect] kill"
+    "C-x r d"   "[rect] delete"
+    "C-x r y"   "[rect] yank"
+    "C-x r c"   "[rect] clear"
+    "C-x r o"   "[rect] insert blank"
+    "C-x r t"   "[rect] replace with text"
     ;; TODO: rectangles
     ;; TODO: other register keys
     )
