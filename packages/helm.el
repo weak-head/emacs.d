@@ -78,9 +78,9 @@
          ("C-s" . helm-next-line))
   
   :init
-  (setq helm-swoop-use-fuzzy-match t)
-  (setq helm-swoop-split-with-multiple-windows t)
-  (setq helm-swoop-speed-or-color t))
+  (setq helm-swoop-use-fuzzy-match t
+        helm-swoop-split-with-multiple-windows t
+        helm-swoop-speed-or-color t))
 
 
 (use-package helm-ag

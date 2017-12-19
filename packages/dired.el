@@ -11,22 +11,11 @@
     (interactive)
     (find-alternate-file ".."))
 
-  ;; always delete and copy recursively
-  (setq dired-recursive-deletes 'always)
-  (setq dired-recursive-copies 'always)
-
-  ;; '-a' show all files
-  ;; '-l' mandatory
-  ;; '-h' human readable sizes
-  ;; '-F' file-type classifiers
-  (setq dired-listing-switches "-alhF")
-
-  ;; mark links with @
-  (setq dired-ls-F-marks-symlinks t)
-
-  ;; if there is a dired buffer displayed in the next window, use its
-  ;; current subdir, instead of the current subdir of this dired buffer
-  (setq dired-dwim-target t))
+  (setq dired-recursive-deletes 'always
+        dired-recursive-copies 'always
+        dired-listing-switches "-alhF"
+        dired-ls-F-marks-symlinks t
+        dired-dwim-target t))
 
 (use-package dired-x
   :defer nil

@@ -9,11 +9,11 @@
     (cond ((member project-type '(haskell-stack)) "Spec")
           (t (projectile-test-suffix project-type))))
 
-  (setq projectile-create-missing-test-files t)
-  (setq projectile-mode-line nil)
-  (setq projectile-test-suffix-function #'init-projectile-test-suffix)
-  (setq projectile-use-git-grep t)
-  (setq projectile-indexing-method 'alien)
+  (setq projectile-create-missing-test-files t
+        projectile-mode-line nil
+        projectile-test-suffix-function #'init-projectile-test-suffix
+        projectile-use-git-grep t
+        projectile-indexing-method 'alien)
   ;;(setq projectile-enable-caching t)
 
   (make-variable-buffer-local 'projectile-tags-command)
