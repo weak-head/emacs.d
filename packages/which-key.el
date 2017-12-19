@@ -181,6 +181,7 @@
     "C-x r SPC"   "[reg] store point"
     "C-x r +"     "[reg] increment number"
     "C-x r j"     "[reg] jump"
+    "C-x r x"     "[reg] copy"
     "C-x r g"     "[reg] insert content"
     "C-x r i"     "[reg] insert content"
     "C-x r w"     "[reg] store window config"
