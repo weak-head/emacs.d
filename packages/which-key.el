@@ -170,6 +170,41 @@
     "M-g M-n" "next error"     ;; redundant
     "M-g M-p" "previous error" ;; redundant
 
+    ;; build-in utility commands
+    "C-x C-SPC"   "set mark"
+    "C-x C-x"     "exchange mark and point"
+
+    ;; windows, frames
+    "C-x 0"       "delete window"
+    "C-x 1"       "delete other windows"
+    "C-x 2"       "split window below"
+    "C-x 3"       "split window right"
+    "C-x 4"       "other window"
+    "C-x 4 C-f"   "find file"
+    "C-x 4 C-o"   "display buffer"
+    "C-x 4 ."     "find definition"
+    "C-x 4 0"     "kill buffer"
+    "C-x 4 a"     "add change log entry"
+    "C-x 4 b"     "switch to buffer"
+    "C-x 4 c"     "clone buffer"
+    "C-x 4 d"     "dired"
+    "C-x 4 f"     "find file"
+    "C-x 4 m"     "compose mail"
+    "C-x 4 r"     "find file (ro)"
+    "C-x 5"       "other frame"
+    "C-x 5 C-f"   "find file"
+    "C-x 5 C-o"   "display buffer"
+    "C-x 5 ."     "find definition"
+    "C-x 5 0"     "kill frame"
+    "C-x 5 1"     "kill other frame"
+    "C-x 5 2"     "create frame"
+    "C-x 5 b"     "switch to buffer"
+    "C-x 5 d"     "dired"
+    "C-x 5 f"     "find file"
+    "C-x 5 m"     "compose mail"
+    "C-x 5 o"     "navigate to frame"       ;; redundant
+    "C-x 5 r"     "find file (ro)"
+
     ;; registers, bookmarks, rectangles
     "C-x r"       "register/bookmark"
     "C-x r m"     "[bookmark] set"
