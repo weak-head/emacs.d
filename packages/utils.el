@@ -52,6 +52,10 @@
 ;; Running Emacs maximized.
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
+;;----------------------------------------------------------------------------
+;; Diminish the text of embeded minor modes
+;;----------------------------------------------------------------------------
+(setq auto-revert-mode-text "Ā")
 
 ;;----------------------------------------------------------------------------
 ;; Store auto-saves and backups in emacs.d/var
