@@ -173,6 +173,7 @@
     ;; build-in utility commands
     "C-x C-SPC"   "set mark"
     "C-x C-x"     "exchange mark and point"
+    "C-x C-e"     "evaluate last s-exp"
 
     ;; windows, frames
     "C-x 0"       "delete window"
