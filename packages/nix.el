@@ -1,7 +1,6 @@
 
 (use-package nix-mode
-  :ensure t
-  :mode "\\.nix\\'")
+  :ensure t)
 
 (use-package nixos-options
   :ensure t)
