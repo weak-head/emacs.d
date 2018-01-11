@@ -24,6 +24,7 @@
     "C-c g d" "diff"
     "C-c g t" "stage"
     "C-c g u" "unstage"
+    "C-c g a" "amend"
     "C-c g c" "commit"
     "C-c g b" "branch"
     "C-c g m" "merge"

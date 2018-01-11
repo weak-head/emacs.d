@@ -23,6 +23,7 @@
 
          ("C-c g t" . magit-stage-file)
          ("C-c g u" . magit-unstage-file)
+         ("C-c g a" . magit-commit-amend)
          ("C-c g c" . magit-commit)
 
          ("C-c g b" . magit-branch)
