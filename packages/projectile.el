@@ -17,7 +17,10 @@
   ;;(setq projectile-enable-caching t)
 
   (make-variable-buffer-local 'projectile-tags-command)
-  (projectile-mode))
+  (add-hook 'text-mode-hook 'projectile-mode)
+  (add-hook 'prog-mode-hook 'projectile-mode)
+  ;;(projectile-mode)
+  )
 
 (use-package helm-projectile
   :ensure t
