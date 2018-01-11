@@ -28,6 +28,7 @@
     "C-c g c" "commit"
     "C-c g b" "branch"
     "C-c g m" "merge"
+    "C-c g r" "rebase"
     "C-c g f" "fetch"
     "C-c g p" "push"
     "C-c g P" "pull"

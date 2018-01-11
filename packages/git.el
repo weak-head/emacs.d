@@ -29,6 +29,7 @@
          ("C-c g b" . magit-branch)
 
          ("C-c g m" . magit-merge)
+         ("C-c g r" . magit-rebase)
 
          ("C-c g f" . magit-fetch)
          ("C-c g P" . magit-pull)
