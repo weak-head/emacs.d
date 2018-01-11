@@ -38,3 +38,9 @@
   (setq magit-push-always-verify nil
         magit-revert-buffers t)
   (add-hook 'git-commit-mode-hook #'flyspell-mode))
+
+(use-package ssh-agency
+  :ensure t
+
+  :init
+  (setenv "SSH_ASKPASS" "git-gui--askpass"))
