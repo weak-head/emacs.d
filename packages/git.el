@@ -19,8 +19,8 @@
 
   :bind (("C-c g s" . magit-status)
          ("C-c g l" . magit-log-all)
+         ("C-c g d" . magit-diff)
 
-         ("C-c g k" . magit-discard)
          ("C-c g t" . magit-stage-file)
          ("C-c g u" . magit-unstage-file)
          ("C-c g c" . magit-commit)

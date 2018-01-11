@@ -21,7 +21,7 @@
     "C-c g"   "magit"
     "C-c g s" "status"
     "C-c g l" "log"
-    "C-c g k" "discard"
+    "C-c g d" "diff"
     "C-c g t" "stage"
     "C-c g u" "unstage"
     "C-c g c" "commit"
