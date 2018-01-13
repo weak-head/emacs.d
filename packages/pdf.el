@@ -7,6 +7,8 @@
   :ensure t
   :defer t
 
-  :init
-  (pdf-tools-install)
-  (add-to-list 'auto-mode-alist '("\\.pdf\\'" . pdf-view-mode)))
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+
+  ;:init
+  ;;(pdf-tools-install)
+  )
