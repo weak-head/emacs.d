@@ -1,3 +1,8 @@
+
+;; Prerequisites:
+;;  - silver searcher
+
+
 (use-package projectile
   :ensure t
   :demand

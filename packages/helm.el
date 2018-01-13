@@ -91,3 +91,9 @@
   :ensure t
   :config
   (helm-flx-mode t))
+
+(use-package helm-descbinds
+  :ensure t
+
+  :config
+  (helm-descbinds-mode))
