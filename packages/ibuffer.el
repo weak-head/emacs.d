@@ -15,6 +15,7 @@
   (setq ibuffer-saved-filter-groups
         (quote (("mode-based-groups"
                  ("dired" (mode . dired-mode))
+                 ("pdf" (mode . pdf-view-mode))
                  ("csharp" (or
                             (mode . csharp-mode)
                             (name . ".*\\.sln")
