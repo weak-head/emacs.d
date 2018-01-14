@@ -5,12 +5,12 @@
   (set-face-attribute 'default nil
                       ;; :font "Roboto Mono"
                       :family "Roboto Mono"
-                      :height 98
+                      :height 90
                       :weight 'normal
                       :width 'normal)
   (set-face-attribute 'default nil
                       :font "Source Code Pro"
-                      :height 98
+                      :height 90
                       :weight 'normal
                       :width 'normal))
 
