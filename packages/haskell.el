@@ -15,13 +15,23 @@
               ("M-g M-i"   . haskell-navigate-imports)
               ("C-c i c"   . haskell-compile)
               ("C-c i r i" . haskell-mode-format-imports)
-              ("C-c i h h" . haskell-hoogle)
-              ("C-c i h y" . haskell-hayoo))
+              ("C-c i h h" . wh/hoogle-at-point)
+              ("C-c i h y" . wh/hayoo-at-point))
 
   :init
   (setq haskell-compile-cabal-build-alt-command "cd %s && stack clean && stack build --ghc-options -ferror-spans"
         haskell-compile-cabal-build-command     "cd %s && stack build --ghc-options -ferror-spans"
         haskell-compile-command                 "stack ghc -- -Wall -ferror-spans -fforce-recomp -c %s")
+
+  (defun wh/hoogle-at-point ()
+    "Do a Hoogle search for the haskell identifier at point."
+    (interactive)
+    (haskell-hoogle (haskell-ident-at-point)))
+
+  (defun wh/hayoo-at-point ()
+    "Do a Hayoo search for the haskell identifier at point."
+    (interactive)
+    (haskell-hayoo (haskell-ident-at-point)))
 
   :config
   (unbind-key "C-c C-b" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
@@ -32,6 +42,8 @@
   (unbind-key "C-c C-v" haskell-mode-map) ;; haskell-mode-enable-process-minor-mode
   (unbind-key "C-c C-," haskell-mode-map) ;; haskell-mode-format-imports
   )
+
+
 
 (use-package haskell-snippets
   :ensure t
