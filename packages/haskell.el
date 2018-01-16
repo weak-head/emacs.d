@@ -14,7 +14,9 @@
               ("M-g i"     . haskell-navigate-imports)
               ("M-g M-i"   . haskell-navigate-imports)
               ("C-c i c"   . haskell-compile)
-              ("C-c i r i" . haskell-mode-format-imports ))
+              ("C-c i r i" . haskell-mode-format-imports)
+              ("C-c i h h" . haskell-hoogle)
+              ("C-c i h y" . haskell-hayoo))
 
   :init
   (setq haskell-compile-cabal-build-alt-command "cd %s && stack clean && stack build --ghc-options -ferror-spans"

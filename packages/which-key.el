@@ -254,6 +254,10 @@
     "C-c i l"     "load module to REPL"
     "C-c i e"     "expand template"
 
+    "C-c i h"     "help"
+    "C-c i h y"   "hayoo"
+    "C-c i h h"   "hoogle"
+
     "M-g i"       "navigate to imports"
     "M-g M-i"     "navigate to imports"
     )
