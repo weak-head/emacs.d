@@ -198,4 +198,4 @@
 (bind-key "C-x |" 'wh/toggle-window-split)
 (bind-key "M-/" 'hippie-expand)
 (bind-key "M-*" 'pop-tag-mark)
-(bind-key "<f2>" 'wh/visit-emacs-confi-file)
+(bind-key "<f2>" 'wh/visit-emacs-config-file)
