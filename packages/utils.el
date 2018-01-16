@@ -130,23 +130,23 @@
 ;; General defun
 ;;----------------------------------------------------------------------------
 
-;; Removes ^M line endings from files with mixed UNIX and DOS line endings modes.
+;; Hides ^M line endings from files with mixed UNIX and DOS line endings modes.
 ;; as option we can execute this for all files on load:
 ;;   (add-hook 'text-mode-hook 'remove-dos-eol)
-(defun remove-dos-eol ()
+(defun wh/hide-dos-eol ()
   "Do not show ^M in files containing mixed UNIX and DOS line endings."
   (interactive)
   (setq buffer-display-table (make-display-table))
   (aset buffer-display-table ?\^M []))
 
 ;; Kills the current buffer.
-(defun init-kill-buffer-current ()
+(defun wh/kill-buffer-current ()
   "Kill the current buffer."
   (interactive)
   (kill-buffer (current-buffer)))
 
 ;; Copies the full path of the file in the active buffer.
-(defun copy-buffer-file-path ()
+(defun wh/copy-buffer-file-path ()
   "Copies the full path of the file in the active buffer."
   (interactive)
   (let ((filename (if (equal major-mode 'dired-mode)
@@ -156,17 +156,46 @@
       (let ((select-enable-clipboard t)) (kill-new filename))
       (message filename))))
 
+;; Toggles the window split. Works well for 2 windows.
+(defun wh/toggle-window-split ()
+  "If the frame is split vertically, split it horizontally or vice versa."
+  (interactive)
+  (if (= (count-windows) 2)
+      (let* ((this-win-buffer (window-buffer))
+             (next-win-buffer (window-buffer (next-window)))
+             (this-win-edges (window-edges (selected-window)))
+             (next-win-edges (window-edges (next-window)))
+             (this-win-2nd (not (and (<= (car this-win-edges)
+                                         (car next-win-edges))
+                                     (<= (cadr this-win-edges)
+                                         (cadr next-win-edges)))))
+             (splitter
+              (if (= (car this-win-edges)
+                     (car (window-edges (next-window))))
+                  'split-window-horizontally
+                'split-window-vertically)))
+        (delete-other-windows)
+        (let ((first-win (selected-window)))
+          (funcall splitter)
+          (if this-win-2nd (other-window 1))
+          (set-window-buffer (selected-window) this-win-buffer)
+          (set-window-buffer (next-window) next-win-buffer)
+          (select-window first-win)
+          (if this-win-2nd (other-window 1))))))
+
+(defun wh/visit-emacs-config-file ()
+  "Visit Emacs configuration file in the current buffer."
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
 
 ;;----------------------------------------------------------------------------
 ;; General key bindings
 ;;----------------------------------------------------------------------------
 
 ;;(bind-key "C-c C-SPC" #'delete-trailing-whitespace)
-(bind-key "C-x C-b" #'ibuffer)
-(bind-key "C-x C-k" #'init-kill-buffer-current)
-(bind-key "C-x |" #'toggle-window-split)
-(bind-key "M-/" #'hippie-expand)
-(bind-key "M-*" #'pop-tag-mark)
-(bind-key "<f2>" (lambda ()
-                   (interactive)
-                   (find-file "~/.emacs.d/init.el")))
+(bind-key "C-x C-b" 'ibuffer)
+(bind-key "C-x C-k" 'wh/kill-buffer-current)
+(bind-key "C-x |" 'wh/toggle-window-split)
+(bind-key "M-/" 'hippie-expand)
+(bind-key "M-*" 'pop-tag-mark)
+(bind-key "<f2>" 'wh/visit-emacs-confi-file)
