@@ -1,6 +1,7 @@
 ;;----------------------------------------------------------------------------
 ;; Setup frame fonts
 ;;----------------------------------------------------------------------------
+
 (if (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
                       ;; :font "Roboto Mono"
@@ -9,8 +10,9 @@
                       :weight 'normal
                       :width 'normal)
   (set-face-attribute 'default nil
-                      :font "Source Code Pro"
-                      :height 90
+                      ;;:font "Source Code Pro"
+                      :family "monofur"
+                      :height 120
                       :weight 'normal
                       :width 'normal))
 
