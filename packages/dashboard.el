@@ -9,16 +9,17 @@
   :init
   (defun wh/emacs-logo-title ()
     "Generates the emacs logo title."
-    (cond ((eq system-type 'windows-nt) (concat "GNU Emacs: " emacs-version))
-          ((eq system-type 'darwin) (concat "GNU Emacs: " emacs-version))
+    (defun wh/get-nix-info (n)
+      "Retrieves os release info"
+      (nth 1 (split-string (nth n (split-string (shell-command-to-string "cat /etc/*-release") "\n")) "=")))
+    (cond ((eq system-type 'windows-nt) (concat "GNU Emacs " emacs-version))
+          ((eq system-type 'darwin) (concat "GNU Emacs " emacs-version))
           (t (concat "GNU Emacs " emacs-version
-                     "\n kernel " (car (split-string (shell-command-to-string "uname -r") "-"))
-                     "\n "
-                     (nth 1 (split-string (nth 0 (split-string (shell-command-to-string "cat /etc/*-release") "\n")) "="))
-                     " "
-                     (nth 1 (split-string (nth 1 (split-string (shell-command-to-string "cat /etc/*-release") "\n")) "="))
-                     "" ))
-          ))
+                     " ~ "
+                     (wh/get-nix-info 0) " " (wh/get-nix-info 1)
+                     " ~ "
+                     "kernel " (car (split-string (shell-command-to-string "uname -r") "-"))
+                     ))))
 
   (setq dashboard-banner-logo-title (wh/emacs-logo-title))
   (setq dashboard-startup-banner 'logo)
