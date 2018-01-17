@@ -1,3 +1,7 @@
+;; Prerequesites:
+;;  - https://github.com/domtronn/all-the-icons.el/tree/master/fonts
+;;
+
 (use-package all-the-icons
   :ensure t)
 
