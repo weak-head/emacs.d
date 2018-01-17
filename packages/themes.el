@@ -4,8 +4,8 @@
 (if (eq system-type 'windows-nt)
   (set-face-attribute 'default nil
                       ;; :font "Roboto Mono"
-                      :family "Roboto Mono"
-                      :height 90
+                      :family "Inconsolata" ;; Roboto Mono
+                      :height 120
                       :weight 'normal
                       :width 'normal)
   (set-face-attribute 'default nil
