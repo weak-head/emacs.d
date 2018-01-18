@@ -6,5 +6,5 @@
   :mode ("\\.pdf\\'" . pdf-view-mode)
 
   :init
-  (pdf-tools-install 't)
+  ;;(pdf-tools-install 't)
   )
