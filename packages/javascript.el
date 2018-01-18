@@ -7,9 +7,12 @@
 ;;
 ;;  - Tern (http://ternjs.net/)
 ;;    $ npm install -g tern tern-lint
+;;    >> .tern-project (http://ternjs.net/doc/manual.html#project_file)
 ;;
 ;;  - flycheck / eslint
 ;;    $ npm install -g eslint babel-eslint eslint-plugin-react
+;;    >> .eslintrc (https://eslint.org/docs/user-guide/configuring)
+;;
 
 (use-package js2-mode
   :ensure t
