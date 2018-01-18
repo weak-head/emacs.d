@@ -154,6 +154,10 @@
     "C-c t l" "linum"
     "C-c t w" "whitespace"
 
+    ;; navigate
+    "C-c o"   "navigate"
+    "C-c o u" "to URL at point"
+
     ;; highlight
     "M-s h"   "highlight"
     "M-s h w" "save pattern"
