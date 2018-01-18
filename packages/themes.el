@@ -1,3 +1,6 @@
+;; Prerequesites:
+;;  - all-the-icons
+
 ;;----------------------------------------------------------------------------
 ;; Setup frame fonts
 ;;----------------------------------------------------------------------------
@@ -26,6 +29,7 @@
   :ensure t
   :disabled t
   :demand
+
   :init
   (load-theme 'kaolin-dark 'no-confirm))
 
@@ -34,6 +38,7 @@
   :ensure t
   :disabled t
   :demand
+
   :init
   (load-theme 'zenburn 'no-confirm))
 
@@ -42,6 +47,7 @@
   :ensure t
   :disabled t
   :demand
+
   :init
   (load-theme 'dracula 'no-confirm))
 
@@ -57,3 +63,53 @@
   (doom-themes-visual-bell-config)
   ;;(doom-themes-neotree-config)
   (doom-themes-org-config))
+
+;; https://github.com/nashamri/spacemacs-theme
+(use-package spacemacs-theme
+  :ensure t
+  :defer t
+  :disabled t
+
+  :init
+  (load-theme 'spacemacs-dark t)
+  ;;(setq spacemacs-theme-org-agenda-height nil)
+  ;;(setq spacemacs-theme-org-height nil)
+  )
+
+
+;;----------------------------------------------------------------------------
+;; Setup power line
+;;----------------------------------------------------------------------------
+
+(use-package spaceline
+  :ensure t
+  :demand t
+
+  :init
+  (require 'spaceline-config)
+  (setq powerline-default-separator 'arrow)
+
+  :config
+  (spaceline-spacemacs-theme)
+  ;;(spaceline-emacs-theme)
+
+  (spaceline-helm-mode)
+  )
+
+(use-package spaceline-all-the-icons
+  :ensure t
+
+  :after spaceline
+
+  :config
+  (setq spaceline-all-the-icons-separator-type 'cup
+        spaceline-all-the-icons-icon-set-modified 'toggle
+        spaceline-all-the-icons-icon-set-flycheck-slim 'outline
+        spaceline-all-the-icons-flycheck-alternate t
+        spaceline-all-the-icons-highlight-file-name t
+        spaceline-all-the-icons-hide-long-buffer-path t
+        )
+
+  (spaceline-all-the-icons--setup-neotree)
+
+  (spaceline-all-the-icons-theme))
