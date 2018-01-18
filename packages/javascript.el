@@ -1,11 +1,15 @@
 ;; Prerequisites:
+;;
 ;;  - NodeJS
 ;;    $ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
 ;;    $ nvm install v8
 ;;    $ nvm alias default v8
+;;
 ;;  - Tern (http://ternjs.net/)
 ;;    $ npm install -g tern tern-lint
 ;;
+;;  - flycheck / eslint
+;;    $ npm install -g eslint babel-eslint eslint-plugin-react
 
 (use-package js2-mode
   :ensure t
