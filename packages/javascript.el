@@ -22,22 +22,6 @@
   :config
   (define-key js2-mode-map (kbd "C-c C-o") nil)
   (add-hook 'js2-mode-hook #'js2-imenu-extras-mode)
-
-  ;; (defun js2-show-node-at-point ()
-  ;;   (interactive)
-  ;;   (js2-show-node (js2-node-at-point)))
-
-  ;; (defun js2-show-node-parent-at-point ()
-  ;;   (interactive)
-  ;;   (js2-show-node (js2-node-parent (js2-node-at-point))))
-
-  ;; (defun js2-show-node (node)
-  ;;   (let* ((buf (get-buffer-create "*js2-node-at-point*"))
-  ;;          (node-contents (buffer-substring (js2-node-abs-pos node) (js2-node-abs-end node))))
-  ;;     (with-current-buffer
-  ;;         (set-buffer buf)
-  ;;       (delete-region (point-min) (point-max))
-  ;;       (insert node-contents))))
   )
 
 (use-package js2-refactor
@@ -53,17 +37,13 @@
 
   (setq js2-skip-preprocessor-directives t)
 
-  (define-key js2-mode-map (kbd "C-k") #'js2r-kill)
-;;  (define-key js-mode-map (kbd "M-.") nil)
-  )
+  (define-key js2-mode-map (kbd "C-k") #'js2r-kill))
 
 (use-package tern
   :ensure t
 
   :config
-  (add-hook 'js2-mode-hook (lambda ()
-                             (tern-mode)
-                             (company-mode)))
+  (add-hook 'js2-mode-hook (lambda () (tern-mode)))
   )
 
 (use-package company-tern
