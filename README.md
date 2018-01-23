@@ -1,21 +1,36 @@
-# My emacs.d
+# Emacs.d
 
-~this is just a skeleton~
+This repository contains my personal emacs configuration.
 
-## Testing the configuration
+## Config overview
 
 *TBD*
 
-Build docker image:  
-  ``` docker build -f ./docker/Dockerfile -t=zinchenko/emacs.d . ```
+## Installation
 
-Run docker image:  
-  ``` docker run -i -t --name emacs zinchenko/emacs.d ```
+``` shell
+mv ~/.emacs.d ~/.emacs.d.back
+git clone https://github.com/weak-head/emacs.d ~/.emacs.d
+```
+
+To have access to all the features and capabilities the dependencies described below should be installed. 
+
+## Prerequisites and dependencies
+
+*TBD*
 
 ## Scripts
 
-*TBD*
+> Windows specific
+* [Emacs client in context menu](scripts/w-context-menu.reg)  
+* [Associate files with Emacs client](scripts/w-file-assoc.bat)  
+* [Fix Alt Gr and remap CapsLock to Ctrl](scripts/w-fix-right-alt-and-capslock.reg)  
 
-[w-context-menu.reg](scripts/w-context-menu.reg)  
-[w-file-assoc.bat](scripts/w-file-assoc.bat)  
-[w-fix-right-alt-and-capslock.reg](scripts/w-fix-right-alt-and-capslock.reg)  
+## Testing config using Docker
+
+Build image:  
+  ``` docker build -f ./Dockerfile -t=weak-head/emacs.d . ```
+
+Run:  
+  ``` docker run -i -t --name emacs weak-head/emacs.d ```
+
