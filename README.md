@@ -1,6 +1,6 @@
 # Emacs.d
 
-This repository contains my personal emacs configuration.
+This repository contains my personal Emacs configuration.
 
 ## Config overview
 
@@ -8,12 +8,17 @@ This repository contains my personal emacs configuration.
 
 ## Installation
 
+Backup your Emacs config:
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.back
+```
+
+Clone the repo:
+``` shell
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-To have access to all the features and capabilities the dependencies described below should be installed. 
+To have access to all the features and capabilities please make sure to install the dependencies (described below).
 
 ## Prerequisites and dependencies
 
@@ -21,7 +26,7 @@ To have access to all the features and capabilities the dependencies described b
 
 ## Scripts
 
-> Windows specific
+Windows specific scripts:
 * [Emacs client in context menu](scripts/w-context-menu.reg)  
 * [Associate files with Emacs client](scripts/w-file-assoc.bat)  
 * [Fix Alt Gr and remap CapsLock to Ctrl](scripts/w-fix-right-alt-and-capslock.reg)  
@@ -29,8 +34,12 @@ To have access to all the features and capabilities the dependencies described b
 ## Testing config using Docker
 
 Build image:  
-  ``` docker build -f ./Dockerfile -t=weak-head/emacs.d . ```
+``` shell
+docker build -f ./Dockerfile -t=weak-head/emacs.d . 
+```
 
 Run:  
-  ``` docker run -i -t --name emacs weak-head/emacs.d ```
+``` shell
+docker run -i -t --name emacs weak-head/emacs.d 
+```
 
