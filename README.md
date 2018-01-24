@@ -28,20 +28,12 @@ docker run -i -t --name emacs weak-head/emacs.d
 A lot of major/minor modes are relying on external dependencies. Usually they are mentioned in the `*.el` file headers.  
 This list is not trying to be complete, but mostly reflects the summary of the hi-level requirements.
 
-Themes and Neotree:
-* [all-the-icons-fonts](https://github.com/domtronn/all-the-icons.el/tree/master/fonts)
-
-Projectile:
+* [all the icons: fonts](https://github.com/domtronn/all-the-icons.el/tree/master/fonts)
 * [silver searcher](https://github.com/ggreer/the_silver_searcher)
-
-Haskell:
+* [pandoc](https://pandoc.org/)
 * [stack](https://docs.haskellstack.org/en/stable/README/)
 * [codex](https://github.com/aloiscochard/codex)
-
-C#:
 * [omnisharp](http://www.omnisharp.net/)
-
-JavaScript:
 * [nodejs](https://nodejs.org/)
 * [tern](https://github.com/ternjs/tern)
 * [eslint](https://eslint.org/)
