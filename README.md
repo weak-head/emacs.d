@@ -4,19 +4,17 @@ This repository contains my personal Emacs configuration.
 
 ## Installation
 
-Back up your Emacs config and clone the repo:
+Backup your existing config and clone the repo:
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.back
+
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-I've remapped some of the commonly used keys for the major modes.  
-My most vital shortcuts could be found in the [which_key.el](packages/which-key.el).  
-  
-  
-To have access to all the features and capabilities make sure to install the dependencies.
+Though I'm using [custom shortcuts](packages/which-key.el), most of my bindings are default.  
+If you want to have access to all the features and capabilities, please make sure to install the dependencies.
 
-## Testing config using Docker
+## Check it out using Docker
 
 Build and run the image:  
 ``` shell
@@ -27,23 +25,23 @@ docker run -i -t --name emacs weak-head/emacs.d
 
 ## External dependencies
 
-This is just a hi-level overview.  
-For the additional information check the `Prerequisites` section of the each particular *.el file.
+A lot of major/minor modes are having external dependencies. Usually they are mentioned in the `*.el` file headers.  
+This list is not trying to be complete, but mostly reflects the summary of the hi-level dependencies.
 
-Themes and Neotree
+Themes and Neotree:
 * [all-the-icons-fonts](https://github.com/domtronn/all-the-icons.el/tree/master/fonts)
 
-Projectile
-* [Silver searcher](https://github.com/ggreer/the_silver_searcher)
+Projectile:
+* [silver searcher](https://github.com/ggreer/the_silver_searcher)
 
-Haskell
+Haskell:
 * [stack]()
 * [codex]()
 
-C#
+C#:
 * [omnisharp]()
 
-JavaScript
+JavaScript:
 * [nodejs]()
 * [tern]()
 * [eslint]()
