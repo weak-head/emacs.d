@@ -16,6 +16,7 @@
 
 (use-package js2-mode
   :ensure t
+  :defer t
 
   :mode "\\.js\\'"
 
@@ -26,6 +27,7 @@
 
 (use-package js2-refactor
   :ensure t
+  :defer t
 
   :config
   (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -41,6 +43,7 @@
 
 (use-package tern
   :ensure t
+  :defer t
 
   :config
   (add-hook 'js2-mode-hook (lambda () (tern-mode)))
@@ -48,10 +51,12 @@
 
 (use-package company-tern
   :ensure t
+  :defer t
 
   :config
   (add-to-list 'company-backends 'company-tern))
 
 (use-package indium
   :ensure t
+  :defer t
   )

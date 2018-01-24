@@ -1,7 +1,7 @@
 (use-package company
   :ensure t
-  :demand
   :diminish ""
+  :defer t
 
   :init
   (setq company-idle-delay 0.3)
@@ -9,7 +9,7 @@
 
 (use-package company-quickhelp
   :ensure t
-  :demand
-  
-  :init
+  :defer t
+
+  :config
   (add-hook 'company-mode-hook #'company-quickhelp-mode))

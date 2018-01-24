@@ -18,7 +18,7 @@
         dired-dwim-target t))
 
 (use-package dired-x
-  :defer nil
+  :defer t
   :after dired
 
   :commands (dired-jump

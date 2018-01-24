@@ -1,5 +1,7 @@
 (use-package etags
   :ensure t
+  :defer t
+
   :bind (("M-." . init-goto-tag))
 
   :init

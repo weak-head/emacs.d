@@ -1,7 +1,8 @@
 (use-package flycheck
   :ensure t
-  :demand
+  :defer t
   :diminish ""
+
   :bind (:map flycheck-mode-map
               ("M-n" . flycheck-next-error)
               ("M-p" . flycheck-previous-error))

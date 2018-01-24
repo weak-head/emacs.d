@@ -23,6 +23,7 @@
 (use-package org-bullets
   :ensure t
   :defer t
+
   :init
   (add-hook 'org-mode-hook #'org-bullets-mode))
 

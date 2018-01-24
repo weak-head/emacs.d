@@ -1,5 +1,6 @@
 (use-package whitespace
   :ensure nil
+  :defer t
 
   :bind (("C-c t w" . whitespace-mode))
 
@@ -11,6 +12,8 @@
 
 (use-package ws-butler
   :ensure t
+  :defer t
   :diminish ""
+
   :config
   (ws-butler-global-mode t))

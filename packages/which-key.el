@@ -1,6 +1,7 @@
 (use-package which-key
   :ensure t
   :demand
+  :defer t
   :diminish ""
 
   :init

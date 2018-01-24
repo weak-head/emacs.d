@@ -5,7 +5,7 @@
 
 (use-package projectile
   :ensure t
-  :demand
+  :defer t
   :diminish ""
 
   :init
@@ -29,7 +29,6 @@
 
 (use-package helm-projectile
   :ensure t
-  :demand
 
   :init
   (setq projectile-completion-system 'helm)

@@ -1,6 +1,6 @@
 (use-package git-gutter
   :ensure t
-  :demand
+  :defer t
   :diminish ""
   
   :init

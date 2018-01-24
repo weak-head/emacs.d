@@ -6,4 +6,5 @@
   (setq company-go-show-annotation t))
 
 (use-package go-eldoc
-  :ensure t)
+  :ensure t
+  :defer t)

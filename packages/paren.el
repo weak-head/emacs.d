@@ -1,6 +1,7 @@
 (use-package paren
   :ensure t
   :defer t
+
   :init
   (show-paren-mode))
 
@@ -51,6 +52,7 @@
 (use-package rainbow-delimiters
   :ensure t
   :defer t
+
   :init
   (dolist (hook '(text-mode-hook prog-mode-hook))
     (add-hook hook #'rainbow-delimiters-mode)))

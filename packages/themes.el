@@ -67,8 +67,8 @@
 ;; https://github.com/nashamri/spacemacs-theme
 (use-package spacemacs-theme
   :ensure t
-  :defer t
   :disabled t
+  :demand
 
   :init
   (load-theme 'spacemacs-dark t)
@@ -83,21 +83,23 @@
 
 (use-package spaceline
   :ensure t
-  :demand t
+  :demand
 
   :init
   (require 'spaceline-config)
   (setq powerline-default-separator 'arrow)
 
   :config
-  (spaceline-spacemacs-theme)
-  ;;(spaceline-emacs-theme)
+  ;;(spaceline-spacemacs-theme)
+  (spaceline-emacs-theme)
 
   (spaceline-helm-mode)
   )
 
 (use-package spaceline-all-the-icons
   :ensure t
+  :defer t
+  :demand
 
   :after spaceline
 

@@ -3,10 +3,12 @@
 ;;
 
 (use-package all-the-icons
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package neotree
   :ensure t
+  :defer t
 
   :bind  ([f8] . wh/neotree-project-dir)
 

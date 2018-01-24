@@ -1,6 +1,6 @@
 (use-package yasnippet
   :ensure t
-  :demand
+  :defer t
   :diminish (yas-minor-mode . "")
 
   :init
