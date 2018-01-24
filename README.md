@@ -1,28 +1,38 @@
-# Emacs.d
+# emacs.d
 
 This repository contains my personal Emacs configuration.
 
-## Config overview
-
-*TBD*
-
 ## Installation
 
-Backup your Emacs config:
+Back up your Emacs config and clone the repo:
 ``` shell
 mv ~/.emacs.d ~/.emacs.d.back
-```
-
-Clone the repo:
-``` shell
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-To have access to all the features and capabilities please make sure to install the dependencies (described below).
+To have access to all the features and capabilities  make sure to install the dependencies.
 
-## Prerequisites and dependencies
+## External dependencies
 
-*TBD*
+This is just a hi-level overview. For additional information check the `Prerequisites` section of each particular *.el file.
+
+> Themes and Neotree
+* [all-the-icons-fonts](https://github.com/domtronn/all-the-icons.el/tree/master/fonts)
+
+> Projectile
+* [Silver searcher](https://github.com/ggreer/the_silver_searcher)
+
+> Haskell
+* [stack]()
+* [codex]()
+
+> C#
+* [omnisharp]()
+
+> JavaScript
+* [nodejs]()
+* [tern]()
+* [eslint]()
 
 ## Scripts
 
