@@ -6,12 +6,30 @@ RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         emacs25-nox \
 
+# install dependencies
+    && apt-get install -y \
+                gcc \
+                libc6-dev \
+                libffi-dev \
+                libgmp-dev \
+                libncurses5-dev \
+                libncursesw5-dev \
+                build-essential \
+                zlib1g-dev \
+                wget \
+                curl \
+                git \
+                silversearcher-ag \
+
 # cleanup
     && apt-get clean \
     && rm -rf \
         /tmp/* \
         /var/lib/apt/lists/* \
         /var/tmp/*
+
+# haskell && stack
+RUN curl -sSL https://get.haskellstack.org/ | sh
 
 # add emacs configuration
 COPY init.el   /root/.emacs.d/
