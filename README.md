@@ -11,8 +11,8 @@ mv ~/.emacs.d ~/.emacs.d.back
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-Though I'm using [custom shortcuts](packages/which-key.el), most of my bindings are default.  
-If you want to have access to all the features and capabilities, please make sure to install the dependencies.
+Though I'm using [custom shortcuts](packages/which-key.el), most of my bindings are set to default.  
+If you want to have an access to the specific features and capabilities, please make sure to install the required dependencies.
 
 ## Check it out using Docker
 
@@ -25,8 +25,8 @@ docker run -i -t --name emacs weak-head/emacs.d
 
 ## External dependencies
 
-A lot of major/minor modes are having external dependencies. Usually they are mentioned in the `*.el` file headers.  
-This list is not trying to be complete, but mostly reflects the summary of the hi-level dependencies.
+A lot of major/minor modes are relying on external dependencies. Usually they are mentioned in the `*.el` file headers.  
+This list is not trying to be complete, but mostly reflects the summary of the hi-level requirements.
 
 Themes and Neotree:
 * [all-the-icons-fonts](https://github.com/domtronn/all-the-icons.el/tree/master/fonts)
@@ -35,16 +35,16 @@ Projectile:
 * [silver searcher](https://github.com/ggreer/the_silver_searcher)
 
 Haskell:
-* [stack]()
-* [codex]()
+* [stack](https://docs.haskellstack.org/en/stable/README/)
+* [codex](https://github.com/aloiscochard/codex)
 
 C#:
-* [omnisharp]()
+* [omnisharp](http://www.omnisharp.net/)
 
 JavaScript:
-* [nodejs]()
-* [tern]()
-* [eslint]()
+* [nodejs](https://nodejs.org/)
+* [tern](https://github.com/ternjs/tern)
+* [eslint](https://eslint.org/)
 
 ## Utils
 
