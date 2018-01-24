@@ -10,7 +10,10 @@ mv ~/.emacs.d ~/.emacs.d.back
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-I've remapped some of the commonly used keys for major modes. Most vital shortcuts could be found in the [which_key.el](packages/which_key.el).  
+I've remapped some of the commonly used keys for the major modes.  
+My most vital shortcuts could be found in the [which_key.el](packages/which-key.el).  
+  
+  
 To have access to all the features and capabilities make sure to install the dependencies.
 
 ## Testing config using Docker
