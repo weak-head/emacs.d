@@ -1,8 +1,7 @@
 (use-package evil
   :ensure t
 
-  :config
-  (evil-mode t)
+  :bind (("C-c t e" . evil-mode))
   )
 
 ;; (use-package evil-magit

@@ -154,6 +154,7 @@
     "C-c t"   "toggle"
     "C-c t l" "linum"
     "C-c t w" "whitespace"
+    "C-c t e" "evil"
 
     ;; navigate
     "C-c o"   "navigate"
