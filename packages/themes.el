@@ -90,9 +90,8 @@
   (setq powerline-default-separator 'arrow)
 
   :config
-  ;;(spaceline-spacemacs-theme)
-  (spaceline-emacs-theme)
-
+  (spaceline-spacemacs-theme)
+  ;;(spaceline-emacs-theme)
   (spaceline-helm-mode)
   )
 
@@ -100,6 +99,7 @@
   :ensure t
   :defer t
   :demand
+  :disabled t
 
   :after spaceline
 
