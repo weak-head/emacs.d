@@ -1,7 +1,6 @@
 (use-package helm
   :ensure t
   :diminish ""
-  :defer t
 
   :bind (("C-M-y" . helm-show-kill-ring)
          ("C-h a" . helm-apropos)
@@ -61,7 +60,6 @@
 
 (use-package helm-swoop
   :ensure t
-  :defer t
 
   :bind (("M-i" . helm-swoop)
          ("M-I" . helm-swoop-back-to-last-point)
@@ -85,19 +83,17 @@
 
 (use-package helm-ag
   :ensure t
-  :defer t)
+  )
 
 
 (use-package helm-flx
   :ensure t
-  :defer t
 
   :config
   (helm-flx-mode t))
 
 (use-package helm-descbinds
   :ensure t
-  :defer t
 
   :config
   (helm-descbinds-mode))
