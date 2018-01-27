@@ -243,6 +243,8 @@
     "C-x r t"     "[rect] replace with text"
     "C-x r N"     "[rect] insert numbering"
     "C-x r r"     "[rect] copy to register"
+    "C-x r u"     "[undo] state to register"
+    "C-x r U"     "[undo] restore state"
     )
 
   (which-key-add-major-mode-key-based-replacements 'haskell-mode
