@@ -11,7 +11,7 @@ mv ~/.emacs.d ~/.emacs.d.back
 git clone https://github.com/weak-head/emacs.d ~/.emacs.d
 ```
 
-Most of my bindings are set to default, though I'm using some [custom shortcuts](packages/which-key.el) and you can toggle [evil mode](https://github.com/emacs-evil/evil) (<kbd>C-c</kbd> <kbd>t</kbd> <kbd>e</kbd>).  
+Most of my bindings are set to default, though I'm using some [custom shortcuts](packages/which-key.el) and you can toggle [evil mode](https://github.com/emacs-evil/evil) (<kbd>C-c t e</kbd>).  
 If you want to have an access to the specific features and capabilities, please make sure to install the required dependencies.
 
 ## Check it out using Docker
