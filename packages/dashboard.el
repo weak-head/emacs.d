@@ -7,12 +7,16 @@
   :ensure t
 
   :init
+  (require 'subr-x)
   (defun wh/emacs-logo-title ()
     "Generates the emacs logo title."
     (defun wh/get-nix-info (n)
       "Retrieves os release info"
       (nth 1 (split-string (nth n (split-string (shell-command-to-string "cat /etc/*-release") "\n")) "=")))
-    (cond ((eq system-type 'windows-nt) (concat "GNU Emacs " emacs-version))
+    (cond ((eq system-type 'windows-nt)
+           (concat "GNU Emacs " emacs-version
+                   " ~ "
+                   (string-trim (shell-command-to-string "ver"))))
           ((eq system-type 'darwin) (concat "GNU Emacs " emacs-version))
           (t (concat "GNU Emacs " emacs-version
                      " ~ "
