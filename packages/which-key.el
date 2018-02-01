@@ -217,6 +217,11 @@
     "C-x 5 o"     "navigate to frame"       ;; redundant
     "C-x 5 r"     "find file (ro)"
 
+    ;; bookmarks-bm
+    "<f5>"        "next bm-bookmark"
+    "S-<f5>"      "previous bm-bookmark"
+    "C-<f5>"      "toogle bm-bookmark"
+
     ;; registers, bookmarks, rectangles
     "C-x r"       "register/bookmark"
     "C-x r m"     "[bookmark] set"
