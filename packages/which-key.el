@@ -181,7 +181,8 @@
     "M-g M-p" "previous error" ;; redundant
 
     ;; build-in utility commands
-    "C-x C-SPC"   "set mark"
+    "C-x C-SPC"   "[global] pop mark"
+    "C-u C-SPC"   "[local] pop mark"
     "C-x C-x"     "exchange mark and point"
     "C-x C-e"     "evaluate last s-exp"
 
