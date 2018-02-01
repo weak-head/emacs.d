@@ -9,5 +9,9 @@
 
 /custom.el
 
+/bookmarks
+/bookmarks-bm
+/recentf
+
 *~
 tramp
