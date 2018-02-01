@@ -151,10 +151,11 @@
     "C-c w r" "redo"
 
     ;; toggle
-    "C-c t"   "toggle"
-    "C-c t l" "linum"
-    "C-c t w" "whitespace"
-    "C-c t e" "evil"
+    "C-c t"     "toggle"
+    "C-c t l"   "linum"
+    "C-c t w"   "whitespace"
+    "C-c t e"   "evil"
+    "C-c t r"   "rainbow"
 
     ;; navigate
     "C-c o"   "navigate"
