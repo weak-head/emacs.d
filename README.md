@@ -43,3 +43,4 @@ Windows specific scripts:
 * [Emacs client in context menu](scripts/w-context-menu.reg)  
 * [Associate files with Emacs client](scripts/w-file-assoc.bat)  
 * [Fix Alt Gr and remap CapsLock to Ctrl](scripts/w-fix-right-alt-and-capslock.reg)  
+* [.bashrc: Share the same SSH agent for multiple Git Bash sessions](scripts/.bashrc)  
