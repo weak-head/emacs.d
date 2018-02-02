@@ -158,8 +158,13 @@
     "C-c t r"   "rainbow"
 
     ;; browse
-    "C-c 8"   "browse"
-    "C-c 8 u" "URL at point"
+    "C-c 8"          "browse"
+    "C-c 8 u"        "URL at point"
+    "C-c 8 SPC"      "[google] region"
+    "C-c 8 l"        "[google] line"
+    "C-c 8 n"        "[google] this"
+    "C-c 8 w"        "[google] word"
+    "C-c 8 <return>" "[google] input"
 
     ;; highlight
     "M-s h"   "highlight"
