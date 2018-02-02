@@ -156,6 +156,7 @@
     "C-c t w"   "whitespace"
     "C-c t e"   "evil"
     "C-c t r"   "rainbow"
+    "C-c t m"   "minimap"
 
     ;; browse
     "C-c 8"          "browse"
