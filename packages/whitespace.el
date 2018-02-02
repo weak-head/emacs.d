@@ -1,6 +1,7 @@
 (use-package whitespace
   :ensure nil
   :defer t
+  :diminish "ws"
 
   :bind (("C-c t w" . whitespace-mode))
 
