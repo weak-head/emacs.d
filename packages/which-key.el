@@ -192,6 +192,7 @@
     "C-u C-SPC"   "[local] pop mark"
     "C-x C-x"     "exchange mark and point"
     "C-x C-e"     "evaluate last s-exp"
+    "C-x ="       "what cursor position" ;; C-u C-x =
 
     ;; windows, frames
     "C-x 0"       "delete window"
