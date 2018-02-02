@@ -157,9 +157,9 @@
     "C-c t e"   "evil"
     "C-c t r"   "rainbow"
 
-    ;; navigate
-    "C-c o"   "navigate"
-    "C-c o u" "to URL at point"
+    ;; browse
+    "C-c 8"   "browse"
+    "C-c 8 u" "URL at point"
 
     ;; highlight
     "M-s h"   "highlight"

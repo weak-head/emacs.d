@@ -190,4 +190,4 @@
 (bind-key "M-/" 'hippie-expand)
 (bind-key "M-*" 'pop-tag-mark)
 (bind-key "<f2>" 'wh/visit-emacs-config-file)
-(bind-key "C-c o u" 'browse-url-at-point)
+(bind-key "C-c 8 u" 'browse-url-at-point)
