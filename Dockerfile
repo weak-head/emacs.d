@@ -32,8 +32,9 @@ RUN apt-get update \
 RUN curl -sSL https://get.haskellstack.org/ | sh
 
 # add emacs configuration
-COPY init.el   /root/.emacs.d/
-COPY packages  /root/.emacs.d/packages
+COPY init.el           /root/.emacs.d/
+COPY packages          /root/.emacs.d/packages
+COPY external-modules  /root/.emacs.d/external-modules
 
 # trigger the package initialization
 RUN emacs --daemon
