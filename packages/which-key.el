@@ -157,6 +157,7 @@
     "C-c t e"   "evil"
     "C-c t r"   "rainbow"
     "C-c t m"   "minimap"
+    "C-c t t"   "time"
 
     ;; browse
     "C-c 8"          "browse"

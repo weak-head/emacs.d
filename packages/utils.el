@@ -118,6 +118,20 @@
 
 
 ;;----------------------------------------------------------------------------
+;; Customizing time in mode line
+;;----------------------------------------------------------------------------
+(defface display-time-face
+  '((((type x w32 mac))
+     (:foreground "orange" :inherit bold))
+    (((type tty))
+     (:foreground "orange4")))
+  "Face used to display the time in the mode line.")
+
+(setq display-time-string-forms
+      '((propertize (concat " " 24-hours ":" minutes " ")
+                    'face 'display-time-face)))
+
+;;----------------------------------------------------------------------------
 ;; General defun
 ;;----------------------------------------------------------------------------
 
@@ -191,3 +205,5 @@
 (bind-key "M-*" 'pop-tag-mark)
 (bind-key "<f2>" 'wh/visit-emacs-config-file)
 (bind-key "C-c 8 u" 'browse-url-at-point)
+(bind-key "C-c t t" 'display-time-mode)
+
