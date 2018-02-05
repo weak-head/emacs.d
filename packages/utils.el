@@ -122,9 +122,9 @@
 ;;----------------------------------------------------------------------------
 (defface display-time-face
   '((((type x w32 mac))
-     (:foreground "orange" :inherit bold))
+     (:foreground "purple2" :inherit bold))
     (((type tty))
-     (:foreground "orange4")))
+     (:foreground "purple2")))
   "Face used to display the time in the mode line.")
 
 (setq display-time-string-forms

@@ -14,7 +14,15 @@
   (setq bm-repository-file "~/.emacs.d/bookmarks-bm")
 
   ;; http://raebear.net/comp/emacscolors.html
-  (setq  bm-persistent-face '(:foreground "White" :background "chocolate4"))
+  ;; Mix:
+  ;;  :fg "white" :bg "brown"
+  ;;  :fg "white" :bg "IndianRed4"
+  ;;  :fg "white" :bg "VioletRed4"
+  ;;  :fg "white" :bg "magenta4"
+  ;;  :fg "white" :bg "plum4"
+  ;;  :fg "white" :bg "purple4"
+  ;;
+  (setq  bm-persistent-face '(:foreground "white" :background "purple4"))
 
   (setq-default bm-buffer-persistence t)
 
