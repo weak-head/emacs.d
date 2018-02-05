@@ -19,3 +19,11 @@
   (unbind-key "C-c <left>" winner-mode-map)
   (unbind-key "C-c <right>" winner-mode-map)
   (winner-mode t))
+
+(use-package avy
+  :ensure t
+
+  :bind (("C-M-g" . avy-goto-char)
+         ("M-g l" . avy-goto-line))
+
+  )

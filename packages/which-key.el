@@ -187,6 +187,8 @@
     "M-g M-g" "line"           ;; redundant
     "M-g M-n" "next error"     ;; redundant
     "M-g M-p" "previous error" ;; redundant
+    "M-g l"   "[avy] line"
+    "C-M-g"   "[avy] char"
 
     ;; build-in utility commands
     "C-x C-SPC"   "[global] pop mark"
