@@ -54,6 +54,14 @@
 ;;----------------------------------------------------------------------------
 (use-package bind-key :ensure t)
 (use-package diminish :ensure t)
+
+(use-package async
+  :if (memq window-system '(mac ns))
+  :ensure t
+  :demand t
+  :init (setq async-bytecomp-allowed-packages '(all))
+  :config (async-bytecomp-package-mode 1))
+
 (dolist (file (directory-files
                (expand-file-name "packages" user-emacs-directory)
                :full "\\.el$"))
