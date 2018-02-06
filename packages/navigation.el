@@ -23,7 +23,7 @@
 (use-package avy
   :ensure t
 
-  :bind (("C-;"   . avy-goto-char)
+  :bind (("C-;"   . avy-goto-char-2)
          ("M-g l" . avy-goto-line))
 
   )
