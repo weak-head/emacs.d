@@ -14,8 +14,8 @@
   ;; (setq minimap-show-mode-line nil)
 
   (set-face-attribute 'minimap-highlight-line-face nil
-                      :background "#a9a1e1"
-                      :foreground "#a9a1e1") ;; dark gray
+                      :background "#5c656d"
+                      :foreground "#a9a1e1")
   (set-face-attribute 'minimap-active-region-background nil
-                      :background "#5B6268") ;; light slate gray
+                      :background "#43484c")
   )
