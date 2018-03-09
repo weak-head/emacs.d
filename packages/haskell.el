@@ -78,6 +78,7 @@
               ("C-c i z"   . intero-repl)
               ("C-c i l"   . intero-repl-load)
               ("C-c i e"   . intero-expand-splice-at-point)
+              ("C-c i R"   . intero-restart)
 
          :map intero-repl-mode-map
               ("C-c i z"   . intero-repl-switch-back)
