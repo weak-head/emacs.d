@@ -135,6 +135,10 @@
     "C-c 0 p"   "page"
     "C-c 0 w"   "widen"
 
+    ;; align
+    "C-c 3"     "align"
+    "C-c 3 r"   "align regexp"
+
     ;; paren
     "C-c e"   "paren"
     "C-c e s" "splice"

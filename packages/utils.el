@@ -206,4 +206,5 @@
 (bind-key "<f2>" 'wh/visit-emacs-config-file)
 (bind-key "C-c 8 u" 'browse-url-at-point)
 (bind-key "C-c t t" 'display-time-mode)
+(bind-key "C-c 3 r" 'align-regexp)
 
