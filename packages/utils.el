@@ -207,4 +207,5 @@
 (bind-key "C-c 8 u" 'browse-url-at-point)
 (bind-key "C-c t t" 'display-time-mode)
 (bind-key "C-c 3 r" 'align-regexp)
+(bind-key "C-c 3 w" 'whitespace-cleanup)
 

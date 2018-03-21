@@ -136,8 +136,9 @@
     "C-c 0 w"   "widen"
 
     ;; align
-    "C-c 3"     "align"
+    "C-c 3"     "beautify"
     "C-c 3 r"   "align regexp"
+    "C-c 3 w"   "whitespace cleanup"
 
     ;; paren
     "C-c e"   "paren"
