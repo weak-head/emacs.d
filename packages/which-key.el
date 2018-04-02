@@ -299,4 +299,11 @@
     "C-c i z"     "switch from REPL"
     "C-c i k"     "clean REPL"
     )
+
+  (which-key-add-major-mode-key-based-replacements 'python-mode
+    ;; python/elpy
+    "C-c i"       "elpy"
+    "C-c i r"     "refactor"
+    "C-c i r c"   "autopep8 fix code"
+    )
   )
