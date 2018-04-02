@@ -26,4 +26,9 @@
 
   :init
   (elpy-enable)
+
+  :config
+  (define-key elpy-mode-map (kbd "RET") nil)
+  (unbind-key "C-c <" python-mode-map)    ;; indent shift left
+  (unbind-key "C-c >" python-mode-map)    ;; indent shift right
   )
