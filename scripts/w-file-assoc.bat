@@ -65,6 +65,7 @@ set EMACS_FILE_TYPE[114]=.yaml
 set EMACS_FILE_TYPE[115]=.sql
 set EMACS_FILE_TYPE[116]=.cabal
 set EMACS_FILE_TYPE[117]=.go
+set EMACS_FILE_TYPE[118]=.py
 
 REM Shell scripts (300 - 399)
 set EMACS_FILE_TYPE[300]=.bat
