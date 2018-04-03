@@ -78,6 +78,6 @@
 ;;----------------------------------------------------------------------------
 ;; Start emacs server, so clients can connect to the instance
 ;;----------------------------------------------------------------------------
-(require 'server)
-(unless (server-running-p)
+(unless (and (fboundp 'server-running-p)
+             (server-running-p))
   (server-start))
