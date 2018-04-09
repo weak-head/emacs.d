@@ -19,6 +19,7 @@
 (use-package elpy
   :ensure t
   :defer t
+  :diminish "ργ"
 
   :bind (:map elpy-mode-map
               ("M-."       . elpy-goto-definition)
