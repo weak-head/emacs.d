@@ -54,6 +54,7 @@
 ;; https://github.com/hlissner/emacs-doom-themes
 (use-package doom-themes
   :ensure t
+  :disabled t
   :demand
 
   :init
@@ -76,6 +77,17 @@
   ;;(setq spacemacs-theme-org-height nil)
   )
 
+;;--------------------------
+;; Light variants
+;;--------------------------
+
+;; https://github.com/purcell/color-theme-sanityinc-tomorrow
+(use-package color-theme-sanityinc-tomorrow
+  :ensure t
+  :demand
+
+  :init
+  (load-theme 'sanityinc-tomorrow-day t))
 
 ;;----------------------------------------------------------------------------
 ;; Setup power line
