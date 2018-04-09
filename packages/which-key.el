@@ -163,6 +163,7 @@
     "C-c t r"   "rainbow"
     "C-c t m"   "minimap"
     "C-c t t"   "time"
+    "C-c t i"   "highlight indent"
 
     ;; browse
     "C-c 8"          "browse"

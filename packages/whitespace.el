@@ -18,3 +18,11 @@
 
   :config
   (ws-butler-global-mode t))
+
+(use-package highlight-indentation
+  :ensure nil
+  :defer t
+  :diminish "ɧ"
+
+  :bind (("C-c t i" . highlight-indentation-mode))
+  )
