@@ -5,7 +5,7 @@
 ;; a way to hide the mode line.
 (use-package minimap
   :load-path "external-modules"
-  :diminish "mm"
+  :diminish " mm"
 
   :bind ("C-c t m" . minimap-mode)
 
@@ -13,9 +13,21 @@
   ;; (setq minimap-highlight-line nil)
   ;; (setq minimap-show-mode-line nil)
 
+  
+  ;; --- doom-one theme ----------------------------------------
+  ;; (set-face-attribute 'minimap-highlight-line-face nil
+  ;;                     :background "#5c656d"
+  ;;                     :foreground "#a9a1e1")
+  ;; (set-face-attribute 'minimap-active-region-background nil
+  ;;                     :background "#43484c")
+  ;; -----------------------------------------------------------
+
+  ;; --- sanityinc tomorrow day theme --------------------------
   (set-face-attribute 'minimap-highlight-line-face nil
-                      :background "#5c656d"
-                      :foreground "#a9a1e1")
+                      :background "#d6d6d6"
+                      :foreground "#8e908c")
   (set-face-attribute 'minimap-active-region-background nil
-                      :background "#43484c")
+                      :background "#f7f7f7f7f7f7")
+  ;; -----------------------------------------------------------
+  
   )
