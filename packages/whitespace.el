@@ -1,7 +1,7 @@
 (use-package whitespace
   :ensure nil
   :defer t
-  :diminish "ws"
+  :diminish " ws"
 
   :bind (("C-c t w" . whitespace-mode))
 
@@ -22,7 +22,7 @@
 (use-package highlight-indentation
   :ensure nil
   :defer t
-  :diminish "ɧ"
+  :diminish " ɧ"
 
   :bind (("C-c t i" . highlight-indentation-mode))
   )

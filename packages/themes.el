@@ -96,6 +96,7 @@
 (use-package telephone-line
   :ensure t
   :demand
+  :disabled t
 
   :init
   (setq telephone-line-primary-left-separator 'telephone-line-cubed-left
@@ -110,14 +111,14 @@
 (use-package spaceline
   :ensure t
   :demand
-  :disabled t
+;;  :disabled t
 
   :init
   (require 'spaceline-config)
   (setq powerline-default-separator 'arrow)
 
   :config
-  (spaceline-spacemacs-theme)
+  ;;(spaceline-spacemacs-theme)
   ;;(spaceline-emacs-theme)
   (spaceline-helm-mode)
   )
