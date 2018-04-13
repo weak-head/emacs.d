@@ -29,6 +29,9 @@
   (elpy-enable)
 
   :config
+  (setq elpy-rpc-python-command "python3")
+  (setq python-shell-completion-native-enable nil)
+  
   (define-key elpy-mode-map (kbd "RET") nil)
   (unbind-key "C-c <" python-mode-map)    ;; indent shift left
   (unbind-key "C-c >" python-mode-map)    ;; indent shift right
