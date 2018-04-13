@@ -75,15 +75,25 @@
 ;; Automatically save and restore sessions
 ;;----------------------------------------------------------------------------
 ;;(desktop-save-mode t)
-;;(setq ;desktop-dirname             "~/.emacs.d/"
-;;      ;desktop-base-file-name      ".emacs.desktop"
-;;      ;desktop-base-lock-name      ".emacs.desktop.lock"
-;;      ;desktop-path                (list desktop-dirname)
-;;      ;desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
-;;      desktop-save                t
-;;      desktop-load-locked-desktop t
-;;      desktop-auto-save-timeout   30)
+(setq desktop-dirname             "~/.emacs.d/"
+      desktop-base-file-name      ".emacs.desktop"
+      desktop-base-lock-name      ".emacs.desktop.lock"
+      desktop-path                (list desktop-dirname)
+      desktop-files-not-to-save   "\\(^/[^/:]*:\\|(ftp)$\\)"
+      ; desktop-save                t
+      ; desktop-load-locked-desktop t
+      ; desktop-auto-save-timeout   30
+      )
 
+(defun wh/save-session ()
+  "Save current session."
+  (interactive)
+  (desktop-save desktop-dirname))
+
+(defun wh/load-session ()
+  "Load previous session."
+  (interactive)
+  (desktop-read))
 
 ;;----------------------------------------------------------------------------
 ;; Adjust indentation and line wrapping
