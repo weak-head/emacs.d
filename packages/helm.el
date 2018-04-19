@@ -13,6 +13,7 @@
          :map helm-command-map
          ("s" . helm-multi-swoop-all)
          ("S" . helm-multi-swoop)
+         ("i" . helm-imenu)
 
          :map helm-map
          ([tab] . helm-execute-pers))
@@ -46,6 +47,7 @@
   (unbind-key "M-g" helm-command-map)
   (unbind-key "M-s" helm-command-map)
   (unbind-key "h" helm-command-map)
+  (unbind-key "i" helm-command-map) ;; semantics or imenu
   (define-key helm-command-map (kbd "ESC") nil)
 
   (setq helm-M-x-fuzzy-match t
