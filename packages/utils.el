@@ -50,7 +50,7 @@
             kill-buffer-query-functions))
 
 ;; Running Emacs maximized.
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;;(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;;----------------------------------------------------------------------------
 ;; Diminish the text of embeded minor modes
