@@ -24,6 +24,9 @@
                              (mode . haskell-mode)
                              (mode . haskell-cabal-mode)
                              (filename . "stack\\.yaml")))
+                 ("python" (or
+                            (mode . python-mode)
+                            (filename . "*\\.py")))
                  ("elisp" (mode . emacs-lisp-mode))
                  ("sql" (or
                          (name . "^\\*SQL\\*$")
@@ -43,7 +46,8 @@
                            (name . "^\\*info\\*$")
                            (name . "^\\*Apropos\\*$")
                            (name . "^\\*Completions\\*$")
-                           (name . "^\\*Compile-Log\\*$")))
+                           (name . "^\\*Compile-Log\\*$")
+                           (name . "^\\*dashboard\\*$")))
                  ("planner" (or
                              (name . "^\\*Calendar\\*$")
                              (name . "^diary$")
