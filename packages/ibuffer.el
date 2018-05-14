@@ -36,6 +36,7 @@
                  ("shell-script" (or
                                   (mode . sh-mode)
                                   (mode . bat-mode)))
+                 ("config" (mode . conf-unix-mode))
                  ("docker" (mode . dockerfile-mode))
                  ("yaml" (mode . yaml-mode))
                  ("helm" (mode . helm-major-mode))
