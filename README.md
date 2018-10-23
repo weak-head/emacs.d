@@ -1,6 +1,7 @@
 # emacs.d
 
-This repository contains my personal Emacs configuration.
+This repository contains my personal Emacs configuration.  
+*Note: I no longer actively maintain it. I've switched to [spacemacs](https://github.com/syl20bnr/spacemacs) and [vscode (my config)](https://gist.github.com/weak-head/6b19336cafdf5a3f1eb5b54983167df3).*
 
 ## Installation
 
